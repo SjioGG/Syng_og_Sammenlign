@@ -20,29 +20,16 @@ class ClientSocket
 	string fileName;
 
 public:
-	ClientSocket(const char *ipStr, std::string fileName)
+	ClientSocket(const char *ipStr /*, std::string fileName*/)
 	{
-		// createSocket();
 		port = 9000;
-		this->fileName = fileName;
+		// this->fileName = fileName;
 		serverAddress.sin_family = AF_INET;
 		serverAddress.sin_port = htons(port);
 		addressLength = sizeof(serverAddress);
 		if (inet_pton(AF_INET, ipStr, &serverAddress.sin_addr) <= 0)
 		{
 			perror("ERROR: Invalid address");
-			exit(1);
-		}
-
-		// Open the file to write to
-		file.open((".//datarecive//") + fileName, ios::out | ios::trunc | ios::binary);
-		if (file.is_open())
-		{
-			printf("File opened\n");
-		}
-		else
-		{
-			perror("ERROR: File not opened");
 			exit(1);
 		}
 	}
@@ -69,27 +56,61 @@ public:
 		printf("Connected to server!\n");
 	}
 
-	void requestFileFromServer() // Fix with send and recv, but problem with progress print
+	// void requestFileFromServer() // Fix with send and recv, but problem with progress print
+	// {
+	// 	char filenameBuffer[256];
+	// 	// Send the filename to the server as a request
+	// 	send(generalSocketDescriptor, fileName.c_str(), sizeof(filenameBuffer), 0);
+	// 	char response[256];
+	// 	int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
+	// 	char failed[256] = "Requested file does not exist";
+	// 	if (strcmp(response, failed) == 0)
+	// 	{
+	// 		printf("File not available or unexpected response from server: %s\n", response);
+	// 		exit(1);
+	// 	}
+	// 	else
+	// 	{
+	// 		printf("File found!: %s\n", response);
+	// 	}
+	// }
+
+	void requestAllData()
 	{
-		char filenameBuffer[256];
+		char request[256] = "GET_ALL_DATA";
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, fileName.c_str(), sizeof(filenameBuffer), 0);
+		send(generalSocketDescriptor, request, sizeof(request), 0);
 		char response[256];
 		int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
-		char failed[256] = "Requested file does not exist";
-		if (strcmp(response, failed) == 0)
-		{
-			printf("File not available or unexpected response from server: %s\n", response);
-			exit(1);
-		}
-		else
-		{
-			printf("File found!: %s\n", response);
-		}
+		// ERROR HANDLING LATER
+
+		printf("data: %s\n", response);
+	}
+	void updateScore()
+	{
+		char request[256] = "UPDATE_SCORE";
+		// Send the filename to the server as a request
+		send(generalSocketDescriptor, request, sizeof(request), 0);
+		char response[256];
+		int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
+		// ERROR HANDLING LATER
+
+		printf("data: %s\n", response);
 	}
 
 	void receiveFile()
 	{
+		// Open the file to write to
+		file.open((".//datarecive//") + fileName, ios::out | ios::trunc | ios::binary);
+		if (file.is_open())
+		{
+			printf("File opened\n");
+		}
+		else
+		{
+			perror("ERROR: File not opened");
+			exit(1);
+		}
 		// Receive the file size from the client
 		int fileSizeNetworkOrder;
 		if (recv(generalSocketDescriptor, &fileSizeNetworkOrder, sizeof(fileSizeNetworkOrder), 0) < 0)
@@ -136,21 +157,22 @@ public:
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	if (argc != 2)
 	{
 		std::cerr << "Usage: " << argv[0] << " <IP address> <filename>" << std::endl;
 		return 1;
 	}
 	const char *ipStr = argv[1];
-	const char *filename = argv[2];
+	// const char *filename = argv[2];
 
-	std::cout << "Starting client with IP address: " << ipStr << " and filename: " << filename << std::endl;
+	std::cout << "Starting client with IP address: " << ipStr << std::endl;
 	// Now you can use the 'serverAddress' struct and 'filename' to create the ClientSocket.
-	ClientSocket clientSocket(ipStr, filename);
+	ClientSocket clientSocket(ipStr);
 	clientSocket.createSocket();
 	clientSocket.connectToServer();
-	clientSocket.requestFileFromServer();
-	clientSocket.receiveFile();
+	clientSocket.requestAllData();
+	// clientSocket.requestFileFromServer();
+	// clientSocket.receiveFile();
 
 	return 0;
 }
