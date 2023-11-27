@@ -68,44 +68,57 @@ public:
 		}
 	}
 
+	// void acceptSocket()
+	// {
+	// 	if ((newSocketDescriptor = accept(generalSocketDescriptor, (struct sockaddr *)&serverAddress, (socklen_t *)&adressLength)) < 0)
+	// 	{
+	// 		perror("Error: Socket not accepted");
+	// 		exit(1);
+	// 	}
+	// 	else
+	// 	{
+	// 		printf("Socket accepted\n");
+	// 	}
+
+	// 	char filenameBuffer[256]; // Adjust the buffer size as needed
+	// 	recv(newSocketDescriptor, filenameBuffer, sizeof(filenameBuffer), 0);
+	// 	printf("Received filename: %s\n", filenameBuffer);
+
+	// 	std::string filename(filenameBuffer);
+
+	// 	// Now, you have the filename in the `filename` string.
+
+	// 	// Open the corresponding file for sending based on the received filename.
+	// 	file.open(".//datatosend//" + filename, ios::in | ios::binary);
+
+	// 	if (!file.is_open())
+	// 	{
+	// 		perror("Error: File not opened");
+	// 		char failed[256] = "Requested file does not exist";
+	// 		exit(1);
+	// 		send(newSocketDescriptor, failed, sizeof(failed), 0);
+	// 	}
+	// 	else
+	// 	{
+	// 		char notfailed[256] = "shit good";
+	// 		send(newSocketDescriptor, notfailed, sizeof(notfailed), 0);
+	// 		printf("File opened\n");
+	// 	}
+
+	// 	sleep(0.29);
+	// }
+
 	void acceptSocket()
 	{
-		if ((newSocketDescriptor = accept(generalSocketDescriptor, (struct sockaddr *)&serverAddress, (socklen_t *)&adressLength)) < 0)
+		if((newSocketDescriptor = accept(generalSocketDescriptor,(struct sockaddr *)&serverAddress,(socklen_t*)&adressLength)) < 0)
 		{
-			perror("Error: Socket not accepted");
+			perror("Socket not accepted");
 			exit(1);
 		}
 		else
 		{
 			printf("Socket accepted\n");
 		}
-
-		char filenameBuffer[256]; // Adjust the buffer size as needed
-		recv(newSocketDescriptor, filenameBuffer, sizeof(filenameBuffer), 0);
-		printf("Received filename: %s\n", filenameBuffer);
-
-		std::string filename(filenameBuffer);
-
-		// Now, you have the filename in the `filename` string.
-
-		// Open the corresponding file for sending based on the received filename.
-		file.open(".//datatosend//" + filename, ios::in | ios::binary);
-
-		if (!file.is_open())
-		{
-			perror("Error: File not opened");
-			char failed[256] = "Requested file does not exist";
-			exit(1);
-			send(newSocketDescriptor, failed, sizeof(failed), 0);
-		}
-		else
-		{
-			char notfailed[256] = "shit good";
-			send(newSocketDescriptor, notfailed, sizeof(notfailed), 0);
-			printf("File opened\n");
-		}
-
-		sleep(0.29);
 	}
 
 	void sendFile()
@@ -157,6 +170,56 @@ public:
 		// close(newSocketDescriptor);
 		printf("Sent %d bytes (100.00%%)\n", totalBytesSent); // Print the final progress
 	}
+
+	void handleClient()
+    {
+        char requestTypeBuffer[256];
+        recv(newSocketDescriptor, requestTypeBuffer, sizeof(requestTypeBuffer), 0);
+        printf("Received request type: %s\n", requestTypeBuffer);
+
+        // Handle different request types
+        if (strcmp(requestTypeBuffer, "GET_ALL_DATA") == 0)
+        {
+            // Handle the request to send all data from the database
+            sendAllData();
+        }
+        else if (strcmp(requestTypeBuffer, "UPDATE_SCORE") == 0)
+        {
+            // Handle the request to update the score table
+            updateScore();
+        }
+        else
+        {
+            // Unknown request type
+            perror("Error: Unknown request type");
+            exit(1);
+        }
+    }
+
+	void sendAllData()
+    {
+        // Implement logic to retrieve data from the database and send it to the client
+        // ... SQL stuff
+
+        // For now, let's just send a sample response
+        char responseData[256] = "Sample data from the server";
+        send(newSocketDescriptor, responseData, strlen(responseData), 0);
+
+        printf("Sent all data to the client\n");
+    }
+
+    void updateScore()
+    {
+        // Implement logic to update the score table in the database
+        // ... SQL stuff
+
+        // For now, let's just send a sample response
+        char responseData[256] = "Score updated successfully";
+        send(newSocketDescriptor, responseData, strlen(responseData), 0);
+
+        printf("Score updated\n");
+    }
+
 };
 
 int main(int argc, char *argv[])
@@ -169,7 +232,11 @@ int main(int argc, char *argv[])
 	{
 		server.listenSocket();
 		server.acceptSocket();
-		server.sendFile();
+		server.handleClient();
+		//server.sendFile(); 	// ->  server.handleClient();
+							// will either recieve or send data,
+							// depending on the client's request.
+							// Probably either "add a row" or "send all data"
 	}
 	return 0;
 }
