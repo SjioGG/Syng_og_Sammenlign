@@ -139,31 +139,61 @@ public:
 	}
 
 	void handleClient()
-    {
-        char requestTypeBuffer[256];
-        recv(newSocketDescriptor, requestTypeBuffer, sizeof(requestTypeBuffer), 0);
-        printf("Received request type: %s\n", requestTypeBuffer);
+	{
+    	char requestBuffer[256];
+    	recv(newSocketDescriptor, requestBuffer, sizeof(requestBuffer), 0);
+    	printf("Received request: %s\n", requestBuffer);
 
-        // Handle different request types
-        if (strcmp(requestTypeBuffer, "GET_ALL_DATA") == 0)
-        {
-            // Handle the request to send all data from the database
-            sendAllData();
-        }
-        else if (strcmp(requestTypeBuffer, "UPDATE_SCORE") == 0)
-        {
-            // Handle the request to update the score table
-            updateScore();
-        }
-        else
-        {
-            // Unknown request type
-            perror("Error: Unknown request type");
-            exit(1);
-        }
-    }
+    	// Parse the request and extract request type and additional integer
+    	std::string requestString(requestBuffer);
+    	size_t commaPos = requestString.find(",");
+    	if (commaPos != std::string::npos)
+    	{
+        	std::string requestType = requestString.substr(0, commaPos);
+        	int additionalInt = -1;
 
-	void sendAllData()
+        	try
+        	{
+            	additionalInt = std::stoi(requestString.substr(commaPos + 1));
+        	}
+        	catch (const std::exception &e)
+        	{
+            	// Handle the case where conversion to integer fails
+            	std::cerr << "Error: Failed to parse additional integer\n";
+        	}
+
+        	// Now you can use 'requestType' and 'additionalInt' for further processing
+        	if (requestType == "GET_ALL_DATA")
+        	{
+            	// Handle the request to send all data from the database
+            	sendAllData(additionalInt);
+        	}
+        	else if (requestType == "ADD_SCORE")
+        	{
+            	// Handle the request to update the score table
+            	addScore(additionalInt);
+        	}
+			else if (requestType == "SEND_SCORES")
+        	{
+            	// Handle the request to update the score table
+            	sendScores(additionalInt);
+        	}
+        	else
+        	{
+            	// Unknown request type
+            	perror("Error: Unknown request type");
+            	exit(1);
+    		}
+    	}
+    	else
+    	{
+        	// Handle the case where there is no comma in the request
+        	perror("Error: Invalid request format");
+        	exit(1);
+    	}
+	}
+
+	void sendAllData(int songId)
 	{
     	// Open the SQLite database
     	sqlite3 *db;
@@ -174,7 +204,7 @@ public:
     	}
 
     	// Perform a query to get all data from the 'song' table
-    	const char *query = "SELECT song.id, artist.name, song.title, song.duration, song.key, song.instrumental_file, song.cmp_melody_file, song.lyrics_file FROM song JOIN artist ON song.artist_id = artist.id WHERE song.id = 1";
+    	const char *query = "SELECT song.id, artist.name, song.title, song.duration, song.key, song.instrumental_file, song.cmp_melody_file, song.lyrics_file FROM song JOIN artist ON song.artist_id = artist.id WHERE song.id = ?";
     	sqlite3_stmt *statement;
     	if (sqlite3_prepare_v2(db, query, -1, &statement, nullptr) != SQLITE_OK)
     	{
@@ -182,6 +212,12 @@ public:
         	sqlite3_close(db);
         	exit(1);
     	}
+		// Bind the parameter to the statement
+		if (sqlite3_bind_int(statement, 1, songId) != SQLITE_OK)
+		{
+    		perror("Error: Cannot bind parameter");
+    		exit(1);
+		}
 
     	// Create a string to store the rJane esult
     	std::string result;
@@ -229,7 +265,7 @@ public:
     	printf("Sent all data to the client\n");
 	}
 
-    void updateScore()
+    void addScore(int songId)
     {
         // Implement logic to update the score table in the database
         // ... SQL stuff
@@ -240,6 +276,11 @@ public:
 
         printf("Score updated\n");
     }
+
+	void sendScores(int songId)
+	{
+
+	}
 
 };
 
