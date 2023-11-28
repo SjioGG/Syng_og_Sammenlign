@@ -7,6 +7,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <sqlite3.h>
+
 
 using namespace std;
 // #define STRBUFSIZE 256
@@ -68,46 +70,6 @@ public:
 		}
 	}
 
-	// void acceptSocket()
-	// {
-	// 	if ((newSocketDescriptor = accept(generalSocketDescriptor, (struct sockaddr *)&serverAddress, (socklen_t *)&adressLength)) < 0)
-	// 	{
-	// 		perror("Error: Socket not accepted");
-	// 		exit(1);
-	// 	}
-	// 	else
-	// 	{
-	// 		printf("Socket accepted\n");
-	// 	}
-
-	// 	char filenameBuffer[256]; // Adjust the buffer size as needed
-	// 	recv(newSocketDescriptor, filenameBuffer, sizeof(filenameBuffer), 0);
-	// 	printf("Received filename: %s\n", filenameBuffer);
-
-	// 	std::string filename(filenameBuffer);
-
-	// 	// Now, you have the filename in the `filename` string.
-
-	// 	// Open the corresponding file for sending based on the received filename.
-	// 	file.open(".//datatosend//" + filename, ios::in | ios::binary);
-
-	// 	if (!file.is_open())
-	// 	{
-	// 		perror("Error: File not opened");
-	// 		char failed[256] = "Requested file does not exist";
-	// 		exit(1);
-	// 		send(newSocketDescriptor, failed, sizeof(failed), 0);
-	// 	}
-	// 	else
-	// 	{
-	// 		char notfailed[256] = "shit good";
-	// 		send(newSocketDescriptor, notfailed, sizeof(notfailed), 0);
-	// 		printf("File opened\n");
-	// 	}
-
-	// 	sleep(0.29);
-	// }
-
 	void acceptSocket()
 	{
 		if((newSocketDescriptor = accept(generalSocketDescriptor,(struct sockaddr *)&serverAddress,(socklen_t*)&adressLength)) < 0)
@@ -121,8 +83,16 @@ public:
 		}
 	}
 
-	void sendFile()
+	void sendFile(const string filenamae)
 	{
+		// Open the corresponding file for sending based on the received filename.
+		file.open(".//" + filenamae, ios::in | ios::binary);
+
+		if (!file.is_open())
+		{
+			perror("Error: File not opened");
+			exit(1);
+		}
 		// Calculate the size of the file
 		file.seekg(0, ios::end);
 		int fileSize = file.tellg();
@@ -165,9 +135,6 @@ public:
 
 		// Close the file
 		file.close();
-
-		// Close the socket
-		// close(newSocketDescriptor);
 		printf("Sent %d bytes (100.00%%)\n", totalBytesSent); // Print the final progress
 	}
 
@@ -197,16 +164,70 @@ public:
     }
 
 	void sendAllData()
-    {
-        // Implement logic to retrieve data from the database and send it to the client
-        // ... SQL stuff
+	{
+    	// Open the SQLite database
+    	sqlite3 *db;
+    	if (sqlite3_open("sos.db", &db) != SQLITE_OK)
+    	{
+        	perror("Error: Cannot open the database");
+        	exit(1);
+    	}
 
-        // For now, let's just send a sample response
-        char responseData[256] = "Sample data from the server";
-        send(newSocketDescriptor, responseData, strlen(responseData), 0);
+    	// Perform a query to get all data from the 'song' table
+    	const char *query = "SELECT song.id, artist.name, song.title, song.duration, song.key, song.instrumental_file, song.cmp_melody_file, song.lyrics_file FROM song JOIN artist ON song.artist_id = artist.id WHERE song.id = 1";
+    	sqlite3_stmt *statement;
+    	if (sqlite3_prepare_v2(db, query, -1, &statement, nullptr) != SQLITE_OK)
+    	{
+        	perror("Error: Cannot prepare the query");
+        	sqlite3_close(db);
+        	exit(1);
+    	}
 
-        printf("Sent all data to the client\n");
-    }
+    	// Create a string to store the rJane esult
+    	std::string result;
+		std::string instrumental_file;
+		std::string melody_file;
+		std::string lyrics_file;
+
+    	// Fetch data from the query and append it to the string
+    	while (sqlite3_step(statement) == SQLITE_ROW)
+    	{
+        	// Fetch each column's data
+        	int songId = sqlite3_column_int(statement, 0);
+        	const char *artistName = reinterpret_cast<const char *>(sqlite3_column_text(statement, 1));
+        	const char *title = reinterpret_cast<const char *>(sqlite3_column_text(statement, 2));
+        	int duration = sqlite3_column_int(statement, 3);
+        	const char *key = reinterpret_cast<const char *>(sqlite3_column_text(statement, 4));
+        	const char *instrumentalFile = reinterpret_cast<const char *>(sqlite3_column_text(statement, 5));
+        	const char *melodyFile = reinterpret_cast<const char *>(sqlite3_column_text(statement, 6));
+        	const char *lyricsFile = reinterpret_cast<const char *>(sqlite3_column_text(statement, 7));
+
+        	// Construct a string with the fetched data and append it to the result
+        	result += std::to_string(songId) + "|" + artistName + "|" + title + "|" + std::to_string(duration) + "|" + key + "|" + instrumentalFile + "|" + melodyFile + "|" + lyricsFile + "\n";
+			
+			// For file transfer (Bring them out of this scope)
+			instrumental_file = instrumentalFile;
+			melody_file = melodyFile;
+			lyrics_file = lyricsFile;
+		}
+
+    	// Clean up
+    	sqlite3_finalize(statement);
+    	sqlite3_close(db);
+
+    	// Send the combined data to the client
+    	send(newSocketDescriptor, result.c_str(), result.size(), 0);
+		sleep(1);
+		send(newSocketDescriptor, instrumental_file.c_str(), result.size(), 0);
+		sendFile(instrumental_file);
+		sleep(1);	
+		send(newSocketDescriptor, melody_file.c_str(), result.size(), 0);
+		sendFile(melody_file);
+		sleep(1);
+		send(newSocketDescriptor, lyrics_file.c_str(), result.size(), 0);
+        sendFile(lyrics_file);
+    	printf("Sent all data to the client\n");
+	}
 
     void updateScore()
     {
