@@ -19,13 +19,13 @@ class ClientSocket
 	int generalSocketDescriptor;
 	struct sockaddr_in serverAddress;
 	int addressLength;
-	string fileName;
+	string SongString;
+	string ScoreString;
 
 public:
-	ClientSocket(const char *ipStr /*, std::string fileName*/)
+	ClientSocket(const char *ipStr)
 	{
 		port = 9000;
-		// this->fileName = fileName;
 		serverAddress.sin_family = AF_INET;
 		serverAddress.sin_port = htons(port);
 		addressLength = sizeof(serverAddress);
@@ -58,36 +58,38 @@ public:
 		printf("Connected to server!\n");
 	}
 
-	// void requestFileFromServer() // Fix with send and recv, but problem with progress print
-	// {
-	// 	char filenameBuffer[256];
-	// 	// Send the filename to the server as a request
-	// 	send(generalSocketDescriptor, fileName.c_str(), sizeof(filenameBuffer), 0);
-	// 	char response[256];
-	// 	int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
-	// 	char failed[256] = "Requested file does not exist";
-	// 	if (strcmp(response, failed) == 0)
-	// 	{
-	// 		printf("File not available or unexpected response from server: %s\n", response);
-	// 		exit(1);
-	// 	}
-	// 	else
-	// 	{
-	// 		printf("File found!: %s\n", response);
-	// 	}
-	// }
-
 	void requestAllData()
 	{
 		char request[256] = "GET_ALL_DATA";
 		// Send the filename to the server as a request
 		send(generalSocketDescriptor, request, sizeof(request), 0);
+		
 		char response[256];
-		int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
-		// ERROR HANDLING LATER
+		recv(generalSocketDescriptor, response, sizeof(response), 0);
+		SongString = response;
+		cout << "Song: " << SongString << endl;
 
-		printf("data: %s\n", response);
+		char response2[256];
+		recv(generalSocketDescriptor, response2, sizeof(response2), 0);
+		string instrumental_file = response2;
+		receiveFile(instrumental_file);
+		cout << "Instrumental: " << instrumental_file << endl;
+
+		char response3[256];
+		recv(generalSocketDescriptor, response3, sizeof(response3), 0);
+		string melody_file = response3;
+		receiveFile(melody_file);
+		cout << "Melody: " << melody_file << endl;
+
+		char response4[256];
+		recv(generalSocketDescriptor, response4, sizeof(response4), 0);
+		string lyrics_file = response4;
+		receiveFile(lyrics_file);
+		cout << "Lyrics: " << lyrics_file << endl;
+
+		close(generalSocketDescriptor);
 	}
+
 	void updateScore()
 	{
 		char request[256] = "UPDATE_SCORE";
@@ -100,10 +102,10 @@ public:
 		printf("data: %s\n", response);
 	}
 
-	void receiveFile()
+	void receiveFile(const string filename)
 	{
 		// Open the file to write to
-		file.open((".//datarecive//") + fileName, ios::out | ios::trunc | ios::binary);
+		file.open((".//") + filename, ios::out | ios::trunc | ios::binary);
 		if (file.is_open())
 		{
 			printf("File opened\n");
@@ -153,7 +155,6 @@ public:
 
 		printf("Received %d bytes (100.00%%)\n", totalBytesReceived); // Print the final progress
 		file.close();
-		close(generalSocketDescriptor);
 	}
 };
 
