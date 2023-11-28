@@ -7,8 +7,8 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-#include "Score.h"
-#include "Song.h"
+//#include "Score.h"
+//#include "Song.h"
 
 using namespace std;
 
@@ -58,11 +58,12 @@ public:
 		printf("Connected to server!\n");
 	}
 
-	void requestAllData()
-	{
-		char request[256] = "GET_ALL_DATA";
+	void requestAllData(int data)
+	{	
+
+		string request = "GET_ALL_DATA,"+ to_string(data);
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, request, sizeof(request), 0);
+		send(generalSocketDescriptor, request.c_str(), request.size(), 0);
 		
 		char response[256];
 		recv(generalSocketDescriptor, response, sizeof(response), 0);
@@ -173,7 +174,7 @@ int main(int argc, char *argv[])
 	ClientSocket clientSocket(ipStr);
 	clientSocket.createSocket();
 	clientSocket.connectToServer();
-	clientSocket.requestAllData();
+	clientSocket.requestAllData(2);
 	// clientSocket.requestFileFromServer();
 	// clientSocket.receiveFile();
 
