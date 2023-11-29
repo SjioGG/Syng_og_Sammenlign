@@ -18,19 +18,8 @@ path1 = chosenSong + ".wav"                             #This is for testing, co
 class ControlUnit:
     
     #constructor that takes the path to the wav file as input
-    def __init__(self, chosenPath):
-        self.path = cosenPath               #path to the file.
+    def __init__(self, chosenPath, recordedPath):
+        self.path = chosenPath              #path to the file.
         rate1, data1 = wav.read(path1)      #read the sampling rate 'rate1' and the .wav data 'data1' from the file
         print("Rate:", rate1)               #prints the sampling rate
 
-
-
-file1 = wave.open("Justin_Bieber_-_Ghost.wav", "rb")
-print("parameters:", file1.getparams())
-
-time_file1 = file1.getnframes() / file1.getframerate()
-print("time:", time_file1)
-
-# Read audio data
-#rate1, data1 = wav.read(file1)
-#print("Rate:", rate1)
