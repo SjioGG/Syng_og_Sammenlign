@@ -7,8 +7,8 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-//#include "Score.h"
-//#include "Song.h"
+
+
 
 using namespace std;
 
@@ -36,6 +36,21 @@ public:
 		}
 	}
 
+	~ClientSocket()
+	{
+		close(generalSocketDescriptor);
+	}
+
+	string getSongString()
+	{
+		return SongString;
+	}
+
+	string getScoreString()
+	{
+		return ScoreString;
+	}
+
 	void createSocket()
 	{
 		generalSocketDescriptor = socket(AF_INET, SOCK_STREAM, 0);
@@ -58,18 +73,17 @@ public:
 		printf("Connected to server!\n");
 	}
 
-	void requestAllData(int data)
+	void requestSongData(int data)
 	{	
-
-		string request = "GET_ALL_DATA,"+ to_string(data);
+		string request = "GET_ALL_DATA," + to_string(data);
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, request.c_str(), request.size(), 0);
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0);
 		
-		char response[256];
+		char response[512];
 		recv(generalSocketDescriptor, response, sizeof(response), 0);
 		SongString = response;
-		cout << "Song: " << SongString << endl;
-
+		cout << "song_result: " << SongString << endl;
+		
 		char response2[256];
 		recv(generalSocketDescriptor, response2, sizeof(response2), 0);
 		string instrumental_file = response2;
@@ -91,16 +105,26 @@ public:
 		close(generalSocketDescriptor);
 	}
 
-	void updateScore()
+	void addScoreToServer(int songId, int scoreValue, string user, string date)
 	{
-		char request[256] = "UPDATE_SCORE";
+		string request = "ADD_SCORE," + to_string(songId);
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, request, sizeof(request), 0);
-		char response[256];
-		int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
-		// ERROR HANDLING LATER
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0); // +1 to include the null terminator
 
-		printf("data: %s\n", response);
+		// New row data
+		string rowDataString = to_string(scoreValue) + "|" + user + "|" + date;
+		send(generalSocketDescriptor, rowDataString.c_str(), rowDataString.size()+1, 0);
+	}
+
+	void requestScores(int songId)
+	{
+		string request = "SEND_SCORES,"+ to_string(songId);
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0);
+		
+		char response[256];
+		recv(generalSocketDescriptor, response, sizeof(response), 0);
+		ScoreString = response;
+		cout << "result: " << ScoreString << endl;
 	}
 
 	void receiveFile(const string filename)
@@ -158,25 +182,3 @@ public:
 		file.close();
 	}
 };
-
-int main(int argc, char *argv[])
-{
-	if (argc != 2)
-	{
-		std::cerr << "Usage: " << argv[0] << " <IP address> <filename>" << std::endl;
-		return 1;
-	}
-	const char *ipStr = argv[1];
-	// const char *filename = argv[2];
-
-	std::cout << "Starting client with IP address: " << ipStr << std::endl;
-	// Now you can use the 'serverAddress' struct and 'filename' to create the ClientSocket.
-	ClientSocket clientSocket(ipStr);
-	clientSocket.createSocket();
-	clientSocket.connectToServer();
-	clientSocket.requestAllData(2);
-	// clientSocket.requestFileFromServer();
-	// clientSocket.receiveFile();
-
-	return 0;
-}
