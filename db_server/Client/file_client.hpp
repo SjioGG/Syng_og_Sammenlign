@@ -147,7 +147,7 @@ public:
 			perror("Error: File size not received");
 			exit(1);
 		}
-		int fileSize = ntohl(fileSizeNetworkOrder);
+		int fileSize = htonl(fileSizeNetworkOrder);
 
 		char buffer[1000];
 		int totalBytesReceived = 0;
