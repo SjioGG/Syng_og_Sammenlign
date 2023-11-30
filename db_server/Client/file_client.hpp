@@ -7,8 +7,8 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-//#include "Score.h"
-//#include "Song.h"
+
+
 
 using namespace std;
 
@@ -36,6 +36,21 @@ public:
 		}
 	}
 
+	~ClientSocket()
+	{
+		close(generalSocketDescriptor);
+	}
+
+	string getSongString()
+	{
+		return SongString;
+	}
+
+	string getScoreString()
+	{
+		return ScoreString;
+	}
+
 	void createSocket()
 	{
 		generalSocketDescriptor = socket(AF_INET, SOCK_STREAM, 0);
@@ -58,7 +73,7 @@ public:
 		printf("Connected to server!\n");
 	}
 
-	void requestAllData(int data)
+	void requestSongData(int data)
 	{	
 		string request = "GET_ALL_DATA," + to_string(data);
 		// Send the filename to the server as a request
@@ -68,11 +83,6 @@ public:
 		recv(generalSocketDescriptor, response, sizeof(response), 0);
 		SongString = response;
 		cout << "song_result: " << SongString << endl;
-
-		char scoreResponse[256];
-		recv(generalSocketDescriptor, scoreResponse, sizeof(scoreResponse), 0);
-		ScoreString = scoreResponse;
-		cout << "score_result: " << ScoreString << endl;
 		
 		char response2[256];
 		recv(generalSocketDescriptor, response2, sizeof(response2), 0);
@@ -172,27 +182,3 @@ public:
 		file.close();
 	}
 };
-
-int main(int argc, char *argv[])
-{
-	if (argc != 2)
-	{
-		std::cerr << "Usage: " << argv[0] << " <IP address> <filename>" << std::endl;
-		return 1;
-	}
-	const char *ipStr = argv[1];
-	// const char *filename = argv[2];
-
-	std::cout << "Starting client with IP address: " << ipStr << std::endl;
-	// Now you can use the 'serverAddress' struct and 'filename' to create the ClientSocket.
-	ClientSocket clientSocket(ipStr);
-	clientSocket.createSocket();
-	clientSocket.connectToServer();
-	clientSocket.requestScores(1);
-	//clientSocket.requestAllData(2);
-	//clientSocket.addScoreToServer(1, 9000, "newUser", "newDate");
-	// clientSocket.requestFileFromServer();
-	// clientSocket.receiveFile();
-
-	return 0;
-}

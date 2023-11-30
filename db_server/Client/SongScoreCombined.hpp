@@ -1,7 +1,7 @@
-#pragma once
 #include <string>
 #include <iostream>
 #include <sstream>
+#include "file_client.hpp"
 using namespace std;
 
 // Base class
@@ -10,6 +10,7 @@ class Parse
 public:
     virtual ~Parse() {}
     virtual void parseString(const string &input) = 0;
+    virtual string getData() = 0;
 };
 
 // Song class derived from Parse
@@ -27,6 +28,17 @@ public:
     string instrumental_file;
     string cmp_melody_file;
     string lyrics_file;
+
+    string getData() override
+    {
+        ClientSocket clientSocket("10.0.0.1");
+        clientSocket.createSocket();
+        clientSocket.connectToServer();
+        clientSocket.requestSongData(id);
+        // prob delay
+        string songString = clientSocket.getSongString();
+        return songString;
+    }
 
     void parseString(const string &input) override
     {
@@ -71,6 +83,25 @@ public:
     int score_value;
     string user;
     string date;
+
+    string getData() override
+    {
+        ClientSocket clientSocket("10.0.0.1");
+        clientSocket.createSocket();
+        clientSocket.connectToServer();
+        clientSocket.requestScores(song_id);
+        // prob delay
+        string scoreString = clientSocket.getScoreString();
+        return scoreString;
+    }
+    
+    void addScore(int songId, int scoreValue, string user, string date)
+    {
+        ClientSocket clientSocket("10.0.0.1");
+        clientSocket.createSocket();
+        clientSocket.connectToServer();
+        clientSocket.addScoreToServer(songId, scoreValue, user, date);
+    }
 
     void parseString(const string &input) override
     {
