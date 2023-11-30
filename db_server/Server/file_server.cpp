@@ -167,7 +167,7 @@ public:
         	if (requestType == "GET_ALL_DATA")
         	{
             	// Handle the request to send all data from the database
-            	sendAllData(additionalInt);
+            	sendSongData(additionalInt);
         	}
         	else if (requestType == "ADD_SCORE")
         	{
@@ -194,7 +194,7 @@ public:
     	}
 	}
 
-	void sendAllData(int songId)
+	void sendSongData(int songId)
 	{
     	// Open the SQLite database
     	sqlite3 *db;
@@ -253,8 +253,7 @@ public:
     	sqlite3_close(db);
 
     	// Send the combined data to the client
-    	send(newSocketDescriptor, result.c_str(), result.size(), 0);
-		sendScores(songId);
+    	send(newSocketDescriptor, result.c_str(), result.size()+1, 0);
 		sleep(1);
 		send(newSocketDescriptor, instrumental_file.c_str(), result.size(), 0);
 		sendFile(instrumental_file);
@@ -395,7 +394,6 @@ public:
 		cout << result << endl;
     	printf("Sent score data for %d \n", songId);
 	}
-
 };
 
 int main(int argc, char *argv[])
