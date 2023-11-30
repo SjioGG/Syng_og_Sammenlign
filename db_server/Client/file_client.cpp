@@ -60,16 +60,20 @@ public:
 
 	void requestAllData(int data)
 	{	
-
-		string request = "GET_ALL_DATA,"+ to_string(data);
+		string request = "GET_ALL_DATA," + to_string(data);
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, request.c_str(), request.size(), 0);
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0);
 		
-		char response[256];
+		char response[512];
 		recv(generalSocketDescriptor, response, sizeof(response), 0);
 		SongString = response;
-		cout << "Song: " << SongString << endl;
+		cout << "song_result: " << SongString << endl;
 
+		char scoreResponse[256];
+		recv(generalSocketDescriptor, scoreResponse, sizeof(scoreResponse), 0);
+		ScoreString = scoreResponse;
+		cout << "score_result: " << ScoreString << endl;
+		
 		char response2[256];
 		recv(generalSocketDescriptor, response2, sizeof(response2), 0);
 		string instrumental_file = response2;
@@ -91,16 +95,26 @@ public:
 		close(generalSocketDescriptor);
 	}
 
-	void updateScore()
+	void addScoreToServer(int songId, int scoreValue, string user, string date)
 	{
-		char request[256] = "UPDATE_SCORE";
+		string request = "ADD_SCORE," + to_string(songId);
 		// Send the filename to the server as a request
-		send(generalSocketDescriptor, request, sizeof(request), 0);
-		char response[256];
-		int bytesRead = recv(generalSocketDescriptor, response, sizeof(response), 0);
-		// ERROR HANDLING LATER
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0); // +1 to include the null terminator
 
-		printf("data: %s\n", response);
+		// New row data
+		string rowDataString = to_string(scoreValue) + "|" + user + "|" + date;
+		send(generalSocketDescriptor, rowDataString.c_str(), rowDataString.size()+1, 0);
+	}
+
+	void requestScores(int songId)
+	{
+		string request = "SEND_SCORES,"+ to_string(songId);
+		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0);
+		
+		char response[256];
+		recv(generalSocketDescriptor, response, sizeof(response), 0);
+		ScoreString = response;
+		cout << "result: " << ScoreString << endl;
 	}
 
 	void receiveFile(const string filename)
@@ -174,7 +188,9 @@ int main(int argc, char *argv[])
 	ClientSocket clientSocket(ipStr);
 	clientSocket.createSocket();
 	clientSocket.connectToServer();
-	clientSocket.requestAllData(2);
+	clientSocket.requestScores(1);
+	//clientSocket.requestAllData(2);
+	//clientSocket.addScoreToServer(1, 9000, "newUser", "newDate");
 	// clientSocket.requestFileFromServer();
 	// clientSocket.receiveFile();
 
