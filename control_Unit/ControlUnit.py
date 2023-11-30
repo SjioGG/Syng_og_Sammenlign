@@ -5,6 +5,7 @@ from scipy.signal import stft
 from pydub import AudioSegment
 from pydub.playback import play
 from scipy.io import wavfile
+
 # from lyrics_extractor import SongLyrics
 
 class Server:  
@@ -32,6 +33,7 @@ class ControlUnit:
         pass
 
 # Get functions for the recorded song (PSoC) and the chosen song (DB/Server)
+# Get function for the chosen song from DB/Server
     def get_chosenSongLyrics(self, chosenSong_lyrics="Justin_Bieber_-_Ghost.txt"):
         try:
             with open(chosenSong_lyrics, 'r') as file:
@@ -40,12 +42,13 @@ class ControlUnit:
         except:
             print("Error: Lyrics not found")
             return None
-        # importing modules
 
-    def get_chosenSongMelody(Melody):
+# This function might not be needed.
+    def get_chosenSongMelody(Melody):               
         chosenSongMelody = "Justin_Bieber_-_Ghost.wav" # Replace with actual logic
         return chosenSongMelody
-    
+
+# Get function for the recorded song from PSoC
     def get_recordedSong(recordeding):
         recordedSong = "recording.wav"  # Replace with actual logic
         return recordedSong
@@ -55,7 +58,7 @@ class ControlUnit:
         song = AudioSegment.from_wav(get_chosenSongMelody)
         play(song)
 
-# Processing functions
+# Processing functions: MAYBE IN CORRELATION FILE
     def calculate_scores(self, segments_processed, segments_stored):
         # Placeholder: Implement logic to calculate scores based on correlation
         scores = ...  # Replace with actual logic
@@ -80,27 +83,3 @@ class ControlUnit:
         # Placeholder: Implement logic to store the final integer score
         # For example, you might store it in a database or print it
         print("Final Score:", final_score_integer)
-
-
-    def process_and_store_score(self):
-        # Step 1: Input Signals
-        processed_signal = self.get_processed_signal()
-        stored_signal = self.get_stored_signal()
-
-        # Step 2: Segmentation (STFT)
-        segments_processed = self.stft_segmentation(processed_signal)
-        segments_stored = self.stft_segmentation(stored_signal)
-
-        # Step 3: Correlation and Scoring
-        scores = self.calculate_scores(segments_processed, segments_stored)
-
-        # Step 4: Potential Scores and Accumulation
-        potential_scores = self.get_potential_scores()
-        accumulated_score_diff = self.calculate_accumulated_score_diff(scores, potential_scores)
-
-        # Step 5: Final Score Calculation
-        final_score_percentage = 100 - accumulated_score_diff
-        final_score_integer = self.round_up(final_score_percentage)
-
-        # Step 6: Integer Storage
-        self.store_integer_score(final_score_integer)

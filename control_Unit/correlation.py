@@ -24,7 +24,7 @@ def stft_segmentation(audio_file, num_segments=20):
         window_size = stereo_samples.shape[0] // num_segments
 
         # Perform STFT on each channel separately
-        stft_results_left = stft(stereo_samples[:, 0], fs=sample_rate, nperseg=window_size, noverlap=window_size//2)[2]
+        stft_results_left = stft(stereo_samples[:, 0], fs=sample_rate, nperseg=window_size, v=window_size//2)[2]
         stft_results_right = stft(stereo_samples[:, 1], fs=sample_rate, nperseg=window_size, noverlap=window_size//2)[2]
 
         return stft_results_left, stft_results_right
