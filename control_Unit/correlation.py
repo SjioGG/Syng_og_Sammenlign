@@ -12,10 +12,13 @@ def stft_segmentation(audio_file, num_segments=20):
     try:
         # Read the stereo audio file
         sample_rate, stereo_samples = wavfile.read(audio_file)
-
+ 
         # Ensure stereo_samples is a 2D array
         if len(stereo_samples.shape) == 1:
             stereo_samples = stereo_samples[:, np.newaxis]
+        else:
+            print
+            "Converting to 2D array FAILED"
 
         # Calculate window size for STFT
         window_size = stereo_samples.shape[0] // num_segments

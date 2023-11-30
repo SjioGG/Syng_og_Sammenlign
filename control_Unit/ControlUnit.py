@@ -14,13 +14,14 @@ class Server:
         print("Server initialized")
         pass
 
-
 class UI:
     def __init__ (ui):
         # Add any UI variables here
         
         print("UI initialized")
         pass
+
+# Ryk disse klasser til deres respektive filer ^
 
 class ControlUnit:
     def __init__(control_unit):
@@ -29,8 +30,6 @@ class ControlUnit:
         control_unit.ui = UI() # Replace with actual UI
         control_unit.server = Server() # Replace with actual server
         pass
-
-
 
 # Get functions for the recorded song (PSoC) and the chosen song (DB/Server)
     def get_chosenSongLyrics(self, chosenSong_lyrics="Justin_Bieber_-_Ghost.txt"):
@@ -42,7 +41,6 @@ class ControlUnit:
             print("Error: Lyrics not found")
             return None
         # importing modules
-
 
     def get_chosenSongMelody(Melody):
         chosenSongMelody = "Justin_Bieber_-_Ghost.wav" # Replace with actual logic
@@ -57,6 +55,7 @@ class ControlUnit:
         song = AudioSegment.from_wav(get_chosenSongMelody)
         play(song)
 
+# Processing functions
     def calculate_scores(self, segments_processed, segments_stored):
         # Placeholder: Implement logic to calculate scores based on correlation
         scores = ...  # Replace with actual logic
@@ -105,4 +104,3 @@ class ControlUnit:
 
         # Step 6: Integer Storage
         self.store_integer_score(final_score_integer)
-
