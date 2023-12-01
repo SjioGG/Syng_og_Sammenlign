@@ -268,6 +268,7 @@ public:
 
     void addScoreToDB(int songId)
     {
+		//sleep(1);
     	char newRow[256];
     	recv(newSocketDescriptor, newRow, sizeof(newRow), 0);
     	printf("Received request: %s\n", newRow);
@@ -352,7 +353,11 @@ public:
     	}
 
     	// Perform a query to get all data from the 'song' table
-    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date FROM score JOIN song ON score.song_id = song.id WHERE song.id = ?";
+    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date "
+							"FROM score JOIN song ON score.song_id = song.id "
+							"WHERE song.id = ?"
+							"ORDER BY score.score_value DESC "
+							"LIMIT 10";
     	sqlite3_stmt *statement;
     	if (sqlite3_prepare_v2(db, query, -1, &statement, nullptr) != SQLITE_OK)
     	{
@@ -382,7 +387,7 @@ public:
 
 
         	// Construct a string with the fetched data and append it to the result
-        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date;
+        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date + ",";
 		}
 
     	// Clean up
@@ -390,7 +395,7 @@ public:
     	sqlite3_close(db);
 
     	// Send the combined data to the client
-    	send(newSocketDescriptor, result.c_str(), result.size(), 0);
+    	send(newSocketDescriptor, result.c_str(), result.size()+1, 0);
 		cout << result << endl;
     	printf("Sent score data for %d \n", songId);
 	}
