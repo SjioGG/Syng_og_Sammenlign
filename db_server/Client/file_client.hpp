@@ -7,9 +7,6 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-
-
-
 using namespace std;
 
 class ClientSocket
@@ -110,10 +107,11 @@ public:
 		string request = "ADD_SCORE," + to_string(songId);
 		// Send the filename to the server as a request
 		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0); // +1 to include the null terminator
-
+		sleep(1);
 		// New row data
 		string rowDataString = to_string(scoreValue) + "|" + user + "|" + date;
-		send(generalSocketDescriptor, rowDataString.c_str(), rowDataString.size()+1, 0);
+		send(generalSocketDescriptor, rowDataString.c_str(), rowDataString.size(), 0);
+		cout << rowDataString << "C-string: " << rowDataString.c_str() << "size: "<< rowDataString.size() << "\n";
 	}
 
 	void requestScores(int songId)
@@ -121,10 +119,10 @@ public:
 		string request = "SEND_SCORES,"+ to_string(songId);
 		send(generalSocketDescriptor, request.c_str(), request.size()+1, 0);
 		
-		char response[256];
+		char response[1536];
 		recv(generalSocketDescriptor, response, sizeof(response), 0);
 		ScoreString = response;
-		cout << "result: " << ScoreString << endl;
+		//cout << "result: " << ScoreString << endl;
 	}
 
 	void receiveFile(const string filename)

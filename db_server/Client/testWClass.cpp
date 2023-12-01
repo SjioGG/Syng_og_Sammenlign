@@ -29,6 +29,6 @@ int main()
     cout << "DATE:         " << score.date << endl;
 
     // TEST ADD FUNCTION
-    score.addScore(1, 9000, "Boobman69", "2011-11-11");
+    score.addScore(1, 9000, "newuyser", "2011-11-11");
     return 0;
 }
