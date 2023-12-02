@@ -1,13 +1,29 @@
-#controlUnit
+#correlation.py
 #Max Glintborg Dall & Oliver Kok
 
 import numpy as np
 import scipy.io.wavfile as wav
+import scipy.signal as signal
+
 from scipy.signal import stft
 from pydub import AudioSegment
 from pydub.playback import play
 from scipy.io import wavfile
 
+controllUnit = controllUnit()
+controllUnit.get_chosenSongVocals() = chosenSongVocals
+controllUnit.get_recordedSong() = recordedSongVocals
+
+# Class for correlation, used to initialize the chosen song and the recorded song, and to calculate the correlation between them.
+class _LogicUnit_:
+    def __init__(self, chosenSongVocals, recordedSongVocals):
+        self.chosenSongVocals = chosenSongVocals
+        self.recordedSongVocals = recordedSongVocals
+
+# STFT Logic
+# This function is used to take an audiofile, in the .wav format, and split it into segments.
+# These segments correlate to 5% each, splitting it into 20 segments. This is done to both the left and right channel.
+# The function returns the STFT of the left and right channel, which is used to then calculate correlation in the correlation Logic.
 def stft_segmentation(audio_file, num_segments=20):
     try:
         # Read the stereo audio file
@@ -17,8 +33,7 @@ def stft_segmentation(audio_file, num_segments=20):
         if len(stereo_samples.shape) == 1:
             stereo_samples = stereo_samples[:, np.newaxis]
         else:
-            print
-            "Converting to 2D array FAILED"
+            print ("Converting to 2D array FAILED")
 
         # Calculate window size for STFT
         window_size = stereo_samples.shape[0] // num_segments
@@ -32,7 +47,16 @@ def stft_segmentation(audio_file, num_segments=20):
     except Exception as e:
         print(f"Error performing STFT: {e}")
         return None, None
+    
+# Sudo sudo code.
+def corelation(chosenSongVocals, recordedSongVocals):
+    result = scipy.signal.correlate(stft_segmentation(chosenSongVocals), stft_segmentation(recordedSongVocals), method='direct') # Returns correlation between the two songs
+    return result
+    print(result)
+    
 
+
+# Correlation Logic
 def normalized_cross_correlation(stft_results1, stft_results2):
     flat_results1 = stft_results1.reshape(stft_results1.shape[0], -1)
     flat_results2 = stft_results2.reshape(stft_results2.shape[0], -1)
