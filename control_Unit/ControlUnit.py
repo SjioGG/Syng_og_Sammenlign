@@ -27,6 +27,7 @@ class UI:
 class ControlUnit:
     def __init__(control_unit):
         # Initialize any necessary variables or parameters here
+        get_chosensong = control_unit.get_chosenSongLyrics()
 
         control_unit.ui = UI() # Replace with actual UI
         control_unit.server = Server() # Replace with actual server
@@ -50,7 +51,7 @@ class ControlUnit:
 
 # Get function for the recorded song from PSoC
     def get_recordedSong(recordeding):
-        recordedSong = "recording.wav"  # Replace with actual logic
+        recordedSong = "Justin_Bieber_-_Ghost.wav"  # Replace with actual logic
         return recordedSong
 
 # Play the song
