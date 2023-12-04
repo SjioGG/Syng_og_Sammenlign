@@ -36,7 +36,7 @@ class LogicUnit:
             if len(stereo_samples.shape) == 1:
                 stereo_samples = stereo_samples[:, np.newaxis]
             else:
-                print("Converting to 2D array FAILED")
+               print("Converting to 2D array FAILED")
 
             # Calculate window size for STFT
             window_size = stereo_samples.shape[0] // num_segments
