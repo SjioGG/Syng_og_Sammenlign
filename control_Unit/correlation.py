@@ -1,11 +1,14 @@
 #correlation.py
 #Max Glintborg Dall & Oliver Kok
-
+# Got hit by mad realization at this point. our Karaoke Idea is so out of scope. Folk på nettet siger at det er graduate level stuff. endda større end det. 
+# så vi må prøve at tvinge stft og correlation til at virke så godt som muligt. men er sku bange for vi i sidste ende ikke kan få en decideret score ud.
+# men rettere ender med nogle plot vi så kan sammenligne....
 import numpy as np
 import scipy.io.wavfile as wav
 import scipy.signal as signal
 from ControlUnit import ControlUnit 
 
+import ControlUnit
 from scipy.signal import stft
 from pydub import AudioSegment
 from pydub.playback import play

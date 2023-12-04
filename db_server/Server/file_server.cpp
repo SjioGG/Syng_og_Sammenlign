@@ -8,11 +8,12 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <sqlite3.h>
+#include <limits>
 #include <vector> // For tokenizing the string, example of how to utilize getline()
 
 
 using namespace std;
-// #define STRBUFSIZE 256
+#define STRING_SIZE 256
 class ServerSocket
 {
 	fstream file;
@@ -88,7 +89,6 @@ public:
 	{
 		// Open the corresponding file for sending based on the received filename.
 		file.open(".//" + filenamae, ios::in | ios::binary);
-
 		if (!file.is_open())
 		{
 			perror("Error: File not opened");
@@ -98,10 +98,12 @@ public:
 		file.seekg(0, ios::end);
 		int fileSize = file.tellg();
 		file.seekg(0, ios::beg);
-
+		//uint32_t fileSize = static_cast<uint32_t>(fileSize);
+		uint32_t fileSizeNetworkOrder = htonl(fileSize);
 		// Send the file size to the client
-		int fileSizeNetworkOrder = htonl(fileSize);
-		if (send(newSocketDescriptor, &fileSizeNetworkOrder, sizeof(fileSizeNetworkOrder), 0) < 0)
+		std::cout << "fileSize: " << fileSize << " bytes\n";
+		std::cout << "FSN: " << fileSizeNetworkOrder << " bytes\n";
+		if (send(newSocketDescriptor, &fileSizeNetworkOrder, sizeof(uint32_t), 0) < 0)
 		{
 			perror("Error: File size not sent");
 			exit(1);
@@ -137,12 +139,17 @@ public:
 		// Close the file
 		file.close();
 		printf("Sent %d bytes (100.00%%)\n", totalBytesSent); // Print the final progress
+
+		// Wait for ACK
+		char ackBuffer[3];
+		recv(newSocketDescriptor, ackBuffer, sizeof(ackBuffer), 0);
+		printf("Received ACK: %s\n", ackBuffer);
 	}
 
 	void handleClient()
 	{
-    	char requestBuffer[256];
-    	recv(newSocketDescriptor, requestBuffer, sizeof(requestBuffer), 0);
+    	char requestBuffer[STRING_SIZE];
+    	recv(newSocketDescriptor, requestBuffer, STRING_SIZE, 0);
     	printf("Received request: %s\n", requestBuffer);
 
     	// Parse the request and extract request type and additional integer
@@ -252,25 +259,41 @@ public:
     	sqlite3_finalize(statement);
     	sqlite3_close(db);
 
-    	// Send the combined data to the client
-    	send(newSocketDescriptor, result.c_str(), result.size()+1, 0);
-		sleep(1);
-		send(newSocketDescriptor, instrumental_file.c_str(), result.size(), 0);
+		char buffer[STRING_SIZE];
+		strncpy(buffer, result.c_str(), STRING_SIZE - 1);
+		buffer[STRING_SIZE - 1] = '\0';
+    	send(newSocketDescriptor, buffer, STRING_SIZE, 0);
+		printf("buffer: %s\n", buffer);
+
+		memset(buffer, 0, STRING_SIZE);
+		strncpy(buffer, instrumental_file.c_str(), STRING_SIZE - 1);
+		buffer[STRING_SIZE - 1] = '\0';
+		send(newSocketDescriptor, buffer, STRING_SIZE, 0);
 		sendFile(instrumental_file);
-		sleep(1);	
-		send(newSocketDescriptor, melody_file.c_str(), result.size(), 0);
+		printf("buffer: %s\n", buffer);
+
+		memset(buffer, 0, STRING_SIZE);
+		strncpy(buffer, melody_file.c_str(), STRING_SIZE - 1);
+		buffer[STRING_SIZE - 1] = '\0';
+		send(newSocketDescriptor, melody_file.c_str(), STRING_SIZE, 0);
 		sendFile(melody_file);
-		sleep(1);
-		send(newSocketDescriptor, lyrics_file.c_str(), result.size(), 0);
+		printf("buffer: %s\n", buffer);
+
+		memset(buffer, 0, STRING_SIZE);
+		strncpy(buffer, lyrics_file.c_str(), STRING_SIZE - 1);
+		buffer[STRING_SIZE - 1] = '\0';
+		send(newSocketDescriptor, lyrics_file.c_str(), STRING_SIZE, 0);
         sendFile(lyrics_file);
+		printf("buffer: %s\n", buffer);
+
     	printf("Sent all data to the client\n");
 	}
 
     void addScoreToDB(int songId)
     {
 		//sleep(1);
-    	char newRow[256];
-    	recv(newSocketDescriptor, newRow, sizeof(newRow), 0);
+    	char newRow[STRING_SIZE];
+    	recv(newSocketDescriptor, newRow, STRING_SIZE, 0);
     	printf("Received request: %s\n", newRow);
 
     	// Create a temporary string from the char array
@@ -353,11 +376,7 @@ public:
     	}
 
     	// Perform a query to get all data from the 'song' table
-    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date "
-							"FROM score JOIN song ON score.song_id = song.id "
-							"WHERE song.id = ?"
-							"ORDER BY score.score_value DESC "
-							"LIMIT 10";
+    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date FROM score JOIN song ON score.song_id = song.id WHERE song.id = ?";
     	sqlite3_stmt *statement;
     	if (sqlite3_prepare_v2(db, query, -1, &statement, nullptr) != SQLITE_OK)
     	{
@@ -387,16 +406,19 @@ public:
 
 
         	// Construct a string with the fetched data and append it to the result
-        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date + ",";
+        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date;
 		}
 
     	// Clean up
     	sqlite3_finalize(statement);
     	sqlite3_close(db);
 
+		char buffer[2 * STRING_SIZE];
     	// Send the combined data to the client
-    	send(newSocketDescriptor, result.c_str(), result.size()+1, 0);
-		cout << result << endl;
+		strncpy(buffer, result.c_str(), 2 * STRING_SIZE - 1);
+		buffer[2 * STRING_SIZE - 1] = '\0';
+    	send(newSocketDescriptor, buffer, 2 * STRING_SIZE, 0);
+		cout << buffer << endl;
     	printf("Sent score data for %d \n", songId);
 	}
 };
