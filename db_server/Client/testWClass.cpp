@@ -16,7 +16,7 @@ int main()
     cout << "MELODY:       " <<song.cmp_melody_file << endl;
     cout << "LYRICS:       " <<song.lyrics_file << endl;
 
-    sleep(1);
+    //sleep(1);
     // SCORE CLASS TEST
     Score score(1);
     string scoreString = score.getData();
@@ -27,7 +27,7 @@ int main()
     cout << "USER:         "<<score.user << endl;
     cout << "SCORE:        " << score.score_value << endl;
     cout << "DATE:         " << score.date << endl;
-
+    //sleep(1);
     // TEST ADD FUNCTION
     score.addScore(1, 9000, "newuyser", "2011-11-11");
     return 0;
