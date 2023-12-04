@@ -1,12 +1,14 @@
-import ControlUnit
+from ControlUnit import ControlUnit
+from LogicUnit import LogicUnit
+import numpy as np
 
-# Testing in main script
-if __name__ == "__main__":
-    control_unit = ControlUnit()
-    song_file_name = 'Justin_Bieber_-_Ghost.wav'  # Replace with the actual name of your song file
-    control_unit.play_song(song_file_name)
+# Completed tests for ControlUnit class
+# Play song: test completed, get functions: completed
 
+# Completed tests for LogicUnit class
+# STFT segmentation: test pending, correlation: test pending
 
+# create instance of logicUnit
+LogicUnit = LogicUnit()
 
-#Kan vi ikke bruge mængden af segmenter til vores score givning? hvis der er 20 segmenter til hver sang. så kunne man give hvert segment 1 ud af 10 point fx. og så udregne den sidste og endelige score ud fra det.
-#
+LogicUnit.stft_segmentation(self.chosenSongVocals)
