@@ -376,11 +376,7 @@ public:
     	}
 
     	// Perform a query to get all data from the 'song' table
-    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date "
-							"FROM score JOIN song ON score.song_id = song.id "
-							"WHERE song.id = ?"
-							"ORDER BY score.score_value DESC "
-							"LIMIT 10";
+    	const char *query = "SELECT score.id, score.song_id, score.score_value, score.user, score.date FROM score JOIN song ON score.song_id = song.id WHERE song.id = ?";
     	sqlite3_stmt *statement;
     	if (sqlite3_prepare_v2(db, query, -1, &statement, nullptr) != SQLITE_OK)
     	{
@@ -410,7 +406,7 @@ public:
 
 
         	// Construct a string with the fetched data and append it to the result
-        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date + ",";
+        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date;
 		}
 
     	// Clean up
