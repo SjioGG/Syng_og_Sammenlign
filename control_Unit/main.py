@@ -9,6 +9,7 @@ import numpy as np
 # STFT segmentation: test pending, correlation: test pending
 
 # create instance of logicUnit
-LogicUnit = LogicUnit()
+_LogicUnit_ = LogicUnit()
 
-LogicUnit.stft_segmentation(self.chosenSongVocals)
+_LogicUnit_.stft_segmentation(_LogicUnit_.recordedSongVocals)
+
