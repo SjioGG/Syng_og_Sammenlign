@@ -1,6 +1,9 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include "SongScoreCombined.hpp"
+#include "Parse.hpp"
+#include "Score.hpp"
+#include "Song.hpp"
+#include "ScoreList.hpp"
 
 namespace py = pybind11;
 

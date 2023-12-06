@@ -333,7 +333,7 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: \
  /usr/include/c++/11/bits/gslice_array.h \
  /usr/include/c++/11/bits/mask_array.h \
  /usr/include/c++/11/bits/indirect_array.h \
- /home/ase/Syng_og_Sammenlign/db_server/Client/SongScoreCombined.hpp \
+ /home/ase/Syng_og_Sammenlign/db_server/Client/Parse.hpp \
  /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
  /home/ase/Syng_og_Sammenlign/db_server/Client/file_client.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
@@ -354,4 +354,7 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
- /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/arpa/inet.h
+ /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/arpa/inet.h \
+ /home/ase/Syng_og_Sammenlign/db_server/Client/Score.hpp \
+ /home/ase/Syng_og_Sammenlign/db_server/Client/Song.hpp \
+ /home/ase/Syng_og_Sammenlign/db_server/Client/ScoreList.hpp
