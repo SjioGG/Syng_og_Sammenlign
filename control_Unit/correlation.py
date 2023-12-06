@@ -1,21 +1,21 @@
 #correlation.py
 #Max Glintborg Dall & Oliver Kok
-# Got hit by mad realization at this point. our Karaoke Idea is so out of scope. Folk på nettet siger at det er graduate level stuff. endda større end det. 
-# så vi må prøve at tvinge stft og correlation til at virke så godt som muligt. men er sku bange for vi i sidste ende ikke kan få en decideret score ud.
-# men rettere ender med nogle plot vi så kan sammenligne....
-import numpy as np
 import scipy.io.wavfile as wav
 import scipy.signal as signal
 from ControlUnit import ControlUnit 
+
+# For plotting, used in tests. Remove after tests
+import matplotlib.pyplot as plt
 
 import ControlUnit
 from scipy.signal import stft
 from pydub import AudioSegment
 from pydub.playback import play
 from scipy.io import wavfile
+import numpy as np
 
-# Class for correlation, used to initialize the chosen song and the recorded song, and to calculate the correlation between them.
-# Takes the chosen song and the recorded song as parameters.
+# This logicUnit class is so badly made its sad. There should not be a need to create controlUnit in this class,
+# but we have, and this should be changed.
 class LogicUnit:
     def __init__(self):
         # Create an instance of ControlUnit
@@ -25,71 +25,51 @@ class LogicUnit:
         self.chosenSongVocals = self.controlUnit.get_chosenSongVocals()
         self.recordedSongVocals = self.controlUnit.get_recordedSong()
 
-    # STFT Logic
-    # This function is used to take an audiofile, in the .wav format, and split it into segments.
-    # These segments correlate to 5% each, splitting it into 20 segments. This is done to both the left and right channel.
-    # The function returns the STFT of the left and right channel, which is used to then calculate correlation in the correlation Logic.
-    def stft_segmentation(self,audio_file):
-        num_segments=20
-        try:
-            # Read the stereo audio file
-            sample_rate, stereo_samples = wavfile.read(audio_file)
+    # Load audiofile, for STFT TESTING ONLY! REMOVE AFTER TESTS
+    def readAudioFile(self, audio_file):
+        # load audio files
+        sampleRate, dataArray = wav.read(audio_file)
 
-            # Ensure stereo_samples is a 2D array
-            if len(stereo_samples.shape) == 1:
-                stereo_samples = stereo_samples[:, np.newaxis]
-            else:
-               print("Converting to 2D array FAILED")
+        print(f"number of channels = {dataArray.shape[1]}")
+        length = dataArray.shape[0] / sampleRate
+        print(f"length = {length}s")
+        length = 0.01
 
-            # Calculate window size for STFT
-            window_size = stereo_samples.shape[0] // num_segments
+    # Plot for testing only! remove after tests
+        time = np.linspace(0., length, dataArray.shape[0])
+        plt.plot(time, dataArray[:, 0], label="Left channel")
+        plt.plot(time, dataArray[:, 1], label="Right channel")
+        plt.legend()
+        plt.xlabel("Time [s]")
+        plt.ylabel("Amplitude")
+        plt.show()
 
-            # Perform STFT on each channel separately
-            stft_results_left = stft(stereo_samples[:, 0], fs=sample_rate, nperseg=window_size, v=window_size//2)[2]
-            stft_results_right = stft(stereo_samples[:, 1], fs=sample_rate, nperseg=window_size, noverlap=window_size//2)[2]
+    # Return the audiofile, sampleRate and length
+        return dataArray, sampleRate, length
 
-            return stft_results_left, stft_results_right
+    # Audio segmentation
+    def audio_segmentation(self,audio_file):
+        # load audio files
+        sampleRate, dataArray = wav.read(audio_file)
 
-        except Exception as e:
-            print(f"Error performing STFT: {e}")
-            return None, None
+        # Number of segments
+        num_segments = 20
 
-# Correlation logic
-# This function is used to calculate the correlation between the chosen song and the recorded song.
-# It takes the STFT of the chosen song and the recorded song, and calculates the correlation between them.
-# The function returns the correlation between the two songs, and prints the result, as an array.
-def correlation(self):
-    stft_left, stft_right = self.stft_segmentation(self.chosenSongVocals)
-    result = signal.correlate(stft_left, stft_right, method='direct')
-    print(result)
-    return result
-
-# Correlation Logic
-# def normalized_cross_correlation(stft_results1, stft_results2):
-    flat_results1 = stft_results1.reshape(stft_results1.shape[0], -1)
-    flat_results2 = stft_results2.reshape(stft_results2.shape[0], -1)
-
-    cross_corr = np.correlate(flat_results1, flat_results2, mode='full')
-    norm_cross_corr = cross_corr / (np.linalg.norm(flat_results1) * np.linalg.norm(flat_results2))
-
-    return norm_cross_corr
-# def similarity_score(norm_cross_corr):
-    scaled_score = 5 * (norm_cross_corr + 1)
-    scaled_score = np.clip(scaled_score, 0, 10)
-    return scaled_score
-
-# Example usage
-# file1 = "Justin_Bieber_-_Ghost.wav"
-# file2 = "Recording.wav"
-
-# stft_results1_left, stft_results1_right = stft_segmentation(file1)
-# stft_results2_left, stft_results2_right = stft_segmentation(file2)
-
-# Use either left or right channels, or combine them based on your requirements
-# norm_cross_corr_left = normalized_cross_correlation(stft_results1_left, stft_results2_left)
-# norm_cross_corr_right = normalized_cross_correlation(stft_results1_right, stft_results2_right)
-
-# Average the similarity scores from left and right channels
-# final_similarity_score = 0.5 * (similarity_score(norm_cross_corr_left) + similarity_score(norm_cross_corr_right))
-
-# print(f"Similarity Score: {final_similarity_score}")
+        segment_length = len(dataArray) // num_segments
+        segments = np.zeros((num_segments, segment_length))
+    
+    # For loop, that goes through the audiofile and segments it into 20 segments.
+        for i in range(num_segments):  
+            start_idx = i * segment_length
+            end_idx = (i + 1) * segment_length
+            current_segment = dataArray[start_idx:end_idx]
+            segments[i, :] = current_segment    # 2D array in the form of (num_segments, segment_length)
+            
+        return segments
+    
+    # Correlate the recorded song with the chosen song, using the audio_segmentation function
+    def correlate(recordedSegment, chosenSegment):
+        corr = signal.correlate(recordedSegment, chosenSegment, mode='full', method='auto')
+        print ("Cross-correlation result:", corr)   # Print the result of the correlation
+        return corr
+       
