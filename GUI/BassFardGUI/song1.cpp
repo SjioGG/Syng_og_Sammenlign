@@ -14,7 +14,7 @@ QSound* Song1::soundEffect = nullptr;
 Song1::Song1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Song1),
-    count_down_V(10), // Start the countdown from 3
+    count_down_V(10), // Start the countdown from 10
     count_down_T(new QTimer(this)), // Initialize the timer
     songlist(nullptr), // Initialize songlist as nullptr
     result(nullptr),
