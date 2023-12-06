@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Song1</class>
+ <widget class="QDialog" name="Song1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1397</width>
+    <height>737</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>480</y>
+     <width>201</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="countdownLabel">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>190</y>
+     <width>391</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>480</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Continue</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
