@@ -1,0 +1,3 @@
+/home/ase/Syng_og_Sammenlign/db_server/Client/build/CMakeFiles/py_dbserver.dir
+/home/ase/Syng_og_Sammenlign/db_server/Client/build/CMakeFiles/edit_cache.dir
+/home/ase/Syng_og_Sammenlign/db_server/Client/build/CMakeFiles/rebuild_cache.dir

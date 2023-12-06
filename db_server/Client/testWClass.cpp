@@ -5,30 +5,30 @@ int main()
 {
     // SONG CLASS TEST
     Song song(1);
-    string songString = song.getData();
-    cout << "OG STRING:    "<< songString << endl;
+    string songString = song.getData(1);
+    cout << "OG STRING:    " << songString << endl;
     song.parseString(songString);
-    cout << "ARTIST:       " <<song.artist << endl;
-    cout << "TITLE:        "<<song.title << endl;
-    cout << "LENGTH:       " <<song.duration << endl;
-    cout << "KEY:          " <<song.key << endl;
-    cout << "INSTRUMENTAL: " <<song.instrumental_file << endl;
-    cout << "MELODY:       " <<song.cmp_melody_file << endl;
-    cout << "LYRICS:       " <<song.lyrics_file << endl;
+    cout << "ARTIST:       " << song.getArtist() << endl;
+    cout << "TITLE:        " << song.getTitle() << endl;
+    cout << "LENGTH:       " << song.getDuration() << endl;
+    cout << "KEY:          " << song.getKey() << endl;
+    cout << "INSTRUMENTAL: " << song.getInstrumentalFile() << endl;
+    cout << "MELODY:       " << song.getCmpMelodyFile() << endl;
+    cout << "LYRICS:       " << song.getLyricsFile() << endl;
 
-    //sleep(1);
     // SCORE CLASS TEST
-    Score score(1);
-    string scoreString = score.getData();
-    cout << "OG STRING:    "<< scoreString << endl;
-    score.parseString(scoreString);
-    cout << "SCORE ID:     "<< score.id << endl;
-    cout << "SONG ID:      " <<score.song_id << endl;
-    cout << "USER:         "<<score.user << endl;
-    cout << "SCORE:        " << score.score_value << endl;
-    cout << "DATE:         " << score.date << endl;
-    //sleep(1);
+    ScoreList scoreList;
+    string scoreString = scoreList.getData(1);
+
+    cout << "OG STRING:    " << scoreString << endl;
+    cout << "ScoreList:" << "\n" << scoreList << endl;
+
+    // fx access variables
+    vector<Score> top10 = scoreList.getScores();
+    cout << top10[1].getScoreValue() << endl;
+    
     // TEST ADD FUNCTION
+    Score score;
     score.addScore(1, 9000, "Boobman69", "2011-11-11");
     return 0;
 }

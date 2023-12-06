@@ -22,6 +22,9 @@ class ControlUnit:
     def get_recordedSong(self):
         self.recordedSongVocals = "cover_justin_bieber_ghost[vocals].wav"
         return self.recordedSongVocals
+    
+    def get_finalScore(self):
+        finalScore = "100"  # Replace with actual logic
 
 # Play function, to play any song. 
     def play_song(self, song_file):
