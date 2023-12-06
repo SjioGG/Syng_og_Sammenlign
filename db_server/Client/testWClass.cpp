@@ -21,7 +21,6 @@ int main()
     string scoreString = scoreList.getData(1);
 
     cout << "OG STRING:    " << scoreString << endl;
-    scoreList.parseString(scoreString);
     cout << "ScoreList:" << "\n" << scoreList << endl;
 
     // fx access variables

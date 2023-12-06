@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -flto -shared  -o py_dbserver.cpython-310-x86_64-linux-gnu.so CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o 
