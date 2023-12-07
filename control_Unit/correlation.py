@@ -7,6 +7,7 @@ import numpy as np
 import scipy.io.wavfile as wav
 import scipy.signal as signal
 from ControlUnit import ControlUnit 
+import ctypes
 
 import ControlUnit
 from scipy.signal import stft
@@ -93,3 +94,16 @@ def correlation(self):
 # final_similarity_score = 0.5 * (similarity_score(norm_cross_corr_left) + similarity_score(norm_cross_corr_right))
 
 # print(f"Similarity Score: {final_similarity_score}")
+
+#Example.cpp
+
+# example.py
+class Game:
+    def __init__(self):
+        self.highscore = 0
+
+    def set_highscore(self, score):
+        self.highscore = score
+
+    def get_highscore(self):
+        return self.highscore
