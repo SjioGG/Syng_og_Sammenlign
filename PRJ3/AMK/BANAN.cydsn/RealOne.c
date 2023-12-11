@@ -66,12 +66,11 @@ int main(void) {
         if (bufferIndex < BUFFER_SIZE) {
             adcBuffer[bufferIndex++] = ReadADC(); // Læser ADC og gemmer i buffer
             HandleADCConversion();
-            CyDelay(1); // Forsinkelse mellem ADC aflæsninger
+            //CyDelay(1); // Forsinkelse mellem ADC aflæsninger
         } else {
             SendHandshakeSignal(); // Sender handshake signal
             for (int i = 0; i < BUFFER_SIZE; i++) {
                 if (!SendSPI(adcBuffer[i])) {
-                    printf("BREAD");
                 }
             }
             bufferIndex = 0; // Nulstiller buffer index

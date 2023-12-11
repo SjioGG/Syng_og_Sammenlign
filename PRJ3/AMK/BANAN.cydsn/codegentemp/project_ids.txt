@@ -1,6 +1,6 @@
-C:\Users\hanad\OneDrive\Dokumenter\3. Semester\Projekt\repos\Projects\PRJ3\AMK\BANAN.cydsn\BANAN.cyprj|a625a9ba-760f-4a97-bf93-ad4ccc67833b
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|30e2e580-f4c6-40bd-b55b-0fc6d6a56312
-C:\Users\hanad\OneDrive\Dokumenter\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|0b03471b-2abb-4c01-8c2c-ae538f90194e
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|95060ef3-49fa-424e-ab91-7ce10d998d1c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3f8962ac-2a8c-45cd-bf47-350087a8aab3
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|5d9e4dcc-c9b0-4422-b079-e7f6deef9ad4
+C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\BANAN.cyprj|12c16746-20a7-4ff2-8fe5-adf435c05c15
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b69d6674-58a2-4d06-9b2e-6f94c5bb7c41
+C:\Users\mikai\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|88d65e54-93fe-4504-a935-48ecbaae016f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8be5c12c-40a8-437f-9979-f01a6970908f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0c15ec45-4a43-47c6-b081-decc05fe15c4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0197d29a-572a-4a39-ac67-f30383bd7c0c

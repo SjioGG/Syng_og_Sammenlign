@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
   28:Generated_Source\PSoC5/SPIS_1_PM.c **** * Function Name: SPIS_1_SaveConfig
   29:Generated_Source\PSoC5/SPIS_1_PM.c **** ********************************************************************************
   30:Generated_Source\PSoC5/SPIS_1_PM.c **** *
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 2
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 2
 
 
   31:Generated_Source\PSoC5/SPIS_1_PM.c **** * Summary:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
   50 0000 7047     		bx	lr
   51              		.cfi_endproc
   52              	.LFE1:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 3
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 3
 
 
   53              		.size	SPIS_1_RestoreConfig, .-SPIS_1_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
   77 000c 0122     		movs	r2, #1
   78 000e 054B     		ldr	r3, .L7+4
   79 0010 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 4
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 4
 
 
   80 0012 02E0     		b	.L5
@@ -202,7 +202,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
   91              	.L8:
   92              		.align	2
   93              	.L7:
-  94 0020 9C640040 		.word	1073767580
+  94 0020 91640040 		.word	1073767569
   95 0024 00000000 		.word	.LANCHOR0
   96              		.cfi_endproc
   97              	.LFE2:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  120:Generated_Source\PSoC5/SPIS_1_PM.c **** *  zero.
  121:Generated_Source\PSoC5/SPIS_1_PM.c **** *  SPIS_1_txBufferRead - modified every function call - resets to
  122:Generated_Source\PSoC5/SPIS_1_PM.c **** *  zero.
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 5
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 5
 
 
  123:Generated_Source\PSoC5/SPIS_1_PM.c **** *  SPIS_1_rxBufferWrite - modified every function call - resets to
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  131              		.cfi_endproc
  132              	.LFE3:
  133              		.size	SPIS_1_Wakeup, .-SPIS_1_Wakeup
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 6
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 6
 
 
  134              		.data
@@ -320,48 +320,48 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  150 0006 00000000 		.4byte	.Ldebug_abbrev0
  151 000a 04       		.byte	0x4
  152 000b 01       		.uleb128 0x1
- 153 000c 4E000000 		.4byte	.LASF26
+ 153 000c CC000000 		.4byte	.LASF26
  154 0010 0C       		.byte	0xc
- 155 0011 46020000 		.4byte	.LASF27
- 156 0015 D3010000 		.4byte	.LASF28
+ 155 0011 69020000 		.4byte	.LASF27
+ 156 0015 0C000000 		.4byte	.LASF28
  157 0019 00000000 		.4byte	.Ldebug_ranges0+0
  158 001d 00000000 		.4byte	0
  159 0021 00000000 		.4byte	.Ldebug_line0
  160 0025 02       		.uleb128 0x2
  161 0026 01       		.byte	0x1
  162 0027 06       		.byte	0x6
- 163 0028 3A020000 		.4byte	.LASF0
+ 163 0028 5D020000 		.4byte	.LASF0
  164 002c 02       		.uleb128 0x2
  165 002d 01       		.byte	0x1
  166 002e 08       		.byte	0x8
- 167 002f 40000000 		.4byte	.LASF1
+ 167 002f BE000000 		.4byte	.LASF1
  168 0033 02       		.uleb128 0x2
  169 0034 02       		.byte	0x2
  170 0035 05       		.byte	0x5
- 171 0036 C0010000 		.4byte	.LASF2
+ 171 0036 32020000 		.4byte	.LASF2
  172 003a 02       		.uleb128 0x2
  173 003b 02       		.byte	0x2
  174 003c 07       		.byte	0x7
- 175 003d 1A000000 		.4byte	.LASF3
+ 175 003d 98000000 		.4byte	.LASF3
  176 0041 02       		.uleb128 0x2
  177 0042 04       		.byte	0x4
  178 0043 05       		.byte	0x5
- 179 0044 CA010000 		.4byte	.LASF4
+ 179 0044 3C020000 		.4byte	.LASF4
  180 0048 02       		.uleb128 0x2
  181 0049 04       		.byte	0x4
  182 004a 07       		.byte	0x7
- 183 004b E1000000 		.4byte	.LASF5
+ 183 004b 5F010000 		.4byte	.LASF5
  184 004f 02       		.uleb128 0x2
  185 0050 08       		.byte	0x8
  186 0051 05       		.byte	0x5
- 187 0052 AD010000 		.4byte	.LASF6
+ 187 0052 1F020000 		.4byte	.LASF6
  188 0056 02       		.uleb128 0x2
  189 0057 08       		.byte	0x8
  190 0058 07       		.byte	0x7
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 7
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 7
 
 
- 191 0059 8D010000 		.4byte	.LASF7
+ 191 0059 FF010000 		.4byte	.LASF7
  192 005d 03       		.uleb128 0x3
  193 005e 04       		.byte	0x4
  194 005f 05       		.byte	0x5
@@ -369,26 +369,26 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  196 0064 02       		.uleb128 0x2
  197 0065 04       		.byte	0x4
  198 0066 07       		.byte	0x7
- 199 0067 61010000 		.4byte	.LASF8
+ 199 0067 D3010000 		.4byte	.LASF8
  200 006b 04       		.uleb128 0x4
- 201 006c F3000000 		.4byte	.LASF12
+ 201 006c 71010000 		.4byte	.LASF12
  202 0070 02       		.byte	0x2
  203 0071 E801     		.2byte	0x1e8
  204 0073 2C000000 		.4byte	0x2c
  205 0077 02       		.uleb128 0x2
  206 0078 04       		.byte	0x4
  207 0079 04       		.byte	0x4
- 208 007a 3A000000 		.4byte	.LASF9
+ 208 007a B8000000 		.4byte	.LASF9
  209 007e 02       		.uleb128 0x2
  210 007f 08       		.byte	0x8
  211 0080 04       		.byte	0x4
- 212 0081 0B010000 		.4byte	.LASF10
+ 212 0081 89010000 		.4byte	.LASF10
  213 0085 02       		.uleb128 0x2
  214 0086 01       		.byte	0x1
  215 0087 08       		.byte	0x8
- 216 0088 BB010000 		.4byte	.LASF11
+ 216 0088 2D020000 		.4byte	.LASF11
  217 008c 04       		.uleb128 0x4
- 218 008d DC000000 		.4byte	.LASF13
+ 218 008d 5A010000 		.4byte	.LASF13
  219 0091 02       		.byte	0x2
  220 0092 9202     		.2byte	0x292
  221 0094 98000000 		.4byte	0x98
@@ -397,39 +397,39 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  224 009d 02       		.uleb128 0x2
  225 009e 08       		.byte	0x8
  226 009f 04       		.byte	0x4
- 227 00a0 2E020000 		.4byte	.LASF14
+ 227 00a0 51020000 		.4byte	.LASF14
  228 00a4 02       		.uleb128 0x2
  229 00a5 04       		.byte	0x4
  230 00a6 07       		.byte	0x7
- 231 00a7 A4010000 		.4byte	.LASF15
+ 231 00a7 16020000 		.4byte	.LASF15
  232 00ab 06       		.uleb128 0x6
  233 00ac 02       		.byte	0x2
  234 00ad 03       		.byte	0x3
  235 00ae 39       		.byte	0x39
  236 00af CC000000 		.4byte	0xcc
  237 00b3 07       		.uleb128 0x7
- 238 00b4 55010000 		.4byte	.LASF16
+ 238 00b4 45020000 		.4byte	.LASF16
  239 00b8 03       		.byte	0x3
  240 00b9 3B       		.byte	0x3b
  241 00ba 6B000000 		.4byte	0x6b
  242 00be 00       		.byte	0
  243 00bf 07       		.uleb128 0x7
- 244 00c0 4A010000 		.4byte	.LASF17
+ 244 00c0 C8010000 		.4byte	.LASF17
  245 00c4 03       		.byte	0x3
  246 00c5 3C       		.byte	0x3c
  247 00c6 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 8
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 8
 
 
  248 00ca 01       		.byte	0x1
  249 00cb 00       		.byte	0
  250 00cc 08       		.uleb128 0x8
- 251 00cd 35010000 		.4byte	.LASF18
+ 251 00cd B3010000 		.4byte	.LASF18
  252 00d1 03       		.byte	0x3
  253 00d2 3D       		.byte	0x3d
  254 00d3 AB000000 		.4byte	0xab
  255 00d7 09       		.uleb128 0x9
- 256 00d8 F9000000 		.4byte	.LASF19
+ 256 00d8 77010000 		.4byte	.LASF19
  257 00dc 01       		.byte	0x1
  258 00dd 29       		.byte	0x29
  259 00de 00000000 		.4byte	.LFB0
@@ -437,7 +437,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  261 00e6 01       		.uleb128 0x1
  262 00e7 9C       		.byte	0x9c
  263 00e8 09       		.uleb128 0x9
- 264 00e9 20010000 		.4byte	.LASF20
+ 264 00e9 9E010000 		.4byte	.LASF20
  265 00ed 01       		.byte	0x1
  266 00ee 3D       		.byte	0x3d
  267 00ef 00000000 		.4byte	.LFB1
@@ -445,7 +445,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  269 00f7 01       		.uleb128 0x1
  270 00f8 9C       		.byte	0x9c
  271 00f9 0A       		.uleb128 0xa
- 272 00fa 2D000000 		.4byte	.LASF21
+ 272 00fa AB000000 		.4byte	.LASF21
  273 00fe 01       		.byte	0x1
  274 00ff 57       		.byte	0x57
  275 0100 00000000 		.4byte	.LFB2
@@ -458,7 +458,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  282 0113 51010000 		.4byte	0x151
  283 0117 00       		.byte	0
  284 0118 0A       		.uleb128 0xa
- 285 0119 7F010000 		.4byte	.LASF22
+ 285 0119 F1010000 		.4byte	.LASF22
  286 011d 01       		.byte	0x1
  287 011e 84       		.byte	0x84
  288 011f 00000000 		.4byte	.LFB3
@@ -474,11 +474,11 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  298 013b 67010000 		.4byte	0x167
  299 013f 00       		.byte	0
  300 0140 0C       		.uleb128 0xc
- 301 0141 12010000 		.4byte	.LASF29
+ 301 0141 90010000 		.4byte	.LASF29
  302 0145 01       		.byte	0x1
  303 0146 14       		.byte	0x14
  304 0147 CC000000 		.4byte	0xcc
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 9
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 9
 
 
  305 014b 05       		.uleb128 0x5
@@ -490,13 +490,13 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  311 015a 03       		.byte	0x3
  312 015b 47       		.byte	0x47
  313 015c 0D       		.uleb128 0xd
- 314 015d 6E010000 		.4byte	.LASF24
- 315 0161 6E010000 		.4byte	.LASF24
+ 314 015d E0010000 		.4byte	.LASF24
+ 315 0161 E0010000 		.4byte	.LASF24
  316 0165 03       		.byte	0x3
  317 0166 63       		.byte	0x63
  318 0167 0D       		.uleb128 0xd
- 319 0168 0C000000 		.4byte	.LASF25
- 320 016c 0C000000 		.4byte	.LASF25
+ 319 0168 8A000000 		.4byte	.LASF25
+ 320 016c 8A000000 		.4byte	.LASF25
  321 0170 03       		.byte	0x3
  322 0171 45       		.byte	0x45
  323 0172 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  359 0021 0B       		.uleb128 0xb
  360 0022 0B       		.uleb128 0xb
  361 0023 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 10
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 10
 
 
  362 0024 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  416 005a 16       		.uleb128 0x16
  417 005b 00       		.byte	0
  418 005c 03       		.uleb128 0x3
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 11
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 11
 
 
  419 005d 0E       		.uleb128 0xe
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  473 0095 13       		.uleb128 0x13
  474 0096 00       		.byte	0
  475 0097 00       		.byte	0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 12
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 12
 
 
  476 0098 0B       		.uleb128 0xb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  530 0020 00000000 		.4byte	.LFB2
  531 0024 28000000 		.4byte	.LFE2-.LFB2
  532 0028 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 13
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 13
 
 
  533 002c 18000000 		.4byte	.LFE3-.LFB3
@@ -747,166 +747,171 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 1
  552 0000 53504953 		.ascii	"SPIS_1_Stop\000"
  552      5F315F53 
  552      746F7000 
- 553              	.LASF25:
- 554 000c 53504953 		.ascii	"SPIS_1_Enable\000"
- 554      5F315F45 
- 554      6E61626C 
- 554      6500
- 555              	.LASF3:
- 556 001a 73686F72 		.ascii	"short unsigned int\000"
- 556      7420756E 
- 556      7369676E 
- 556      65642069 
- 556      6E7400
- 557              	.LASF21:
- 558 002d 53504953 		.ascii	"SPIS_1_Sleep\000"
- 558      5F315F53 
- 558      6C656570 
- 558      00
- 559              	.LASF9:
- 560 003a 666C6F61 		.ascii	"float\000"
- 560      7400
- 561              	.LASF1:
- 562 0040 756E7369 		.ascii	"unsigned char\000"
- 562      676E6564 
- 562      20636861 
- 562      7200
- 563              	.LASF26:
- 564 004e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 564      43313120 
- 564      352E342E 
- 564      31203230 
- 564      31363036 
- 565 0081 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 14
+ 553              	.LASF28:
+ 554 000c 433A5C55 		.ascii	"C:\\Users\\mikai\\OneDrive - Aarhus universitet\\3."
+ 554      73657273 
+ 554      5C6D696B 
+ 554      61695C4F 
+ 554      6E654472 
+ 555 003b 2053656D 		.ascii	" Semester\\Projekt 3 - Karaoke Maskinen\\Syng_og_Sa"
+ 555      65737465 
+ 555      725C5072 
+ 555      6F6A656B 
+ 555      74203320 
+ 556 006c 6D6D656E 		.ascii	"mmenlign\\PRJ3\\AMK\\BANAN.cydsn\000"
+ 556      6C69676E 
+ 556      5C50524A 
+ 556      335C414D 
+ 556      4B5C4241 
+ 557              	.LASF25:
+ 558 008a 53504953 		.ascii	"SPIS_1_Enable\000"
+ 558      5F315F45 
+ 558      6E61626C 
+ 558      6500
+ 559              	.LASF3:
+ 560 0098 73686F72 		.ascii	"short unsigned int\000"
+ 560      7420756E 
+ 560      7369676E 
+ 560      65642069 
+ 560      6E7400
+ 561              	.LASF21:
+ 562 00ab 53504953 		.ascii	"SPIS_1_Sleep\000"
+ 562      5F315F53 
+ 562      6C656570 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 14
 
 
- 565      20726576 
- 565      6973696F 
- 565      6E203233 
- 565      37373135 
- 566 00b4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 566      66756E63 
- 566      74696F6E 
- 566      2D736563 
- 566      74696F6E 
- 567              	.LASF13:
- 568 00dc 72656738 		.ascii	"reg8\000"
- 568      00
- 569              	.LASF5:
- 570 00e1 6C6F6E67 		.ascii	"long unsigned int\000"
- 570      20756E73 
- 570      69676E65 
- 570      6420696E 
- 570      7400
- 571              	.LASF12:
- 572 00f3 75696E74 		.ascii	"uint8\000"
- 572      3800
- 573              	.LASF19:
- 574 00f9 53504953 		.ascii	"SPIS_1_SaveConfig\000"
- 574      5F315F53 
- 574      61766543 
- 574      6F6E6669 
- 574      6700
- 575              	.LASF10:
- 576 010b 646F7562 		.ascii	"double\000"
- 576      6C6500
- 577              	.LASF29:
- 578 0112 53504953 		.ascii	"SPIS_1_backup\000"
- 578      5F315F62 
- 578      61636B75 
- 578      7000
- 579              	.LASF20:
- 580 0120 53504953 		.ascii	"SPIS_1_RestoreConfig\000"
- 580      5F315F52 
- 580      6573746F 
- 580      7265436F 
- 580      6E666967 
- 581              	.LASF18:
- 582 0135 53504953 		.ascii	"SPIS_1_BACKUP_STRUCT\000"
- 582      5F315F42 
- 582      41434B55 
- 582      505F5354 
- 582      52554354 
- 583              	.LASF17:
- 584 014a 636E7472 		.ascii	"cntrPeriod\000"
- 584      50657269 
- 584      6F6400
- 585              	.LASF16:
- 586 0155 656E6162 		.ascii	"enableState\000"
- 586      6C655374 
- 586      61746500 
- 587              	.LASF8:
- 588 0161 756E7369 		.ascii	"unsigned int\000"
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 15
+ 562      00
+ 563              	.LASF9:
+ 564 00b8 666C6F61 		.ascii	"float\000"
+ 564      7400
+ 565              	.LASF1:
+ 566 00be 756E7369 		.ascii	"unsigned char\000"
+ 566      676E6564 
+ 566      20636861 
+ 566      7200
+ 567              	.LASF26:
+ 568 00cc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 568      43313120 
+ 568      352E342E 
+ 568      31203230 
+ 568      31363036 
+ 569 00ff 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 569      20726576 
+ 569      6973696F 
+ 569      6E203233 
+ 569      37373135 
+ 570 0132 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 570      66756E63 
+ 570      74696F6E 
+ 570      2D736563 
+ 570      74696F6E 
+ 571              	.LASF13:
+ 572 015a 72656738 		.ascii	"reg8\000"
+ 572      00
+ 573              	.LASF5:
+ 574 015f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 574      20756E73 
+ 574      69676E65 
+ 574      6420696E 
+ 574      7400
+ 575              	.LASF12:
+ 576 0171 75696E74 		.ascii	"uint8\000"
+ 576      3800
+ 577              	.LASF19:
+ 578 0177 53504953 		.ascii	"SPIS_1_SaveConfig\000"
+ 578      5F315F53 
+ 578      61766543 
+ 578      6F6E6669 
+ 578      6700
+ 579              	.LASF10:
+ 580 0189 646F7562 		.ascii	"double\000"
+ 580      6C6500
+ 581              	.LASF29:
+ 582 0190 53504953 		.ascii	"SPIS_1_backup\000"
+ 582      5F315F62 
+ 582      61636B75 
+ 582      7000
+ 583              	.LASF20:
+ 584 019e 53504953 		.ascii	"SPIS_1_RestoreConfig\000"
+ 584      5F315F52 
+ 584      6573746F 
+ 584      7265436F 
+ 584      6E666967 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 15
 
 
- 588      676E6564 
- 588      20696E74 
- 588      00
- 589              	.LASF24:
- 590 016e 53504953 		.ascii	"SPIS_1_ClearFIFO\000"
- 590      5F315F43 
- 590      6C656172 
- 590      4649464F 
+ 585              	.LASF18:
+ 586 01b3 53504953 		.ascii	"SPIS_1_BACKUP_STRUCT\000"
+ 586      5F315F42 
+ 586      41434B55 
+ 586      505F5354 
+ 586      52554354 
+ 587              	.LASF17:
+ 588 01c8 636E7472 		.ascii	"cntrPeriod\000"
+ 588      50657269 
+ 588      6F6400
+ 589              	.LASF8:
+ 590 01d3 756E7369 		.ascii	"unsigned int\000"
+ 590      676E6564 
+ 590      20696E74 
  590      00
- 591              	.LASF22:
- 592 017f 53504953 		.ascii	"SPIS_1_Wakeup\000"
- 592      5F315F57 
- 592      616B6575 
- 592      7000
- 593              	.LASF7:
- 594 018d 6C6F6E67 		.ascii	"long long unsigned int\000"
- 594      206C6F6E 
- 594      6720756E 
- 594      7369676E 
- 594      65642069 
- 595              	.LASF15:
- 596 01a4 73697A65 		.ascii	"sizetype\000"
- 596      74797065 
- 596      00
- 597              	.LASF6:
- 598 01ad 6C6F6E67 		.ascii	"long long int\000"
- 598      206C6F6E 
- 598      6720696E 
- 598      7400
- 599              	.LASF11:
- 600 01bb 63686172 		.ascii	"char\000"
- 600      00
- 601              	.LASF2:
- 602 01c0 73686F72 		.ascii	"short int\000"
- 602      7420696E 
- 602      7400
- 603              	.LASF4:
- 604 01ca 6C6F6E67 		.ascii	"long int\000"
- 604      20696E74 
- 604      00
- 605              	.LASF28:
- 606 01d3 433A5C55 		.ascii	"C:\\Users\\hanad\\OneDrive\\Dokumenter\\3. Semester"
- 606      73657273 
- 606      5C68616E 
- 606      61645C4F 
- 606      6E654472 
- 607 0201 5C50726F 		.ascii	"\\Projekt\\repos\\Projects\\PRJ3\\AMK\\BANAN.cydsn\000"
- 607      6A656B74 
- 607      5C726570 
- 607      6F735C50 
- 607      726F6A65 
- 608              	.LASF14:
- 609 022e 6C6F6E67 		.ascii	"long double\000"
- 609      20646F75 
- 609      626C6500 
- 610              	.LASF0:
- 611 023a 7369676E 		.ascii	"signed char\000"
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccz11xkj.s 			page 16
+ 591              	.LASF24:
+ 592 01e0 53504953 		.ascii	"SPIS_1_ClearFIFO\000"
+ 592      5F315F43 
+ 592      6C656172 
+ 592      4649464F 
+ 592      00
+ 593              	.LASF22:
+ 594 01f1 53504953 		.ascii	"SPIS_1_Wakeup\000"
+ 594      5F315F57 
+ 594      616B6575 
+ 594      7000
+ 595              	.LASF7:
+ 596 01ff 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 596      206C6F6E 
+ 596      6720756E 
+ 596      7369676E 
+ 596      65642069 
+ 597              	.LASF15:
+ 598 0216 73697A65 		.ascii	"sizetype\000"
+ 598      74797065 
+ 598      00
+ 599              	.LASF6:
+ 600 021f 6C6F6E67 		.ascii	"long long int\000"
+ 600      206C6F6E 
+ 600      6720696E 
+ 600      7400
+ 601              	.LASF11:
+ 602 022d 63686172 		.ascii	"char\000"
+ 602      00
+ 603              	.LASF2:
+ 604 0232 73686F72 		.ascii	"short int\000"
+ 604      7420696E 
+ 604      7400
+ 605              	.LASF4:
+ 606 023c 6C6F6E67 		.ascii	"long int\000"
+ 606      20696E74 
+ 606      00
+ 607              	.LASF16:
+ 608 0245 656E6162 		.ascii	"enableState\000"
+ 608      6C655374 
+ 608      61746500 
+ 609              	.LASF14:
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccNMHtpV.s 			page 16
 
 
- 611      65642063 
- 611      68617200 
- 612              	.LASF27:
- 613 0246 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPIS_1_PM.c\000"
- 613      72617465 
- 613      645F536F 
- 613      75726365 
- 613      5C50536F 
- 614              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 610 0251 6C6F6E67 		.ascii	"long double\000"
+ 610      20646F75 
+ 610      626C6500 
+ 611              	.LASF0:
+ 612 025d 7369676E 		.ascii	"signed char\000"
+ 612      65642063 
+ 612      68617200 
+ 613              	.LASF27:
+ 614 0269 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPIS_1_PM.c\000"
+ 614      72617465 
+ 614      645F536F 
+ 614      75726365 
+ 614      5C50536F 
+ 615              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

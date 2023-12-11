@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
   29:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
   30:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
   31:Generated_Source\PSoC5/ADC_DelSig_1.c **** /***************************************
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 2
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Global data allocation
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
   86:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
   87:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
   88:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  None
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 3
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 3
 
 
   89:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  143:Generated_Source\PSoC5/ADC_DelSig_1.c ****                                           ADC_DelSig_1_CFG2);
  144:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #endif /* ADC_DelSig_1_DEFAULT_NUM_CONFIGS > 1 */
  145:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #if(ADC_DelSig_1_DEFAULT_NUM_CONFIGS > 2)
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 4
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 4
 
 
  146:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_GainCompensation(ADC_DelSig_1_CFG3_INPUT_RANGE,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  200:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_DEC_REG |= ADC_DelSig_1_STBY_PWR_DEC_EN;
  201:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_DSM_REG |= ADC_DelSig_1_STBY_PWR_DSM_EN;
  202:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 5
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 5
 
 
  203:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Disable PRES, Enable power to VCMBUF0, REFBUF0 and REFBUF1, enable PRES */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  257:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG3_REFERENCE != ADC_DelSig_1_EXT_REF_ON_P32))) ||
  258:Generated_Source\PSoC5/ADC_DelSig_1.c ****              ((config == 4u) &&
  259:Generated_Source\PSoC5/ADC_DelSig_1.c ****               (ADC_DelSig_1_CFG4_INPUT_RANGE == ADC_DelSig_1_IR_VSSA_TO_2VREF) &&
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 6
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 6
 
 
  260:Generated_Source\PSoC5/ADC_DelSig_1.c ****              ((ADC_DelSig_1_CFG4_REFERENCE != ADC_DelSig_1_EXT_REF_ON_P03) &&
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  314:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  Subsequent calls of the Start function only enable the ADC and turn
  315:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  on the power. If multiple configurations are selected, it will
  316:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  configure the ADC for configuration 1 by default, unless the
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 7
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 7
 
 
  317:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  ADC_DelSig_1_SelectConfiguration( ) function has been called to change
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  371:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  372:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Stop conversions */
  373:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_DEC_CR_REG &= (uint8)~ADC_DelSig_1_DEC_START_CONV;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 8
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 8
 
 
  374:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_DEC_SR_REG |=  ADC_DelSig_1_DEC_INTR_CLEAR;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  428:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  gain:  Two bit value to select a gain of 1, 2, 4, or 8.
  429:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  430:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 9
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 9
 
 
  431:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  None
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  485:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  Calculates a new GCOR value and writes it into the GCOR register. 
  486:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  The GCOR value is a 16-bit value that represents a gain of 0 to 2. 
  487:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  The ADC result is multiplied by this value before it is placed in the ADC 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 10
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 10
 
 
  488:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  output registers. The numerical format for the GCOR value is:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  542:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  543:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Summary:
  544:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  This API returns the current GCOR register value, normalized based on the
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 11
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 11
 
 
  545:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  GVAL register settings.
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  599:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_StopConvert
  600:Generated_Source\PSoC5/ADC_DelSig_1.c **** ********************************************************************************
  601:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 12
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 12
 
 
  602:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Summary:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  656:Generated_Source\PSoC5/ADC_DelSig_1.c ****         *   resolution above 16 bit
  657:Generated_Source\PSoC5/ADC_DelSig_1.c ****         */
  658:Generated_Source\PSoC5/ADC_DelSig_1.c ****         if(ADC_DelSig_1_stopConversion != 0u)
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 13
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 13
 
 
  659:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  713:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
  714:Generated_Source\PSoC5/ADC_DelSig_1.c ****     else /*No action required for other coherency */
  715:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 14
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 14
 
 
  716:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  770:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (CY_GET_REG16(ADC_DelSig_1_DEC_SAMP_16B_PTR));
  771:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #else
  772:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = ADC_DelSig_1_DEC_SAMP_REG;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 15
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 15
 
 
  773:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result |=  (uint16)((uint16)ADC_DelSig_1_DEC_SAMPM_REG << 8u);
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  827:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 result |= 0xFF00u;
  828:Generated_Source\PSoC5/ADC_DelSig_1.c ****             }
  829:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (result << 8u) | ADC_DelSig_1_DEC_SAMPM_REG;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 16
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 16
 
 
  830:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (result << 8u) | ADC_DelSig_1_DEC_SAMP_REG;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  884:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  given reading before calculating the voltage conversion.
  885:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  886:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Parameters:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 17
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 17
 
 
  887:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  int32:  This value is a measured value when the inputs are shorted or 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  941:Generated_Source\PSoC5/ADC_DelSig_1.c **** }
  942:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  943:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 18
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 18
 
 
  944:Generated_Source\PSoC5/ADC_DelSig_1.c **** /*******************************************************************************
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  998:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  999:Generated_Source\PSoC5/ADC_DelSig_1.c ****     mVolts = (int16)(( adcCounts * ADC_DelSig_1_1MV_COUNTS ) / ADC_DelSig_1_CountsPerVolt) ;
 1000:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 19
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 19
 
 
 1001:Generated_Source\PSoC5/ADC_DelSig_1.c ****     return(mVolts);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1055:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #endif /* ADC_DelSig_1_CFG2_DEC_DIV */
 1056:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1057:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Subtract ADC offset */
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 20
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 20
 
 
 1058:Generated_Source\PSoC5/ADC_DelSig_1.c ****     adcCounts -= ADC_DelSig_1_Offset;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1112:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #if(ADC_DelSig_1_CFG2_DEC_DIV != 0)
 1113:Generated_Source\PSoC5/ADC_DelSig_1.c ****             adcCounts /= ADC_DelSig_1_CFG2_DEC_DIV;
 1114:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #endif /* ADC_DelSig_1_CFG2_DEC_DIV */
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 21
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 21
 
 
 1115:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1169:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #if( (ADC_DelSig_1_CFG1_RESOLUTION == ADC_DelSig_1__BITS_16) || \
 1170:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG2_RESOLUTION == ADC_DelSig_1__BITS_16) || \
 1171:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG3_RESOLUTION == ADC_DelSig_1__BITS_16) || \
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 22
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 22
 
 
 1172:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG4_RESOLUTION == ADC_DelSig_1__BITS_16) )
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1226:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1227:Generated_Source\PSoC5/ADC_DelSig_1.c **** /*******************************************************************************
 1228:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_InitConfig(uint8 config)
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 23
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 23
 
 
 1229:Generated_Source\PSoC5/ADC_DelSig_1.c **** ********************************************************************************
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1283:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_BUF2_REG    = ADC_DelSig_1_CFG1_DSM_BUF2;
 1284:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_BUF3_REG    = ADC_DelSig_1_CFG1_DSM_BUF3;
 1285:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 24
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 24
 
 
 1286:Generated_Source\PSoC5/ADC_DelSig_1.c ****         /* To select either Vssa or Vref to -ve input of DSM depending on
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1340:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR11_REG    = ADC_DelSig_1_CFG2_DSM_CR11;
 1341:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR12_REG    = ADC_DelSig_1_CFG2_DSM_CR12;
 1342:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR14_REG    = ADC_DelSig_1_CFG2_DSM_CR14;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 25
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 25
 
 
 1343:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR15_REG    = ADC_DelSig_1_CFG2_DSM_CR15;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1397:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT1_REG  = ADC_DelSig_1_CFG3_DEC_SHIFT1;
 1398:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT2_REG  = ADC_DelSig_1_CFG3_DEC_SHIFT2;
 1399:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2_REG     = ADC_DelSig_1_CFG3_DEC_DR2;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 26
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 26
 
 
 1400:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2H_REG    = ADC_DelSig_1_CFG3_DEC_DR2H;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1454:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1455:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #if(ADC_DelSig_1_IRQ_REMOVE == 0u)
 1456:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 /* Set interrupt vector */
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 27
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 27
 
 
 1457:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 (void)CyIntSetVector(ADC_DelSig_1_INTC_NUMBER, &ADC_DelSig_1_ISR3);
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1511:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #if(ADC_DelSig_1_CFG4_RESOLUTION > 16 && \
 1512:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 ADC_DelSig_1_CFG4_CONV_MODE == ADC_DelSig_1_MODE_SINGLE_SAMPLE)
 1513:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 ADC_DelSig_1_stopConversion = 1u;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 28
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 28
 
 
 1514:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #endif /* Single sample with resolution above 16 bits */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1568:Generated_Source\PSoC5/ADC_DelSig_1.c **** 		*/
 1569:Generated_Source\PSoC5/ADC_DelSig_1.c ****         if(ADC_DelSig_1_initVar == 0u)
 1570:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 29
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 29
 
 
 1571:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_started = 1u;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1625:Generated_Source\PSoC5/ADC_DelSig_1.c **** static void ADC_DelSig_1_GainCompensation(uint8 inputRange, uint16 idealDecGain, uint16 idealOddDec
 1626:Generated_Source\PSoC5/ADC_DelSig_1.c ****                               uint8 resolution, uint8 config) 
 1627:Generated_Source\PSoC5/ADC_DelSig_1.c **** {
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 30
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 30
 
 
   27              		.loc 1 1627 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
   66              		.loc 1 1642 0
   67 0026 2548     		ldr	r0, .L18
   68 0028 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 31
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 31
 
 
   69 002a 40B2     		sxtb	r0, r0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  101              		.loc 1 1664 0
  102 004a 0F2B     		cmp	r3, #15
  103 004c 03D9     		bls	.L11
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 32
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 32
 
 
 1665:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1684:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 break;
 1685:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1686:Generated_Source\PSoC5/ADC_DelSig_1.c ****             default:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 33
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 33
 
 
 1687:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 flash = 0;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1704:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_gcor[config - 1u].gval = ADC_DelSig_1_MAX_GVAL;
  176              		.loc 1 1704 0
  177 009c 631E     		subs	r3, r4, #1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 34
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 34
 
 
  178              	.LVL29:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1716:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1717:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1718:Generated_Source\PSoC5/ADC_DelSig_1.c **** /******************************************************************************
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 35
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 35
 
 
 1719:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_SetDSMRef0Reg(uint8)
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1741:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1742:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Wait for 3 microseconds */
 1743:Generated_Source\PSoC5/ADC_DelSig_1.c ****     CyDelayUs(ADC_DelSig_1_PRES_DELAY_TIME);
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 36
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 36
 
 
  253              		.loc 1 1743 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1249:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  301              		.loc 1 1249 0
  302 0004 0022     		movs	r2, #0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 37
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 37
 
 
  303 0006 C14B     		ldr	r3, .L30
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  345 0042 5022     		movs	r2, #80
  346 0044 03F52763 		add	r3, r3, #2672
  347 0048 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 38
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 38
 
 
 1266:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_CR6_REG     = ADC_DelSig_1_CFG1_DSM_CR6;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1278:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_REF3_REG    = ADC_DelSig_1_CFG1_DSM_REF3;
  391              		.loc 1 1278 0
  392 0088 5822     		movs	r2, #88
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 39
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 39
 
 
  393 008a A24B     		ldr	r3, .L30+8
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  436 00ca 022C     		cmp	r4, #2
  437 00cc 5DD1     		bne	.L26
 1324:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT1_REG  = ADC_DelSig_1_CFG2_DEC_SHIFT1;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 40
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 40
 
 
  438              		.loc 1 1324 0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  481 010e 1A70     		strb	r2, [r3]
 1337:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR7_REG     = ADC_DelSig_1_CFG2_DSM_CR7;
  482              		.loc 1 1337 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 41
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 41
 
 
  483 0110 2C22     		movs	r2, #44
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  526 0150 1D70     		strb	r5, [r3]
 1351:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_BUF1_REG    = ADC_DelSig_1_CFG2_DSM_BUF1;
  527              		.loc 1 1351 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 42
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 42
 
 
  528 0152 0533     		adds	r3, r3, #5
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  571              		.loc 1 1397 0
  572 0194 0422     		movs	r2, #4
  573 0196 0233     		adds	r3, r3, #2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 43
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 43
 
 
  574 0198 1A70     		strb	r2, [r3]
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  616 01d6 0133     		adds	r3, r3, #1
  617 01d8 1D70     		strb	r5, [r3]
 1411:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR11_REG    = ADC_DelSig_1_CFG3_DSM_CR11;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 44
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 44
 
 
  618              		.loc 1 1411 0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  661 0218 0133     		adds	r3, r3, #1
  662 021a 1A70     		strb	r2, [r3]
 1425:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_BUF3_REG    = ADC_DelSig_1_CFG3_DSM_BUF3;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 45
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 45
 
 
  663              		.loc 1 1425 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  707 025e 1A70     		strb	r2, [r3]
 1469:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2H_REG    = ADC_DelSig_1_CFG4_DEC_DR2H;
  708              		.loc 1 1469 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 46
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 46
 
 
  709 0260 0024     		movs	r4, #0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  751              		.loc 1 1482 0
  752 02a0 5A22     		movs	r2, #90
  753 02a2 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 47
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 47
 
 
  754 02a4 1A70     		strb	r2, [r3]
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  796 02e0 0133     		adds	r3, r3, #1
  797 02e2 1C70     		strb	r4, [r3]
 1505:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 #endif /* ADC_DelSig_1_IR_VSSA_TO_2VREF) */
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 48
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 48
 
 
  798              		.loc 1 1505 0
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  847              		@ args = 0, pretend = 0, frame = 0
  848              		@ frame_needed = 0, uses_anonymous_args = 0
  849 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 49
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 49
 
 
  850              		.cfi_def_cfa_offset 24
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  114:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  895              		.loc 1 114 0
  896 0042 2E4B     		ldr	r3, .L34+16
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 50
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 50
 
 
  897 0044 1C70     		strb	r4, [r3]
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  940 0090 1023     		movs	r3, #16
  941 0092 4FF40042 		mov	r2, #32768
  942 0096 49F2DA01 		movw	r1, #37082
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 51
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 51
 
 
  943 009a 2046     		mov	r0, r4
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  991 00f8 075B0040 		.word	1073765127
  992 00fc 93580040 		.word	1073764499
  993 0100 0E4E0040 		.word	1073761806
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 52
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 52
 
 
  994 0104 0C4E0040 		.word	1073761804
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1041 002a 42F01002 		orr	r2, r2, #16
  1042 002e 1A70     		strb	r2, [r3]
  204:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_RESET_CR5_REG |= ADC_DelSig_1_IGNORE_PRESA2;
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 53
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 53
 
 
  1043              		.loc 1 204 0
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1088 0086 1370     		strb	r3, [r2]
  292:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_CHARGE_PUMP_CLK_REG |= ADC_DelSig_1_STBY_PWR_CHARGE_PUMP_CLK_EN;
  1089              		.loc 1 292 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 54
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 54
 
 
  1090 0088 0F3A     		subs	r2, r2, #15
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1139 0000 08B5     		push	{r3, lr}
  1140              		.cfi_def_cfa_offset 8
  1141              		.cfi_offset 3, -8
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 55
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 55
 
 
  1142              		.cfi_offset 14, -4
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  370:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  1190              		.loc 1 370 0
  1191 0002 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 56
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 56
 
 
  1192              	.LVL79:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  392:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  1237              		.loc 1 392 0
  1238 005c 1F4B     		ldr	r3, .L48+12
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 57
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 57
 
 
  1239 005e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1284 00be 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  1285 00c0 03F0FE03 		and	r3, r3, #254
  1286 00c4 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 58
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 58
 
 
  416:Generated_Source\PSoC5/ADC_DelSig_1.c **** }
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1336              		.cfi_endproc
  1337              	.LFE4:
  1338              		.size	ADC_DelSig_1_SetBufferGain, .-ADC_DelSig_1_SetBufferGain
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 59
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 59
 
 
  1339              		.section	.text.ADC_DelSig_1_SetCoherency,"ax",%progbits
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1388              		@ args = 0, pretend = 0, frame = 0
  1389              		@ frame_needed = 0, uses_anonymous_args = 0
  1390              	.LVL92:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 60
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 60
 
 
  1391 0000 10B5     		push	{r4, lr}
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1437              		.loc 1 530 0
  1438 0048 074B     		ldr	r3, .L60+8
  1439 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 61
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 61
 
 
  1440 004c 013B     		subs	r3, r3, #1
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1488 000a 80B2     		uxth	r0, r0
  1489              	.LVL110:
  565:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 62
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 62
 
 
  1490              		.loc 1 565 0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1540              		.thumb
  1541              		.thumb_func
  1542              		.type	ADC_DelSig_1_StopConvert, %function
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 63
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 63
 
 
  1543              	ADC_DelSig_1_StopConvert:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1591              		.loc 1 664 0
  1592 0012 064B     		ldr	r3, .L77+4
  1593 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 64
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 64
 
 
  1594 0016 03F00103 		and	r3, r3, #1
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1641 0010 02D1     		bne	.L80
  708:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
  1642              		.loc 1 708 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 65
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 65
 
 
  1643 0012 0A4B     		ldr	r3, .L83+8
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1691              		@ frame_needed = 0, uses_anonymous_args = 0
  1692              		@ link register save eliminated.
  756:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 66
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 66
 
 
  1693              		.loc 1 756 0
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1738 0038 00B2     		sxth	r0, r0
  1739 003a 7047     		bx	lr
  1740              	.L90:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 67
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 67
 
 
  1741              		.align	2
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  846:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (result << 16u) | ADC_DelSig_1_DEC_SAMP_REG;
  1789              		.loc 1 846 0
  1790 0020 0E4B     		ldr	r3, .L96+4
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 68
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 68
 
 
  1791              	.LVL136:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1838 0068 00000000 		.word	.LANCHOR0
  1839              		.cfi_endproc
  1840              	.LFE13:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 69
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 69
 
 
  1841              		.size	ADC_DelSig_1_GetResult32, .-ADC_DelSig_1_GetResult32
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1891              		.size	ADC_DelSig_1_SetGain, .-ADC_DelSig_1_SetGain
  1892              		.section	.text.ADC_DelSig_1_CountsTo_mVolts,"ax",%progbits
  1893              		.align	2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 70
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 70
 
 
  1894              		.global	ADC_DelSig_1_CountsTo_mVolts
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1943              		@ frame_needed = 0, uses_anonymous_args = 0
  1944              	.LVL150:
  1945 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 71
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 71
 
 
  1946              		.cfi_def_cfa_offset 8
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  1995 0006 012B     		cmp	r3, #1
  1996 0008 06D0     		beq	.L112
 1109:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 72
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 72
 
 
  1997              		.loc 1 1109 0
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2047              	.LFB20:
 1562:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Check whether the configuration number is valid or not */
  2048              		.loc 1 1562 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 73
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 73
 
 
  2049              		.cfi_startproc
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2095 003c 1A80     		strh	r2, [r3]	@ movhi
 1587:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
  2096              		.loc 1 1587 0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 74
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 74
 
 
  2097 003e 012D     		cmp	r5, #1
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1764:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  None
 1765:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
 1766:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 75
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 75
 
 
 1767:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  int8:  ADC result.
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2171              		.size	ADC_DelSig_1_Read8, .-ADC_DelSig_1_Read8
  2172              		.section	.text.ADC_DelSig_1_Read16,"ax",%progbits
  2173              		.align	2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 76
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 76
 
 
  2174              		.global	ADC_DelSig_1_Read16
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
 1811:Generated_Source\PSoC5/ADC_DelSig_1.c ****      result = ADC_DelSig_1_GetResult16();
  2200              		.loc 1 1811 0
  2201 0016 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 77
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 77
 
 
  2202              	.LVL178:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2230              		@ frame_needed = 0, uses_anonymous_args = 0
  2231 0000 10B5     		push	{r4, lr}
  2232              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 78
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 78
 
 
  2233              		.cfi_offset 4, -8
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2276              		.size	ADC_DelSig_1_Config, 1
  2277              	ADC_DelSig_1_Config:
  2278 0000 01       		.byte	1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 79
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 79
 
 
  2279              		.bss
@@ -4726,48 +4726,48 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2318 0006 00000000 		.4byte	.Ldebug_abbrev0
  2319 000a 04       		.byte	0x4
  2320 000b 01       		.uleb128 0x1
- 2321 000c 22040000 		.4byte	.LASF101
+ 2321 000c 45040000 		.4byte	.LASF101
  2322 0010 0C       		.byte	0xc
- 2323 0011 0A060000 		.4byte	.LASF102
- 2324 0015 45010000 		.4byte	.LASF103
+ 2323 0011 2D060000 		.4byte	.LASF102
+ 2324 0015 93000000 		.4byte	.LASF103
  2325 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2326 001d 00000000 		.4byte	0
  2327 0021 00000000 		.4byte	.Ldebug_line0
  2328 0025 02       		.uleb128 0x2
  2329 0026 04       		.byte	0x4
  2330 0027 04       		.byte	0x4
- 2331 0028 97030000 		.4byte	.LASF0
+ 2331 0028 BA030000 		.4byte	.LASF0
  2332 002c 02       		.uleb128 0x2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 80
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 80
 
 
  2333 002d 01       		.byte	0x1
  2334 002e 06       		.byte	0x6
- 2335 002f F3000000 		.4byte	.LASF1
+ 2335 002f 71010000 		.4byte	.LASF1
  2336 0033 02       		.uleb128 0x2
  2337 0034 01       		.byte	0x1
  2338 0035 08       		.byte	0x8
- 2339 0036 EB030000 		.4byte	.LASF2
+ 2339 0036 0E040000 		.4byte	.LASF2
  2340 003a 02       		.uleb128 0x2
  2341 003b 02       		.byte	0x2
  2342 003c 05       		.byte	0x5
- 2343 003d 10040000 		.4byte	.LASF3
+ 2343 003d 33040000 		.4byte	.LASF3
  2344 0041 02       		.uleb128 0x2
  2345 0042 02       		.byte	0x2
  2346 0043 07       		.byte	0x7
- 2347 0044 2B020000 		.4byte	.LASF4
+ 2347 0044 4E020000 		.4byte	.LASF4
  2348 0048 02       		.uleb128 0x2
  2349 0049 04       		.byte	0x4
  2350 004a 05       		.byte	0x5
- 2351 004b 19010000 		.4byte	.LASF5
+ 2351 004b 97010000 		.4byte	.LASF5
  2352 004f 02       		.uleb128 0x2
  2353 0050 04       		.byte	0x4
  2354 0051 07       		.byte	0x7
- 2355 0052 ED010000 		.4byte	.LASF6
+ 2355 0052 10020000 		.4byte	.LASF6
  2356 0056 02       		.uleb128 0x2
  2357 0057 08       		.byte	0x8
  2358 0058 05       		.byte	0x5
- 2359 0059 E5000000 		.4byte	.LASF7
+ 2359 0059 63010000 		.4byte	.LASF7
  2360 005d 02       		.uleb128 0x2
  2361 005e 08       		.byte	0x8
  2362 005f 07       		.byte	0x7
@@ -4779,9 +4779,9 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2368 006b 02       		.uleb128 0x2
  2369 006c 04       		.byte	0x4
  2370 006d 07       		.byte	0x7
- 2371 006e C4010000 		.4byte	.LASF9
+ 2371 006e E7010000 		.4byte	.LASF9
  2372 0072 04       		.uleb128 0x4
- 2373 0073 28010000 		.4byte	.LASF10
+ 2373 0073 A6010000 		.4byte	.LASF10
  2374 0077 02       		.byte	0x2
  2375 0078 E801     		.2byte	0x1e8
  2376 007a 33000000 		.4byte	0x33
@@ -4791,57 +4791,57 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2380 0084 E901     		.2byte	0x1e9
  2381 0086 41000000 		.4byte	0x41
  2382 008a 04       		.uleb128 0x4
- 2383 008b A0010000 		.4byte	.LASF12
+ 2383 008b C3010000 		.4byte	.LASF12
  2384 008f 02       		.byte	0x2
  2385 0090 EA01     		.2byte	0x1ea
  2386 0092 4F000000 		.4byte	0x4f
  2387 0096 04       		.uleb128 0x4
- 2388 0097 3E020000 		.4byte	.LASF13
+ 2388 0097 61020000 		.4byte	.LASF13
  2389 009b 02       		.byte	0x2
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 81
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 81
 
 
  2390 009c EB01     		.2byte	0x1eb
  2391 009e 2C000000 		.4byte	0x2c
  2392 00a2 04       		.uleb128 0x4
- 2393 00a3 55060000 		.4byte	.LASF14
+ 2393 00a3 78060000 		.4byte	.LASF14
  2394 00a7 02       		.byte	0x2
  2395 00a8 EC01     		.2byte	0x1ec
  2396 00aa 3A000000 		.4byte	0x3a
  2397 00ae 04       		.uleb128 0x4
- 2398 00af FF000000 		.4byte	.LASF15
+ 2398 00af 7D010000 		.4byte	.LASF15
  2399 00b3 02       		.byte	0x2
  2400 00b4 ED01     		.2byte	0x1ed
  2401 00b6 48000000 		.4byte	0x48
  2402 00ba 04       		.uleb128 0x4
- 2403 00bb A7020000 		.4byte	.LASF16
+ 2403 00bb CA020000 		.4byte	.LASF16
  2404 00bf 02       		.byte	0x2
  2405 00c0 EE01     		.2byte	0x1ee
  2406 00c2 25000000 		.4byte	0x25
  2407 00c6 02       		.uleb128 0x2
  2408 00c7 08       		.byte	0x8
  2409 00c8 04       		.byte	0x4
- 2410 00c9 38010000 		.4byte	.LASF17
+ 2410 00c9 B6010000 		.4byte	.LASF17
  2411 00cd 02       		.uleb128 0x2
  2412 00ce 01       		.byte	0x1
  2413 00cf 08       		.byte	0x8
- 2414 00d0 FA040000 		.4byte	.LASF18
+ 2414 00d0 1D050000 		.4byte	.LASF18
  2415 00d4 04       		.uleb128 0x4
- 2416 00d5 C7030000 		.4byte	.LASF19
+ 2416 00d5 EA030000 		.4byte	.LASF19
  2417 00d9 02       		.byte	0x2
  2418 00da 9202     		.2byte	0x292
  2419 00dc E0000000 		.4byte	0xe0
  2420 00e0 05       		.uleb128 0x5
  2421 00e1 72000000 		.4byte	0x72
  2422 00e5 04       		.uleb128 0x4
- 2423 00e6 22010000 		.4byte	.LASF20
+ 2423 00e6 A0010000 		.4byte	.LASF20
  2424 00ea 02       		.byte	0x2
  2425 00eb 9302     		.2byte	0x293
  2426 00ed F1000000 		.4byte	0xf1
  2427 00f1 05       		.uleb128 0x5
  2428 00f2 7E000000 		.4byte	0x7e
  2429 00f6 04       		.uleb128 0x4
- 2430 00f7 85020000 		.4byte	.LASF21
+ 2430 00f7 A8020000 		.4byte	.LASF21
  2431 00fb 02       		.byte	0x2
  2432 00fc 9402     		.2byte	0x294
  2433 00fe 02010000 		.4byte	0x102
@@ -4850,15 +4850,15 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2436 0107 02       		.uleb128 0x2
  2437 0108 08       		.byte	0x8
  2438 0109 04       		.byte	0x4
- 2439 010a E7020000 		.4byte	.LASF22
+ 2439 010a 0A030000 		.4byte	.LASF22
  2440 010e 02       		.uleb128 0x2
  2441 010f 04       		.byte	0x4
  2442 0110 07       		.byte	0x7
- 2443 0111 C8020000 		.4byte	.LASF23
+ 2443 0111 EB020000 		.4byte	.LASF23
  2444 0115 06       		.uleb128 0x6
  2445 0116 04       		.byte	0x4
  2446 0117 03       		.byte	0x3
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 82
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 82
 
 
  2447 0118 2F       		.byte	0x2f
@@ -4870,19 +4870,19 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2453 0124 7E000000 		.4byte	0x7e
  2454 0128 00       		.byte	0
  2455 0129 07       		.uleb128 0x7
- 2456 012a 3B050000 		.4byte	.LASF25
+ 2456 012a 5E050000 		.4byte	.LASF25
  2457 012e 03       		.byte	0x3
  2458 012f 32       		.byte	0x32
  2459 0130 72000000 		.4byte	0x72
  2460 0134 02       		.byte	0x2
  2461 0135 00       		.byte	0
  2462 0136 08       		.uleb128 0x8
- 2463 0137 7E030000 		.4byte	.LASF26
+ 2463 0137 A1030000 		.4byte	.LASF26
  2464 013b 03       		.byte	0x3
  2465 013c 33       		.byte	0x33
  2466 013d 15010000 		.4byte	0x115
  2467 0141 09       		.uleb128 0x9
- 2468 0142 A2050000 		.4byte	.LASF36
+ 2468 0142 C5050000 		.4byte	.LASF36
  2469 0146 01       		.byte	0x1
  2470 0147 5906     		.2byte	0x659
  2471 0149 00000000 		.4byte	.LFB21
@@ -4897,52 +4897,52 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2480 015f 72000000 		.4byte	0x72
  2481 0163 00000000 		.4byte	.LLST0
  2482 0167 0A       		.uleb128 0xa
- 2483 0168 CC030000 		.4byte	.LASF28
+ 2483 0168 EF030000 		.4byte	.LASF28
  2484 016c 01       		.byte	0x1
  2485 016d 5906     		.2byte	0x659
  2486 016f 7E000000 		.4byte	0x7e
  2487 0173 3A000000 		.4byte	.LLST1
  2488 0177 0A       		.uleb128 0xa
- 2489 0178 A5000000 		.4byte	.LASF29
+ 2489 0178 23010000 		.4byte	.LASF29
  2490 017c 01       		.byte	0x1
  2491 017d 5906     		.2byte	0x659
  2492 017f 7E000000 		.4byte	0x7e
  2493 0183 74000000 		.4byte	.LLST2
  2494 0187 0A       		.uleb128 0xa
- 2495 0188 CA040000 		.4byte	.LASF30
+ 2495 0188 ED040000 		.4byte	.LASF30
  2496 018c 01       		.byte	0x1
  2497 018d 5A06     		.2byte	0x65a
  2498 018f 72000000 		.4byte	0x72
  2499 0193 AE000000 		.4byte	.LLST3
  2500 0197 0A       		.uleb128 0xa
- 2501 0198 34050000 		.4byte	.LASF31
+ 2501 0198 57050000 		.4byte	.LASF31
  2502 019c 01       		.byte	0x1
  2503 019d 5A06     		.2byte	0x65a
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 83
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 83
 
 
  2504 019f 72000000 		.4byte	0x72
  2505 01a3 01010000 		.4byte	.LLST4
  2506 01a7 0B       		.uleb128 0xb
- 2507 01a8 7F020000 		.4byte	.LASF32
+ 2507 01a8 A2020000 		.4byte	.LASF32
  2508 01ac 01       		.byte	0x1
  2509 01ad 5C06     		.2byte	0x65c
  2510 01af 96000000 		.4byte	0x96
  2511 01b3 2D010000 		.4byte	.LLST5
  2512 01b7 0B       		.uleb128 0xb
- 2513 01b8 D9030000 		.4byte	.LASF33
+ 2513 01b8 FC030000 		.4byte	.LASF33
  2514 01bc 01       		.byte	0x1
  2515 01bd 5D06     		.2byte	0x65d
  2516 01bf AE000000 		.4byte	0xae
  2517 01c3 A3010000 		.4byte	.LLST6
  2518 01c7 0B       		.uleb128 0xb
- 2519 01c8 43020000 		.4byte	.LASF34
+ 2519 01c8 66020000 		.4byte	.LASF34
  2520 01cc 01       		.byte	0x1
  2521 01cd 5E06     		.2byte	0x65e
  2522 01cf 7E000000 		.4byte	0x7e
  2523 01d3 B6010000 		.4byte	.LLST7
  2524 01d7 0B       		.uleb128 0xb
- 2525 01d8 1A040000 		.4byte	.LASF35
+ 2525 01d8 3D040000 		.4byte	.LASF35
  2526 01dc 01       		.byte	0x1
  2527 01dd 5F06     		.2byte	0x65f
  2528 01df 8A000000 		.4byte	0x8a
@@ -4958,7 +4958,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2538 01f5 00       		.byte	0
  2539 01f6 00       		.byte	0
  2540 01f7 09       		.uleb128 0x9
- 2541 01f8 51050000 		.4byte	.LASF37
+ 2541 01f8 74050000 		.4byte	.LASF37
  2542 01fc 01       		.byte	0x1
  2543 01fd C406     		.2byte	0x6c4
  2544 01ff 00000000 		.4byte	.LFB22
@@ -4967,18 +4967,18 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2547 0208 9C       		.byte	0x9c
  2548 0209 5A020000 		.4byte	0x25a
  2549 020d 0A       		.uleb128 0xa
- 2550 020e B6010000 		.4byte	.LASF38
+ 2550 020e D9010000 		.4byte	.LASF38
  2551 0212 01       		.byte	0x1
  2552 0213 C406     		.2byte	0x6c4
  2553 0215 72000000 		.4byte	0x72
  2554 0219 F2010000 		.4byte	.LLST9
  2555 021d 0B       		.uleb128 0xb
- 2556 021e C0050000 		.4byte	.LASF39
+ 2556 021e E3050000 		.4byte	.LASF39
  2557 0222 01       		.byte	0x1
  2558 0223 C606     		.2byte	0x6c6
  2559 0225 72000000 		.4byte	0x72
  2560 0229 13020000 		.4byte	.LLST10
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 84
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 84
 
 
  2561 022d 0E       		.uleb128 0xe
@@ -5006,7 +5006,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2583 0258 00       		.byte	0
  2584 0259 00       		.byte	0
  2585 025a 09       		.uleb128 0x9
- 2586 025b B5000000 		.4byte	.LASF40
+ 2586 025b 33010000 		.4byte	.LASF40
  2587 025f 01       		.byte	0x1
  2588 0260 DF04     		.2byte	0x4df
  2589 0262 00000000 		.4byte	.LFB19
@@ -5015,7 +5015,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2592 026b 9C       		.byte	0x9c
  2593 026c 39040000 		.4byte	0x439
  2594 0270 0A       		.uleb128 0xa
- 2595 0271 34050000 		.4byte	.LASF31
+ 2595 0271 57050000 		.4byte	.LASF31
  2596 0275 01       		.byte	0x1
  2597 0276 DF04     		.2byte	0x4df
  2598 0278 72000000 		.4byte	0x72
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2615 02a1 0D       		.uleb128 0xd
  2616 02a2 01       		.uleb128 0x1
  2617 02a3 50       		.byte	0x50
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 85
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 85
 
 
  2618 02a4 02       		.uleb128 0x2
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2672 02fe 50       		.byte	0x50
  2673 02ff 02       		.uleb128 0x2
  2674 0300 08       		.byte	0x8
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 86
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 86
 
 
  2675 0301 44       		.byte	0x44
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2729 035b 01       		.uleb128 0x1
  2730 035c 4D       		.byte	0x4d
  2731 035d 00       		.byte	0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 87
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 87
 
 
  2732 035e 0F       		.uleb128 0xf
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2786 03b8 00       		.sleb128 0
  2787 03b9 00       		.byte	0
  2788 03ba 0F       		.uleb128 0xf
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 88
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 88
 
 
  2789 03bb 4A020000 		.4byte	.LVL57
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2843 041e 50       		.byte	0x50
  2844 041f 02       		.uleb128 0x2
  2845 0420 08       		.byte	0x8
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 89
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 89
 
 
  2846 0421 25       		.byte	0x25
@@ -5300,7 +5300,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2862 0437 00       		.byte	0
  2863 0438 00       		.byte	0
  2864 0439 10       		.uleb128 0x10
- 2865 043a F3020000 		.4byte	.LASF41
+ 2865 043a 16030000 		.4byte	.LASF41
  2866 043e 01       		.byte	0x1
  2867 043f 5B       		.byte	0x5b
  2868 0440 00000000 		.4byte	.LFB0
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2900 0484 01       		.uleb128 0x1
  2901 0485 4D       		.byte	0x4d
  2902 0486 0D       		.uleb128 0xd
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 90
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 90
 
 
  2903 0487 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  2957 04d1 0B       		.byte	0xb
  2958 04d2 DA90     		.2byte	0x90da
  2959 04d4 0D       		.uleb128 0xd
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 91
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 91
 
 
  2960 04d5 01       		.uleb128 0x1
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3014 051d 42050000 		.4byte	0x542
  3015 0521 0D       		.uleb128 0xd
  3016 0522 01       		.uleb128 0x1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 92
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 92
 
 
  3017 0523 50       		.byte	0x50
@@ -5504,12 +5504,12 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3057 055c 9C       		.byte	0x9c
  3058 055d A8050000 		.4byte	0x5a8
  3059 0561 11       		.uleb128 0x11
- 3060 0562 34050000 		.4byte	.LASF31
+ 3060 0562 57050000 		.4byte	.LASF31
  3061 0566 01       		.byte	0x1
  3062 0567 BC       		.byte	0xbc
  3063 0568 72000000 		.4byte	0x72
  3064 056c 12       		.uleb128 0x12
- 3065 056d C0050000 		.4byte	.LASF39
+ 3065 056d E3050000 		.4byte	.LASF39
  3066 0571 01       		.byte	0x1
  3067 0572 BD       		.byte	0xbd
  3068 0573 72000000 		.4byte	0x72
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3071 057c 06000000 		.4byte	.LVL71
  3072 0580 800B0000 		.4byte	0xb80
  3073 0584 0F       		.uleb128 0xf
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 93
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 93
 
 
  3074 0585 54000000 		.4byte	.LVL74
@@ -5542,7 +5542,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3092 05a6 00       		.byte	0
  3093 05a7 00       		.byte	0
  3094 05a8 13       		.uleb128 0x13
- 3095 05a9 42060000 		.4byte	.LASF43
+ 3095 05a9 65060000 		.4byte	.LASF43
  3096 05ad 01       		.byte	0x1
  3097 05ae 4E01     		.2byte	0x14e
  3098 05b0 00000000 		.4byte	.LFB2
@@ -5558,7 +5558,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3108 05cc 4C050000 		.4byte	0x54c
  3109 05d0 00       		.byte	0
  3110 05d1 13       		.uleb128 0x13
- 3111 05d2 93000000 		.4byte	.LASF44
+ 3111 05d2 11010000 		.4byte	.LASF44
  3112 05d6 01       		.byte	0x1
  3113 05d7 6F01     		.2byte	0x16f
  3114 05d9 00000000 		.4byte	.LFB3
@@ -5567,7 +5567,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3117 05e2 9C       		.byte	0x9c
  3118 05e3 24060000 		.4byte	0x624
  3119 05e7 0B       		.uleb128 0xb
- 3120 05e8 C0050000 		.4byte	.LASF39
+ 3120 05e8 E3050000 		.4byte	.LASF39
  3121 05ec 01       		.byte	0x1
  3122 05ed 7101     		.2byte	0x171
  3123 05ef 72000000 		.4byte	0x72
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3128 0600 0F       		.uleb128 0xf
  3129 0601 4C000000 		.4byte	.LVL81
  3130 0605 8B0B0000 		.4byte	0xb8b
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 94
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 94
 
 
  3131 0609 13060000 		.4byte	0x613
@@ -5600,7 +5600,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3147 0622 00       		.byte	0
  3148 0623 00       		.byte	0
  3149 0624 13       		.uleb128 0x13
- 3150 0625 D3060000 		.4byte	.LASF45
+ 3150 0625 F6060000 		.4byte	.LASF45
  3151 0629 01       		.byte	0x1
  3152 062a B201     		.2byte	0x1b2
  3153 062c 00000000 		.4byte	.LFB4
@@ -5609,20 +5609,20 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3156 0635 9C       		.byte	0x9c
  3157 0636 5B060000 		.4byte	0x65b
  3158 063a 0A       		.uleb128 0xa
- 3159 063b 22030000 		.4byte	.LASF46
+ 3159 063b 45030000 		.4byte	.LASF46
  3160 063f 01       		.byte	0x1
  3161 0640 B201     		.2byte	0x1b2
  3162 0642 72000000 		.4byte	0x72
  3163 0646 6D020000 		.4byte	.LLST14
  3164 064a 0B       		.uleb128 0xb
- 3165 064b EE060000 		.4byte	.LASF47
+ 3165 064b 11070000 		.4byte	.LASF47
  3166 064f 01       		.byte	0x1
  3167 0650 B401     		.2byte	0x1b4
  3168 0652 72000000 		.4byte	0x72
  3169 0656 8E020000 		.4byte	.LLST15
  3170 065a 00       		.byte	0
  3171 065b 13       		.uleb128 0x13
- 3172 065c FF040000 		.4byte	.LASF48
+ 3172 065c 22050000 		.4byte	.LASF48
  3173 0660 01       		.byte	0x1
  3174 0661 D601     		.2byte	0x1d6
  3175 0663 00000000 		.4byte	.LFB5
@@ -5631,14 +5631,14 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3178 066c 9C       		.byte	0x9c
  3179 066d 92060000 		.4byte	0x692
  3180 0671 0A       		.uleb128 0xa
- 3181 0672 3B030000 		.4byte	.LASF49
+ 3181 0672 5E030000 		.4byte	.LASF49
  3182 0676 01       		.byte	0x1
  3183 0677 D601     		.2byte	0x1d6
  3184 0679 72000000 		.4byte	0x72
  3185 067d AC020000 		.4byte	.LLST16
  3186 0681 0B       		.uleb128 0xb
- 3187 0682 EE060000 		.4byte	.LASF47
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 95
+ 3187 0682 11070000 		.4byte	.LASF47
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 95
 
 
  3188 0686 01       		.byte	0x1
@@ -5647,7 +5647,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3191 068d CD020000 		.4byte	.LLST17
  3192 0691 00       		.byte	0
  3193 0692 14       		.uleb128 0x14
- 3194 0693 EE050000 		.4byte	.LASF53
+ 3194 0693 11060000 		.4byte	.LASF53
  3195 0697 01       		.byte	0x1
  3196 0698 FE01     		.2byte	0x1fe
  3197 069a 72000000 		.4byte	0x72
@@ -5657,32 +5657,32 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3201 06a7 9C       		.byte	0x9c
  3202 06a8 ED060000 		.4byte	0x6ed
  3203 06ac 0A       		.uleb128 0xa
- 3204 06ad 37060000 		.4byte	.LASF50
+ 3204 06ad 5A060000 		.4byte	.LASF50
  3205 06b1 01       		.byte	0x1
  3206 06b2 FE01     		.2byte	0x1fe
  3207 06b4 BA000000 		.4byte	0xba
  3208 06b8 EB020000 		.4byte	.LLST18
  3209 06bc 0B       		.uleb128 0xb
- 3210 06bd EE060000 		.4byte	.LASF47
+ 3210 06bd 11070000 		.4byte	.LASF47
  3211 06c1 01       		.byte	0x1
  3212 06c2 0002     		.2byte	0x200
  3213 06c4 7E000000 		.4byte	0x7e
  3214 06c8 19030000 		.4byte	.LLST19
  3215 06cc 0B       		.uleb128 0xb
- 3216 06cd 30060000 		.4byte	.LASF51
+ 3216 06cd 53060000 		.4byte	.LASF51
  3217 06d1 01       		.byte	0x1
  3218 06d2 0102     		.2byte	0x201
  3219 06d4 72000000 		.4byte	0x72
  3220 06d8 51030000 		.4byte	.LLST20
  3221 06dc 0B       		.uleb128 0xb
- 3222 06dd 48050000 		.4byte	.LASF52
+ 3222 06dd 6B050000 		.4byte	.LASF52
  3223 06e1 01       		.byte	0x1
  3224 06e2 0202     		.2byte	0x202
  3225 06e4 BA000000 		.4byte	0xba
  3226 06e8 70030000 		.4byte	.LLST21
  3227 06ec 00       		.byte	0
  3228 06ed 15       		.uleb128 0x15
- 3229 06ee 2B070000 		.4byte	.LASF54
+ 3229 06ee 4E070000 		.4byte	.LASF54
  3230 06f2 01       		.byte	0x1
  3231 06f3 2D02     		.2byte	0x22d
  3232 06f5 7E000000 		.4byte	0x7e
@@ -5692,23 +5692,23 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3236 0702 9C       		.byte	0x9c
  3237 0703 28070000 		.4byte	0x728
  3238 0707 0B       		.uleb128 0xb
- 3239 0708 03060000 		.4byte	.LASF55
+ 3239 0708 26060000 		.4byte	.LASF55
  3240 070c 01       		.byte	0x1
  3241 070d 2F02     		.2byte	0x22f
  3242 070f 72000000 		.4byte	0x72
  3243 0713 AF030000 		.4byte	.LLST22
  3244 0717 0B       		.uleb128 0xb
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 96
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 96
 
 
- 3245 0718 43020000 		.4byte	.LASF34
+ 3245 0718 66020000 		.4byte	.LASF34
  3246 071c 01       		.byte	0x1
  3247 071d 3002     		.2byte	0x230
  3248 071f 7E000000 		.4byte	0x7e
  3249 0723 C2030000 		.4byte	.LLST23
  3250 0727 00       		.byte	0
  3251 0728 16       		.uleb128 0x16
- 3252 0729 B0040000 		.4byte	.LASF56
+ 3252 0729 D3040000 		.4byte	.LASF56
  3253 072d 01       		.byte	0x1
  3254 072e 4F02     		.2byte	0x24f
  3255 0730 00000000 		.4byte	.LFB8
@@ -5716,7 +5716,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3257 0738 01       		.uleb128 0x1
  3258 0739 9C       		.byte	0x9c
  3259 073a 16       		.uleb128 0x16
- 3260 073b 5B060000 		.4byte	.LASF57
+ 3260 073b 7E060000 		.4byte	.LASF57
  3261 073f 01       		.byte	0x1
  3262 0740 6602     		.2byte	0x266
  3263 0742 00000000 		.4byte	.LFB9
@@ -5724,7 +5724,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3265 074a 01       		.uleb128 0x1
  3266 074b 9C       		.byte	0x9c
  3267 074c 15       		.uleb128 0x15
- 3268 074d D1050000 		.4byte	.LASF58
+ 3268 074d F4050000 		.4byte	.LASF58
  3269 0751 01       		.byte	0x1
  3270 0752 8902     		.2byte	0x289
  3271 0754 72000000 		.4byte	0x72
@@ -5734,20 +5734,20 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3275 0761 9C       		.byte	0x9c
  3276 0762 87070000 		.4byte	0x787
  3277 0766 0A       		.uleb128 0xa
- 3278 0767 BC010000 		.4byte	.LASF59
+ 3278 0767 DF010000 		.4byte	.LASF59
  3279 076b 01       		.byte	0x1
  3280 076c 8902     		.2byte	0x289
  3281 076e 72000000 		.4byte	0x72
  3282 0772 E0030000 		.4byte	.LLST24
  3283 0776 0B       		.uleb128 0xb
- 3284 0777 30060000 		.4byte	.LASF51
+ 3284 0777 53060000 		.4byte	.LASF51
  3285 077b 01       		.byte	0x1
  3286 077c 8B02     		.2byte	0x28b
  3287 077e 72000000 		.4byte	0x72
  3288 0782 01040000 		.4byte	.LLST25
  3289 0786 00       		.byte	0
  3290 0787 15       		.uleb128 0x15
- 3291 0788 CD000000 		.4byte	.LASF60
+ 3291 0788 4B010000 		.4byte	.LASF60
  3292 078c 01       		.byte	0x1
  3293 078d B802     		.2byte	0x2b8
  3294 078f 96000000 		.4byte	0x96
@@ -5757,8 +5757,8 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3298 079c 9C       		.byte	0x9c
  3299 079d C0070000 		.4byte	0x7c0
  3300 07a1 17       		.uleb128 0x17
- 3301 07a2 08070000 		.4byte	.LASF61
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 97
+ 3301 07a2 2B070000 		.4byte	.LASF61
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 97
 
 
  3302 07a6 01       		.byte	0x1
@@ -5767,14 +5767,14 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3305 07ad 01       		.uleb128 0x1
  3306 07ae 50       		.byte	0x50
  3307 07af 0B       		.uleb128 0xb
- 3308 07b0 3B030000 		.4byte	.LASF49
+ 3308 07b0 5E030000 		.4byte	.LASF49
  3309 07b4 01       		.byte	0x1
  3310 07b5 BB02     		.2byte	0x2bb
  3311 07b7 72000000 		.4byte	0x72
  3312 07bb 1F040000 		.4byte	.LLST26
  3313 07bf 00       		.byte	0
  3314 07c0 15       		.uleb128 0x15
- 3315 07c1 AF020000 		.4byte	.LASF62
+ 3315 07c1 D2020000 		.4byte	.LASF62
  3316 07c5 01       		.byte	0x1
  3317 07c6 EE02     		.2byte	0x2ee
  3318 07c8 A2000000 		.4byte	0xa2
@@ -5784,20 +5784,20 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3322 07d5 9C       		.byte	0x9c
  3323 07d6 FB070000 		.4byte	0x7fb
  3324 07da 0B       		.uleb128 0xb
- 3325 07db 08070000 		.4byte	.LASF61
+ 3325 07db 2B070000 		.4byte	.LASF61
  3326 07df 01       		.byte	0x1
  3327 07e0 F002     		.2byte	0x2f0
  3328 07e2 7E000000 		.4byte	0x7e
  3329 07e6 3D040000 		.4byte	.LLST27
  3330 07ea 0B       		.uleb128 0xb
- 3331 07eb 3B030000 		.4byte	.LASF49
+ 3331 07eb 5E030000 		.4byte	.LASF49
  3332 07ef 01       		.byte	0x1
  3333 07f0 F102     		.2byte	0x2f1
  3334 07f2 72000000 		.4byte	0x72
  3335 07f6 66040000 		.4byte	.LLST28
  3336 07fa 00       		.byte	0
  3337 07fb 15       		.uleb128 0x15
- 3338 07fc E1040000 		.4byte	.LASF63
+ 3338 07fc 04050000 		.4byte	.LASF63
  3339 0800 01       		.byte	0x1
  3340 0801 2A03     		.2byte	0x32a
  3341 0803 AE000000 		.4byte	0xae
@@ -5807,23 +5807,23 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3345 0810 9C       		.byte	0x9c
  3346 0811 36080000 		.4byte	0x836
  3347 0815 0B       		.uleb128 0xb
- 3348 0816 08070000 		.4byte	.LASF61
+ 3348 0816 2B070000 		.4byte	.LASF61
  3349 081a 01       		.byte	0x1
  3350 081b 2C03     		.2byte	0x32c
  3351 081d 8A000000 		.4byte	0x8a
  3352 0821 84040000 		.4byte	.LLST29
  3353 0825 0B       		.uleb128 0xb
- 3354 0826 3B030000 		.4byte	.LASF49
+ 3354 0826 5E030000 		.4byte	.LASF49
  3355 082a 01       		.byte	0x1
  3356 082b 2D03     		.2byte	0x32d
  3357 082d 72000000 		.4byte	0x72
  3358 0831 E5040000 		.4byte	.LLST30
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 98
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 98
 
 
  3359 0835 00       		.byte	0
  3360 0836 13       		.uleb128 0x13
- 3361 0837 F9030000 		.4byte	.LASF64
+ 3361 0837 1C040000 		.4byte	.LASF64
  3362 083b 01       		.byte	0x1
  3363 083c 8703     		.2byte	0x387
  3364 083e 00000000 		.4byte	.LFB14
@@ -5832,7 +5832,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3367 0847 9C       		.byte	0x9c
  3368 0848 5B080000 		.4byte	0x85b
  3369 084c 18       		.uleb128 0x18
- 3370 084d 6C050000 		.4byte	.LASF65
+ 3370 084d 8F050000 		.4byte	.LASF65
  3371 0851 01       		.byte	0x1
  3372 0852 8703     		.2byte	0x387
  3373 0854 AE000000 		.4byte	0xae
@@ -5840,7 +5840,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3375 0859 50       		.byte	0x50
  3376 085a 00       		.byte	0
  3377 085b 13       		.uleb128 0x13
- 3378 085c 8D060000 		.4byte	.LASF66
+ 3378 085c B0060000 		.4byte	.LASF66
  3379 0860 01       		.byte	0x1
  3380 0861 AA03     		.2byte	0x3aa
  3381 0863 00000000 		.4byte	.LFB15
@@ -5857,7 +5857,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3392 087e 50       		.byte	0x50
  3393 087f 00       		.byte	0
  3394 0880 15       		.uleb128 0x15
- 3395 0881 B6060000 		.4byte	.LASF68
+ 3395 0881 D9060000 		.4byte	.LASF68
  3396 0885 01       		.byte	0x1
  3397 0886 C503     		.2byte	0x3c5
  3398 0888 A2000000 		.4byte	0xa2
@@ -5867,24 +5867,24 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3402 0895 9C       		.byte	0x9c
  3403 0896 B9080000 		.4byte	0x8b9
  3404 089a 0A       		.uleb128 0xa
- 3405 089b 98050000 		.4byte	.LASF69
+ 3405 089b BB050000 		.4byte	.LASF69
  3406 089f 01       		.byte	0x1
  3407 08a0 C503     		.2byte	0x3c5
  3408 08a2 AE000000 		.4byte	0xae
  3409 08a6 0E050000 		.4byte	.LLST31
  3410 08aa 17       		.uleb128 0x17
- 3411 08ab 78020000 		.4byte	.LASF70
+ 3411 08ab 9B020000 		.4byte	.LASF70
  3412 08af 01       		.byte	0x1
  3413 08b0 C803     		.2byte	0x3c8
  3414 08b2 A2000000 		.4byte	0xa2
  3415 08b6 01       		.uleb128 0x1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 99
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 99
 
 
  3416 08b7 50       		.byte	0x50
  3417 08b8 00       		.byte	0
  3418 08b9 14       		.uleb128 0x14
- 3419 08ba 8B020000 		.4byte	.LASF71
+ 3419 08ba AE020000 		.4byte	.LASF71
  3420 08be 01       		.byte	0x1
  3421 08bf 0204     		.2byte	0x402
  3422 08c1 BA000000 		.4byte	0xba
@@ -5894,13 +5894,13 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3426 08ce 9C       		.byte	0x9c
  3427 08cf F2080000 		.4byte	0x8f2
  3428 08d3 0A       		.uleb128 0xa
- 3429 08d4 98050000 		.4byte	.LASF69
+ 3429 08d4 BB050000 		.4byte	.LASF69
  3430 08d8 01       		.byte	0x1
  3431 08d9 0204     		.2byte	0x402
  3432 08db AE000000 		.4byte	0xae
  3433 08df 2C050000 		.4byte	.LLST32
  3434 08e3 17       		.uleb128 0x17
- 3435 08e4 3F010000 		.4byte	.LASF72
+ 3435 08e4 BD010000 		.4byte	.LASF72
  3436 08e8 01       		.byte	0x1
  3437 08e9 0504     		.2byte	0x405
  3438 08eb BA000000 		.4byte	0xba
@@ -5908,7 +5908,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3440 08f0 50       		.byte	0x50
  3441 08f1 00       		.byte	0
  3442 08f2 15       		.uleb128 0x15
- 3443 08f3 05030000 		.4byte	.LASF73
+ 3443 08f3 28030000 		.4byte	.LASF73
  3444 08f7 01       		.byte	0x1
  3445 08f8 4404     		.2byte	0x444
  3446 08fa AE000000 		.4byte	0xae
@@ -5918,34 +5918,34 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3450 0907 9C       		.byte	0x9c
  3451 0908 58090000 		.4byte	0x958
  3452 090c 0A       		.uleb128 0xa
- 3453 090d 98050000 		.4byte	.LASF69
+ 3453 090d BB050000 		.4byte	.LASF69
  3454 0911 01       		.byte	0x1
  3455 0912 4404     		.2byte	0x444
  3456 0914 AE000000 		.4byte	0xae
  3457 0918 5A050000 		.4byte	.LLST33
  3458 091c 0B       		.uleb128 0xb
- 3459 091d D1010000 		.4byte	.LASF74
+ 3459 091d F4010000 		.4byte	.LASF74
  3460 0921 01       		.byte	0x1
  3461 0922 4704     		.2byte	0x447
  3462 0924 AE000000 		.4byte	0xae
  3463 0928 7B050000 		.4byte	.LLST34
  3464 092c 19       		.uleb128 0x19
- 3465 092d D5040000 		.4byte	.LASF75
+ 3465 092d F8040000 		.4byte	.LASF75
  3466 0931 01       		.byte	0x1
  3467 0932 4804     		.2byte	0x448
  3468 0934 AE000000 		.4byte	0xae
  3469 0938 127A     		.2byte	0x7a12
  3470 093a 0B       		.uleb128 0xb
- 3471 093b DB040000 		.4byte	.LASF76
+ 3471 093b FE040000 		.4byte	.LASF76
  3472 093f 01       		.byte	0x1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 100
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 100
 
 
  3473 0940 4904     		.2byte	0x449
  3474 0942 AE000000 		.4byte	0xae
  3475 0946 9E050000 		.4byte	.LLST35
  3476 094a 1A       		.uleb128 0x1a
- 3477 094b CA040000 		.4byte	.LASF30
+ 3477 094b ED040000 		.4byte	.LASF30
  3478 094f 01       		.byte	0x1
  3479 0950 4A04     		.2byte	0x44a
  3480 0952 72000000 		.4byte	0x72
@@ -5961,13 +5961,13 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3490 0969 9C       		.byte	0x9c
  3491 096a CD090000 		.4byte	0x9cd
  3492 096e 0A       		.uleb128 0xa
- 3493 096f 34050000 		.4byte	.LASF31
+ 3493 096f 57050000 		.4byte	.LASF31
  3494 0973 01       		.byte	0x1
  3495 0974 1806     		.2byte	0x618
  3496 0976 72000000 		.4byte	0x72
  3497 097a BE050000 		.4byte	.LLST36
  3498 097e 0A       		.uleb128 0xa
- 3499 097f 40050000 		.4byte	.LASF78
+ 3499 097f 63050000 		.4byte	.LASF78
  3500 0983 01       		.byte	0x1
  3501 0984 1806     		.2byte	0x618
  3502 0986 72000000 		.4byte	0x72
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3527 09c6 0D       		.uleb128 0xd
  3528 09c7 01       		.uleb128 0x1
  3529 09c8 50       		.byte	0x50
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 101
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 101
 
 
  3530 09c9 01       		.uleb128 0x1
@@ -6006,7 +6006,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3532 09cb 00       		.byte	0
  3533 09cc 00       		.byte	0
  3534 09cd 15       		.uleb128 0x15
- 3535 09ce F5060000 		.4byte	.LASF79
+ 3535 09ce 18070000 		.4byte	.LASF79
  3536 09d2 01       		.byte	0x1
  3537 09d3 EA06     		.2byte	0x6ea
  3538 09d5 96000000 		.4byte	0x96
@@ -6016,7 +6016,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3542 09e2 9C       		.byte	0x9c
  3543 09e3 260A0000 		.4byte	0xa26
  3544 09e7 0B       		.uleb128 0xb
- 3545 09e8 08070000 		.4byte	.LASF61
+ 3545 09e8 2B070000 		.4byte	.LASF61
  3546 09ec 01       		.byte	0x1
  3547 09ed EC06     		.2byte	0x6ec
  3548 09ef 96000000 		.4byte	0x96
@@ -6042,7 +6042,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3568 0a21 3A070000 		.4byte	0x73a
  3569 0a25 00       		.byte	0
  3570 0a26 15       		.uleb128 0x15
- 3571 0a27 A2060000 		.4byte	.LASF80
+ 3571 0a27 C5060000 		.4byte	.LASF80
  3572 0a2b 01       		.byte	0x1
  3573 0a2c 0B07     		.2byte	0x70b
  3574 0a2e A2000000 		.4byte	0xa2
@@ -6052,13 +6052,13 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3578 0a3b 9C       		.byte	0x9c
  3579 0a3c 7F0A0000 		.4byte	0xa7f
  3580 0a40 0B       		.uleb128 0xb
- 3581 0a41 08070000 		.4byte	.LASF61
+ 3581 0a41 2B070000 		.4byte	.LASF61
  3582 0a45 01       		.byte	0x1
  3583 0a46 0D07     		.2byte	0x70d
  3584 0a48 A2000000 		.4byte	0xa2
  3585 0a4c 45060000 		.4byte	.LLST39
  3586 0a50 0E       		.uleb128 0xe
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 102
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 102
 
 
  3587 0a51 10000000 		.4byte	.LVL176
@@ -6081,7 +6081,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3604 0a7a 3A070000 		.4byte	0x73a
  3605 0a7e 00       		.byte	0
  3606 0a7f 15       		.uleb128 0x15
- 3607 0a80 05010000 		.4byte	.LASF81
+ 3607 0a80 83010000 		.4byte	.LASF81
  3608 0a84 01       		.byte	0x1
  3609 0a85 2C07     		.2byte	0x72c
  3610 0a87 AE000000 		.4byte	0xae
@@ -6091,7 +6091,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3614 0a94 9C       		.byte	0x9c
  3615 0a95 D80A0000 		.4byte	0xad8
  3616 0a99 0B       		.uleb128 0xb
- 3617 0a9a 08070000 		.4byte	.LASF61
+ 3617 0a9a 2B070000 		.4byte	.LASF61
  3618 0a9e 01       		.byte	0x1
  3619 0a9f 2E07     		.2byte	0x72e
  3620 0aa1 AE000000 		.4byte	0xae
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3641 0ad7 00       		.byte	0
  3642 0ad8 1B       		.uleb128 0x1b
  3643 0ad9 36010000 		.4byte	0x136
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 103
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 103
 
 
  3644 0add E80A0000 		.4byte	0xae8
@@ -6127,7 +6127,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3647 0ae6 03       		.byte	0x3
  3648 0ae7 00       		.byte	0
  3649 0ae8 1D       		.uleb128 0x1d
- 3650 0ae9 41070000 		.4byte	.LASF82
+ 3650 0ae9 64070000 		.4byte	.LASF82
  3651 0aed 01       		.byte	0x1
  3652 0aee 3D       		.byte	0x3d
  3653 0aef D80A0000 		.4byte	0xad8
@@ -6135,7 +6135,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3655 0af4 03       		.byte	0x3
  3656 0af5 00000000 		.4byte	ADC_DelSig_1_gcor
  3657 0af9 1E       		.uleb128 0x1e
- 3658 0afa D8010000 		.4byte	.LASF83
+ 3658 0afa FB010000 		.4byte	.LASF83
  3659 0afe 01       		.byte	0x1
  3660 0aff 2C       		.byte	0x2c
  3661 0b00 72000000 		.4byte	0x72
@@ -6143,7 +6143,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3663 0b05 03       		.byte	0x3
  3664 0b06 00000000 		.4byte	ADC_DelSig_1_initVar
  3665 0b0a 1E       		.uleb128 0x1e
- 3666 0b0b D1020000 		.4byte	.LASF84
+ 3666 0b0b F4020000 		.4byte	.LASF84
  3667 0b0f 01       		.byte	0x1
  3668 0b10 24       		.byte	0x24
  3669 0b11 E0000000 		.4byte	0xe0
@@ -6151,7 +6151,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3671 0b16 03       		.byte	0x3
  3672 0b17 00000000 		.4byte	ADC_DelSig_1_convDone
  3673 0b1b 1E       		.uleb128 0x1e
- 3674 0b1c 0F070000 		.4byte	.LASF85
+ 3674 0b1c 32070000 		.4byte	.LASF85
  3675 0b20 01       		.byte	0x1
  3676 0b21 29       		.byte	0x29
  3677 0b22 E0000000 		.4byte	0xe0
@@ -6159,7 +6159,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3679 0b27 03       		.byte	0x3
  3680 0b28 00000000 		.4byte	ADC_DelSig_1_stopConversion
  3681 0b2c 1E       		.uleb128 0x1e
- 3682 0b2d 16020000 		.4byte	.LASF86
+ 3682 0b2d 39020000 		.4byte	.LASF86
  3683 0b31 01       		.byte	0x1
  3684 0b32 2F       		.byte	0x2f
  3685 0b33 E0000000 		.4byte	0xe0
@@ -6167,7 +6167,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3687 0b38 03       		.byte	0x3
  3688 0b39 00000000 		.4byte	ADC_DelSig_1_started
  3689 0b3d 1E       		.uleb128 0x1e
- 3690 0b3e 27030000 		.4byte	.LASF87
+ 3690 0b3e 4A030000 		.4byte	.LASF87
  3691 0b42 01       		.byte	0x1
  3692 0b43 32       		.byte	0x32
  3693 0b44 E0000000 		.4byte	0xe0
@@ -6175,10 +6175,10 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3695 0b49 03       		.byte	0x3
  3696 0b4a 00000000 		.4byte	ADC_DelSig_1_Config
  3697 0b4e 1E       		.uleb128 0x1e
- 3698 0b4f B3030000 		.4byte	.LASF88
+ 3698 0b4f D6030000 		.4byte	.LASF88
  3699 0b53 01       		.byte	0x1
  3700 0b54 34       		.byte	0x34
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 104
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 104
 
 
  3701 0b55 5F0B0000 		.4byte	0xb5f
@@ -6188,7 +6188,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3705 0b5f 05       		.uleb128 0x5
  3706 0b60 AE000000 		.4byte	0xae
  3707 0b64 1E       		.uleb128 0x1e
- 3708 0b65 19050000 		.4byte	.LASF89
+ 3708 0b65 3C050000 		.4byte	.LASF89
  3709 0b69 01       		.byte	0x1
  3710 0b6a 35       		.byte	0x35
  3711 0b6b 5F0B0000 		.4byte	0xb5f
@@ -6196,33 +6196,33 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3713 0b70 03       		.byte	0x3
  3714 0b71 00000000 		.4byte	ADC_DelSig_1_CountsPerVolt
  3715 0b75 1F       		.uleb128 0x1f
- 3716 0b76 E4030000 		.4byte	.LASF90
- 3717 0b7a E4030000 		.4byte	.LASF90
+ 3716 0b76 07040000 		.4byte	.LASF90
+ 3717 0b7a 07040000 		.4byte	.LASF90
  3718 0b7e 04       		.byte	0x4
  3719 0b7f 7F       		.byte	0x7f
  3720 0b80 1F       		.uleb128 0x1f
- 3721 0b81 FF010000 		.4byte	.LASF91
- 3722 0b85 FF010000 		.4byte	.LASF91
+ 3721 0b81 22020000 		.4byte	.LASF91
+ 3722 0b85 22020000 		.4byte	.LASF91
  3723 0b89 04       		.byte	0x4
  3724 0b8a 7D       		.byte	0x7d
  3725 0b8b 1F       		.uleb128 0x1f
- 3726 0b8c 2E010000 		.4byte	.LASF92
- 3727 0b90 2E010000 		.4byte	.LASF92
+ 3726 0b8c AC010000 		.4byte	.LASF92
+ 3727 0b90 AC010000 		.4byte	.LASF92
  3728 0b94 04       		.byte	0x4
  3729 0b95 77       		.byte	0x77
  3730 0b96 1F       		.uleb128 0x1f
- 3731 0b97 9D030000 		.4byte	.LASF93
- 3732 0b9b 9D030000 		.4byte	.LASF93
+ 3731 0b97 C0030000 		.4byte	.LASF93
+ 3732 0b9b C0030000 		.4byte	.LASF93
  3733 0b9f 04       		.byte	0x4
  3734 0ba0 7E       		.byte	0x7e
  3735 0ba1 1F       		.uleb128 0x1f
- 3736 0ba2 74060000 		.4byte	.LASF94
- 3737 0ba6 74060000 		.4byte	.LASF94
+ 3736 0ba2 97060000 		.4byte	.LASF94
+ 3737 0ba6 97060000 		.4byte	.LASF94
  3738 0baa 05       		.byte	0x5
  3739 0bab 57       		.byte	0x57
  3740 0bac 1F       		.uleb128 0x1f
- 3741 0bad 4D020000 		.4byte	.LASF95
- 3742 0bb1 4D020000 		.4byte	.LASF95
+ 3741 0bad 70020000 		.4byte	.LASF95
+ 3742 0bb1 70020000 		.4byte	.LASF95
  3743 0bb5 06       		.byte	0x6
  3744 0bb6 2F       		.byte	0x2f
  3745 0bb7 1F       		.uleb128 0x1f
@@ -6231,26 +6231,26 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3748 0bc0 07       		.byte	0x7
  3749 0bc1 2F       		.byte	0x2f
  3750 0bc2 1F       		.uleb128 0x1f
- 3751 0bc3 A7010000 		.4byte	.LASF97
- 3752 0bc7 A7010000 		.4byte	.LASF97
+ 3751 0bc3 CA010000 		.4byte	.LASF97
+ 3752 0bc7 CA010000 		.4byte	.LASF97
  3753 0bcb 04       		.byte	0x4
  3754 0bcc 88       		.byte	0x88
  3755 0bcd 1F       		.uleb128 0x1f
- 3756 0bce 56030000 		.4byte	.LASF98
- 3757 0bd2 56030000 		.4byte	.LASF98
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 105
+ 3756 0bce 79030000 		.4byte	.LASF98
+ 3757 0bd2 79030000 		.4byte	.LASF98
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 105
 
 
  3758 0bd6 06       		.byte	0x6
  3759 0bd7 32       		.byte	0x32
  3760 0bd8 1F       		.uleb128 0x1f
- 3761 0bd9 73050000 		.4byte	.LASF99
- 3762 0bdd 73050000 		.4byte	.LASF99
+ 3761 0bd9 96050000 		.4byte	.LASF99
+ 3762 0bdd 96050000 		.4byte	.LASF99
  3763 0be1 07       		.byte	0x7
  3764 0be2 32       		.byte	0x32
  3765 0be3 1F       		.uleb128 0x1f
- 3766 0be4 45030000 		.4byte	.LASF100
- 3767 0be8 45030000 		.4byte	.LASF100
+ 3766 0be4 68030000 		.4byte	.LASF100
+ 3767 0be8 68030000 		.4byte	.LASF100
  3768 0bec 04       		.byte	0x4
  3769 0bed 8B       		.byte	0x8b
  3770 0bee 00       		.byte	0
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3812 0027 00       		.byte	0
  3813 0028 00       		.byte	0
  3814 0029 04       		.uleb128 0x4
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 106
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 106
 
 
  3815 002a 16       		.uleb128 0x16
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3869 0060 3B       		.uleb128 0x3b
  3870 0061 0B       		.uleb128 0xb
  3871 0062 49       		.uleb128 0x49
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 107
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 107
 
 
  3872 0063 13       		.uleb128 0x13
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3926 009a 00       		.byte	0
  3927 009b 00       		.byte	0
  3928 009c 0C       		.uleb128 0xc
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 108
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 108
 
 
  3929 009d 898201   		.uleb128 0x4109
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  3983 00dc 40       		.uleb128 0x40
  3984 00dd 18       		.uleb128 0x18
  3985 00de 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 109
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 109
 
 
  3986 00e0 19       		.uleb128 0x19
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4040 0117 01       		.uleb128 0x1
  4041 0118 13       		.uleb128 0x13
  4042 0119 00       		.byte	0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 110
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 110
 
 
  4043 011a 00       		.byte	0
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4097 0152 00       		.byte	0
  4098 0153 16       		.uleb128 0x16
  4099 0154 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 111
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 111
 
 
  4100 0155 00       		.byte	0
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4154 018c 03       		.uleb128 0x3
  4155 018d 0E       		.uleb128 0xe
  4156 018e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 112
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 112
 
 
  4157 018f 0B       		.uleb128 0xb
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4211 01c5 18       		.uleb128 0x18
  4212 01c6 00       		.byte	0
  4213 01c7 00       		.byte	0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 113
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 113
 
 
  4214 01c8 1E       		.uleb128 0x1e
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4268 0028 E0000000 		.4byte	.LFE21
  4269 002c 0400     		.2byte	0x4
  4270 002e F3       		.byte	0xf3
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 114
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 114
 
 
  4271 002f 01       		.uleb128 0x1
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4325 00aa 00000000 		.4byte	0
  4326              	.LLST3:
  4327 00ae 00000000 		.4byte	.LVL0
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 115
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 115
 
 
  4328 00b2 98000000 		.4byte	.LVL27
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4382 0131 2E000000 		.4byte	.LVL3
  4383 0135 0100     		.2byte	0x1
  4384 0137 50       		.byte	0x50
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 116
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 116
 
 
  4385 0138 34000000 		.4byte	.LVL4
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4439 01cc 8E000000 		.4byte	.LVL25
  4440 01d0 B2000000 		.4byte	.LVL31
  4441 01d4 0100     		.2byte	0x1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 117
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 117
 
 
  4442 01d6 51       		.byte	0x51
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4496 025e CE000000 		.4byte	.LVL83
  4497 0262 0100     		.2byte	0x1
  4498 0264 56       		.byte	0x56
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 118
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 118
 
 
  4499 0265 00000000 		.4byte	0
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4553 02ef 10000000 		.4byte	.LVL94
  4554 02f3 0100     		.2byte	0x1
  4555 02f5 50       		.byte	0x50
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 119
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 119
 
 
  4556 02f6 10000000 		.4byte	.LVL94
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4610              	.LLST21:
  4611 0370 1C000000 		.4byte	.LVL96
  4612 0374 21000000 		.4byte	.LVL97-1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 120
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 120
 
 
  4613 0378 0100     		.2byte	0x1
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4667 0405 12000000 		.4byte	.LVL116
  4668 0409 0100     		.2byte	0x1
  4669 040b 53       		.byte	0x53
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 121
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 121
 
 
  4670 040c 1A000000 		.4byte	.LVL117
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4724 0499 1C000000 		.4byte	.LVL135
  4725 049d 0100     		.2byte	0x1
  4726 049f 50       		.byte	0x50
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 122
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 122
 
 
  4727 04a0 24000000 		.4byte	.LVL137
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4781 052c 00000000 		.4byte	.LVL150
  4782 0530 06000000 		.4byte	.LVL151
  4783 0534 0100     		.2byte	0x1
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 123
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 123
 
 
  4784 0536 50       		.byte	0x50
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4838 05af 4C000000 		.4byte	.LFE18
  4839 05b3 0100     		.2byte	0x1
  4840 05b5 52       		.byte	0x52
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 124
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 124
 
 
  4841 05b6 00000000 		.4byte	0
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4895 0636 24000000 		.4byte	.LVL175
  4896 063a 0100     		.2byte	0x1
  4897 063c 54       		.byte	0x54
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 125
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 125
 
 
  4898 063d 00000000 		.4byte	0
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  4952 0068 00000000 		.4byte	.LFB8
  4953 006c 10000000 		.4byte	.LFE8-.LFB8
  4954 0070 00000000 		.4byte	.LFB9
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 126
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 126
 
 
  4955 0074 10000000 		.4byte	.LFE9-.LFB9
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  5009 005c 10000000 		.4byte	.LFE8
  5010 0060 00000000 		.4byte	.LFB9
  5011 0064 10000000 		.4byte	.LFE9
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 127
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 127
 
 
  5012 0068 00000000 		.4byte	.LFB10
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  5052      69675F31 
  5052      5F746865 
  5052      41434C4B 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 128
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 128
 
 
  5053              	.LASF77:
@@ -7636,494 +7636,499 @@ ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 1
  5058      6720756E 
  5058      7369676E 
  5058      65642069 
- 5059              	.LASF44:
- 5060 0093 4144435F 		.ascii	"ADC_DelSig_1_Stop\000"
- 5060      44656C53 
- 5060      69675F31 
- 5060      5F53746F 
- 5060      7000
- 5061              	.LASF29:
- 5062 00a5 69646561 		.ascii	"idealOddDecGain\000"
- 5062      6C4F6464 
- 5062      44656347 
- 5062      61696E00 
- 5063              	.LASF40:
- 5064 00b5 4144435F 		.ascii	"ADC_DelSig_1_InitConfig\000"
+ 5059              	.LASF103:
+ 5060 0093 433A5C55 		.ascii	"C:\\Users\\mikai\\OneDrive - Aarhus universitet\\3."
+ 5060      73657273 
+ 5060      5C6D696B 
+ 5060      61695C4F 
+ 5060      6E654472 
+ 5061 00c2 2053656D 		.ascii	" Semester\\Projekt 3 - Karaoke Maskinen\\Syng_og_Sa"
+ 5061      65737465 
+ 5061      725C5072 
+ 5061      6F6A656B 
+ 5061      74203320 
+ 5062 00f3 6D6D656E 		.ascii	"mmenlign\\PRJ3\\AMK\\BANAN.cydsn\000"
+ 5062      6C69676E 
+ 5062      5C50524A 
+ 5062      335C414D 
+ 5062      4B5C4241 
+ 5063              	.LASF44:
+ 5064 0111 4144435F 		.ascii	"ADC_DelSig_1_Stop\000"
  5064      44656C53 
  5064      69675F31 
- 5064      5F496E69 
- 5064      74436F6E 
- 5065              	.LASF60:
- 5066 00cd 4144435F 		.ascii	"ADC_DelSig_1_GetResult8\000"
- 5066      44656C53 
- 5066      69675F31 
- 5066      5F476574 
- 5066      52657375 
- 5067              	.LASF7:
- 5068 00e5 6C6F6E67 		.ascii	"long long int\000"
- 5068      206C6F6E 
- 5068      6720696E 
- 5068      7400
- 5069              	.LASF1:
- 5070 00f3 7369676E 		.ascii	"signed char\000"
- 5070      65642063 
- 5070      68617200 
- 5071              	.LASF15:
- 5072 00ff 696E7433 		.ascii	"int32\000"
- 5072      3200
- 5073              	.LASF81:
- 5074 0105 4144435F 		.ascii	"ADC_DelSig_1_Read32\000"
- 5074      44656C53 
- 5074      69675F31 
- 5074      5F526561 
- 5074      64333200 
- 5075              	.LASF5:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 129
+ 5064      5F53746F 
+ 5064      7000
+ 5065              	.LASF29:
+ 5066 0123 69646561 		.ascii	"idealOddDecGain\000"
+ 5066      6C4F6464 
+ 5066      44656347 
+ 5066      61696E00 
+ 5067              	.LASF40:
+ 5068 0133 4144435F 		.ascii	"ADC_DelSig_1_InitConfig\000"
+ 5068      44656C53 
+ 5068      69675F31 
+ 5068      5F496E69 
+ 5068      74436F6E 
+ 5069              	.LASF60:
+ 5070 014b 4144435F 		.ascii	"ADC_DelSig_1_GetResult8\000"
+ 5070      44656C53 
+ 5070      69675F31 
+ 5070      5F476574 
+ 5070      52657375 
+ 5071              	.LASF7:
+ 5072 0163 6C6F6E67 		.ascii	"long long int\000"
+ 5072      206C6F6E 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 129
 
 
- 5076 0119 6C6F6E67 		.ascii	"long int\000"
- 5076      20696E74 
- 5076      00
- 5077              	.LASF20:
- 5078 0122 72656731 		.ascii	"reg16\000"
- 5078      3600
- 5079              	.LASF10:
- 5080 0128 75696E74 		.ascii	"uint8\000"
- 5080      3800
- 5081              	.LASF92:
- 5082 012e 43794465 		.ascii	"CyDelayUs\000"
- 5082      6C617955 
- 5082      7300
- 5083              	.LASF17:
- 5084 0138 646F7562 		.ascii	"double\000"
- 5084      6C6500
- 5085              	.LASF72:
- 5086 013f 566F6C74 		.ascii	"Volts\000"
+ 5072      6720696E 
+ 5072      7400
+ 5073              	.LASF1:
+ 5074 0171 7369676E 		.ascii	"signed char\000"
+ 5074      65642063 
+ 5074      68617200 
+ 5075              	.LASF15:
+ 5076 017d 696E7433 		.ascii	"int32\000"
+ 5076      3200
+ 5077              	.LASF81:
+ 5078 0183 4144435F 		.ascii	"ADC_DelSig_1_Read32\000"
+ 5078      44656C53 
+ 5078      69675F31 
+ 5078      5F526561 
+ 5078      64333200 
+ 5079              	.LASF5:
+ 5080 0197 6C6F6E67 		.ascii	"long int\000"
+ 5080      20696E74 
+ 5080      00
+ 5081              	.LASF20:
+ 5082 01a0 72656731 		.ascii	"reg16\000"
+ 5082      3600
+ 5083              	.LASF10:
+ 5084 01a6 75696E74 		.ascii	"uint8\000"
+ 5084      3800
+ 5085              	.LASF92:
+ 5086 01ac 43794465 		.ascii	"CyDelayUs\000"
+ 5086      6C617955 
  5086      7300
- 5087              	.LASF103:
- 5088 0145 433A5C55 		.ascii	"C:\\Users\\hanad\\OneDrive\\Dokumenter\\3. Semester"
- 5088      73657273 
- 5088      5C68616E 
- 5088      61645C4F 
- 5088      6E654472 
- 5089 0173 5C50726F 		.ascii	"\\Projekt\\repos\\Projects\\PRJ3\\AMK\\BANAN.cydsn\000"
- 5089      6A656B74 
- 5089      5C726570 
- 5089      6F735C50 
- 5089      726F6A65 
- 5090              	.LASF12:
- 5091 01a0 75696E74 		.ascii	"uint32\000"
- 5091      333200
- 5092              	.LASF97:
- 5093 01a7 4379496E 		.ascii	"CyIntSetVector\000"
- 5093      74536574 
- 5093      56656374 
- 5093      6F7200
- 5094              	.LASF38:
- 5095 01b6 76616C75 		.ascii	"value\000"
- 5095      6500
- 5096              	.LASF59:
- 5097 01bc 7265744D 		.ascii	"retMode\000"
- 5097      6F646500 
- 5098              	.LASF9:
- 5099 01c4 756E7369 		.ascii	"unsigned int\000"
- 5099      676E6564 
- 5099      20696E74 
- 5099      00
- 5100              	.LASF74:
- 5101 01d1 75566F6C 		.ascii	"uVolts\000"
- 5101      747300
- 5102              	.LASF83:
- 5103 01d8 4144435F 		.ascii	"ADC_DelSig_1_initVar\000"
- 5103      44656C53 
- 5103      69675F31 
- 5103      5F696E69 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 130
+ 5087              	.LASF17:
+ 5088 01b6 646F7562 		.ascii	"double\000"
+ 5088      6C6500
+ 5089              	.LASF72:
+ 5090 01bd 566F6C74 		.ascii	"Volts\000"
+ 5090      7300
+ 5091              	.LASF12:
+ 5092 01c3 75696E74 		.ascii	"uint32\000"
+ 5092      333200
+ 5093              	.LASF97:
+ 5094 01ca 4379496E 		.ascii	"CyIntSetVector\000"
+ 5094      74536574 
+ 5094      56656374 
+ 5094      6F7200
+ 5095              	.LASF38:
+ 5096 01d9 76616C75 		.ascii	"value\000"
+ 5096      6500
+ 5097              	.LASF59:
+ 5098 01df 7265744D 		.ascii	"retMode\000"
+ 5098      6F646500 
+ 5099              	.LASF9:
+ 5100 01e7 756E7369 		.ascii	"unsigned int\000"
+ 5100      676E6564 
+ 5100      20696E74 
+ 5100      00
+ 5101              	.LASF74:
+ 5102 01f4 75566F6C 		.ascii	"uVolts\000"
+ 5102      747300
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 130
 
 
- 5103      74566172 
- 5104              	.LASF6:
- 5105 01ed 6C6F6E67 		.ascii	"long unsigned int\000"
- 5105      20756E73 
- 5105      69676E65 
- 5105      6420696E 
- 5105      7400
- 5106              	.LASF91:
- 5107 01ff 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 5107      74657243 
- 5107      72697469 
- 5107      63616C53 
- 5107      65637469 
- 5108              	.LASF86:
- 5109 0216 4144435F 		.ascii	"ADC_DelSig_1_started\000"
- 5109      44656C53 
- 5109      69675F31 
- 5109      5F737461 
- 5109      72746564 
- 5110              	.LASF4:
- 5111 022b 73686F72 		.ascii	"short unsigned int\000"
- 5111      7420756E 
- 5111      7369676E 
- 5111      65642069 
- 5111      6E7400
- 5112              	.LASF13:
- 5113 023e 696E7438 		.ascii	"int8\000"
- 5113      00
- 5114              	.LASF34:
- 5115 0243 67636F72 		.ascii	"gcorValue\000"
- 5115      56616C75 
- 5115      6500
- 5116              	.LASF95:
- 5117 024d 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister\000"
- 5117      44656C53 
- 5117      69675F31 
- 5117      5F457874 
- 5117      5F43505F 
- 5118              	.LASF70:
- 5119 0278 6D566F6C 		.ascii	"mVolts\000"
- 5119      747300
- 5120              	.LASF32:
- 5121 027f 666C6173 		.ascii	"flash\000"
- 5121      6800
- 5122              	.LASF21:
- 5123 0285 72656733 		.ascii	"reg32\000"
- 5123      3200
- 5124              	.LASF71:
- 5125 028b 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_Volts\000"
- 5125      44656C53 
- 5125      69675F31 
- 5125      5F436F75 
- 5125      6E747354 
- 5126              	.LASF16:
- 5127 02a7 666C6F61 		.ascii	"float32\000"
- 5127      74333200 
- 5128              	.LASF62:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 131
+ 5103              	.LASF83:
+ 5104 01fb 4144435F 		.ascii	"ADC_DelSig_1_initVar\000"
+ 5104      44656C53 
+ 5104      69675F31 
+ 5104      5F696E69 
+ 5104      74566172 
+ 5105              	.LASF6:
+ 5106 0210 6C6F6E67 		.ascii	"long unsigned int\000"
+ 5106      20756E73 
+ 5106      69676E65 
+ 5106      6420696E 
+ 5106      7400
+ 5107              	.LASF91:
+ 5108 0222 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 5108      74657243 
+ 5108      72697469 
+ 5108      63616C53 
+ 5108      65637469 
+ 5109              	.LASF86:
+ 5110 0239 4144435F 		.ascii	"ADC_DelSig_1_started\000"
+ 5110      44656C53 
+ 5110      69675F31 
+ 5110      5F737461 
+ 5110      72746564 
+ 5111              	.LASF4:
+ 5112 024e 73686F72 		.ascii	"short unsigned int\000"
+ 5112      7420756E 
+ 5112      7369676E 
+ 5112      65642069 
+ 5112      6E7400
+ 5113              	.LASF13:
+ 5114 0261 696E7438 		.ascii	"int8\000"
+ 5114      00
+ 5115              	.LASF34:
+ 5116 0266 67636F72 		.ascii	"gcorValue\000"
+ 5116      56616C75 
+ 5116      6500
+ 5117              	.LASF95:
+ 5118 0270 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister\000"
+ 5118      44656C53 
+ 5118      69675F31 
+ 5118      5F457874 
+ 5118      5F43505F 
+ 5119              	.LASF70:
+ 5120 029b 6D566F6C 		.ascii	"mVolts\000"
+ 5120      747300
+ 5121              	.LASF32:
+ 5122 02a2 666C6173 		.ascii	"flash\000"
+ 5122      6800
+ 5123              	.LASF21:
+ 5124 02a8 72656733 		.ascii	"reg32\000"
+ 5124      3200
+ 5125              	.LASF71:
+ 5126 02ae 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_Volts\000"
+ 5126      44656C53 
+ 5126      69675F31 
+ 5126      5F436F75 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 131
 
 
- 5129 02af 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
- 5129      44656C53 
- 5129      69675F31 
- 5129      5F476574 
- 5129      52657375 
- 5130              	.LASF23:
- 5131 02c8 73697A65 		.ascii	"sizetype\000"
- 5131      74797065 
- 5131      00
- 5132              	.LASF84:
- 5133 02d1 4144435F 		.ascii	"ADC_DelSig_1_convDone\000"
- 5133      44656C53 
- 5133      69675F31 
- 5133      5F636F6E 
- 5133      76446F6E 
- 5134              	.LASF22:
- 5135 02e7 6C6F6E67 		.ascii	"long double\000"
- 5135      20646F75 
- 5135      626C6500 
- 5136              	.LASF41:
- 5137 02f3 4144435F 		.ascii	"ADC_DelSig_1_Init\000"
- 5137      44656C53 
- 5137      69675F31 
- 5137      5F496E69 
- 5137      7400
- 5138              	.LASF73:
- 5139 0305 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_uVolts\000"
- 5139      44656C53 
- 5139      69675F31 
- 5139      5F436F75 
- 5139      6E747354 
- 5140              	.LASF46:
- 5141 0322 6761696E 		.ascii	"gain\000"
- 5141      00
- 5142              	.LASF87:
- 5143 0327 4144435F 		.ascii	"ADC_DelSig_1_Config\000"
- 5143      44656C53 
- 5143      69675F31 
- 5143      5F436F6E 
- 5143      66696700 
- 5144              	.LASF49:
- 5145 033b 636F6865 		.ascii	"coherency\000"
- 5145      72656E63 
- 5145      7900
- 5146              	.LASF100:
- 5147 0345 4379496E 		.ascii	"CyIntSetPriority\000"
- 5147      74536574 
- 5147      5072696F 
- 5147      72697479 
- 5147      00
- 5148              	.LASF98:
- 5149 0356 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetModeRegister\000"
- 5149      44656C53 
- 5149      69675F31 
- 5149      5F457874 
- 5149      5F43505F 
- 5150              	.LASF26:
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 132
+ 5126      6E747354 
+ 5127              	.LASF16:
+ 5128 02ca 666C6F61 		.ascii	"float32\000"
+ 5128      74333200 
+ 5129              	.LASF62:
+ 5130 02d2 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
+ 5130      44656C53 
+ 5130      69675F31 
+ 5130      5F476574 
+ 5130      52657375 
+ 5131              	.LASF23:
+ 5132 02eb 73697A65 		.ascii	"sizetype\000"
+ 5132      74797065 
+ 5132      00
+ 5133              	.LASF84:
+ 5134 02f4 4144435F 		.ascii	"ADC_DelSig_1_convDone\000"
+ 5134      44656C53 
+ 5134      69675F31 
+ 5134      5F636F6E 
+ 5134      76446F6E 
+ 5135              	.LASF22:
+ 5136 030a 6C6F6E67 		.ascii	"long double\000"
+ 5136      20646F75 
+ 5136      626C6500 
+ 5137              	.LASF41:
+ 5138 0316 4144435F 		.ascii	"ADC_DelSig_1_Init\000"
+ 5138      44656C53 
+ 5138      69675F31 
+ 5138      5F496E69 
+ 5138      7400
+ 5139              	.LASF73:
+ 5140 0328 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_uVolts\000"
+ 5140      44656C53 
+ 5140      69675F31 
+ 5140      5F436F75 
+ 5140      6E747354 
+ 5141              	.LASF46:
+ 5142 0345 6761696E 		.ascii	"gain\000"
+ 5142      00
+ 5143              	.LASF87:
+ 5144 034a 4144435F 		.ascii	"ADC_DelSig_1_Config\000"
+ 5144      44656C53 
+ 5144      69675F31 
+ 5144      5F436F6E 
+ 5144      66696700 
+ 5145              	.LASF49:
+ 5146 035e 636F6865 		.ascii	"coherency\000"
+ 5146      72656E63 
+ 5146      7900
+ 5147              	.LASF100:
+ 5148 0368 4379496E 		.ascii	"CyIntSetPriority\000"
+ 5148      74536574 
+ 5148      5072696F 
+ 5148      72697479 
+ 5148      00
+ 5149              	.LASF98:
+ 5150 0379 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetModeRegister\000"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 132
 
 
- 5151 037e 4144435F 		.ascii	"ADC_DelSig_1_GCOR_STRUCT\000"
- 5151      44656C53 
- 5151      69675F31 
- 5151      5F47434F 
- 5151      525F5354 
- 5152              	.LASF0:
- 5153 0397 666C6F61 		.ascii	"float\000"
- 5153      7400
- 5154              	.LASF93:
- 5155 039d 43794578 		.ascii	"CyExitCriticalSection\000"
- 5155      69744372 
- 5155      69746963 
- 5155      616C5365 
- 5155      6374696F 
- 5156              	.LASF88:
- 5157 03b3 4144435F 		.ascii	"ADC_DelSig_1_Offset\000"
- 5157      44656C53 
- 5157      69675F31 
- 5157      5F4F6666 
- 5157      73657400 
- 5158              	.LASF19:
- 5159 03c7 72656738 		.ascii	"reg8\000"
- 5159      00
- 5160              	.LASF28:
- 5161 03cc 69646561 		.ascii	"idealDecGain\000"
- 5161      6C446563 
- 5161      4761696E 
- 5161      00
- 5162              	.LASF33:
- 5163 03d9 6E6F726D 		.ascii	"normalised\000"
- 5163      616C6973 
- 5163      656400
- 5164              	.LASF90:
- 5165 03e4 43794861 		.ascii	"CyHalt\000"
- 5165      6C7400
- 5166              	.LASF2:
- 5167 03eb 756E7369 		.ascii	"unsigned char\000"
- 5167      676E6564 
- 5167      20636861 
- 5167      7200
- 5168              	.LASF64:
- 5169 03f9 4144435F 		.ascii	"ADC_DelSig_1_SetOffset\000"
- 5169      44656C53 
- 5169      69675F31 
- 5169      5F536574 
- 5169      4F666673 
- 5170              	.LASF3:
- 5171 0410 73686F72 		.ascii	"short int\000"
- 5171      7420696E 
- 5171      7400
- 5172              	.LASF35:
- 5173 041a 67636F72 		.ascii	"gcorTmp\000"
- 5173      546D7000 
- 5174              	.LASF101:
- 5175 0422 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 5175      43313120 
- 5175      352E342E 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 133
+ 5150      44656C53 
+ 5150      69675F31 
+ 5150      5F457874 
+ 5150      5F43505F 
+ 5151              	.LASF26:
+ 5152 03a1 4144435F 		.ascii	"ADC_DelSig_1_GCOR_STRUCT\000"
+ 5152      44656C53 
+ 5152      69675F31 
+ 5152      5F47434F 
+ 5152      525F5354 
+ 5153              	.LASF0:
+ 5154 03ba 666C6F61 		.ascii	"float\000"
+ 5154      7400
+ 5155              	.LASF93:
+ 5156 03c0 43794578 		.ascii	"CyExitCriticalSection\000"
+ 5156      69744372 
+ 5156      69746963 
+ 5156      616C5365 
+ 5156      6374696F 
+ 5157              	.LASF88:
+ 5158 03d6 4144435F 		.ascii	"ADC_DelSig_1_Offset\000"
+ 5158      44656C53 
+ 5158      69675F31 
+ 5158      5F4F6666 
+ 5158      73657400 
+ 5159              	.LASF19:
+ 5160 03ea 72656738 		.ascii	"reg8\000"
+ 5160      00
+ 5161              	.LASF28:
+ 5162 03ef 69646561 		.ascii	"idealDecGain\000"
+ 5162      6C446563 
+ 5162      4761696E 
+ 5162      00
+ 5163              	.LASF33:
+ 5164 03fc 6E6F726D 		.ascii	"normalised\000"
+ 5164      616C6973 
+ 5164      656400
+ 5165              	.LASF90:
+ 5166 0407 43794861 		.ascii	"CyHalt\000"
+ 5166      6C7400
+ 5167              	.LASF2:
+ 5168 040e 756E7369 		.ascii	"unsigned char\000"
+ 5168      676E6564 
+ 5168      20636861 
+ 5168      7200
+ 5169              	.LASF64:
+ 5170 041c 4144435F 		.ascii	"ADC_DelSig_1_SetOffset\000"
+ 5170      44656C53 
+ 5170      69675F31 
+ 5170      5F536574 
+ 5170      4F666673 
+ 5171              	.LASF3:
+ 5172 0433 73686F72 		.ascii	"short int\000"
+ 5172      7420696E 
+ 5172      7400
+ 5173              	.LASF35:
+ 5174 043d 67636F72 		.ascii	"gcorTmp\000"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 133
 
 
- 5175      31203230 
- 5175      31363036 
- 5176 0455 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 5176      20726576 
- 5176      6973696F 
- 5176      6E203233 
- 5176      37373135 
- 5177 0488 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 5177      66756E63 
- 5177      74696F6E 
- 5177      2D736563 
- 5177      74696F6E 
- 5178              	.LASF56:
- 5179 04b0 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
- 5179      44656C53 
- 5179      69675F31 
- 5179      5F537461 
- 5179      7274436F 
- 5180              	.LASF30:
- 5181 04ca 7265736F 		.ascii	"resolution\000"
- 5181      6C757469 
- 5181      6F6E00
- 5182              	.LASF75:
- 5183 04d5 636F6566 		.ascii	"coefA\000"
- 5183      4100
- 5184              	.LASF76:
- 5185 04db 636F6566 		.ascii	"coefB\000"
- 5185      4200
- 5186              	.LASF63:
- 5187 04e1 4144435F 		.ascii	"ADC_DelSig_1_GetResult32\000"
- 5187      44656C53 
- 5187      69675F31 
- 5187      5F476574 
- 5187      52657375 
- 5188              	.LASF18:
- 5189 04fa 63686172 		.ascii	"char\000"
- 5189      00
- 5190              	.LASF48:
- 5191 04ff 4144435F 		.ascii	"ADC_DelSig_1_SetCoherency\000"
- 5191      44656C53 
- 5191      69675F31 
- 5191      5F536574 
- 5191      436F6865 
- 5192              	.LASF89:
- 5193 0519 4144435F 		.ascii	"ADC_DelSig_1_CountsPerVolt\000"
- 5193      44656C53 
- 5193      69675F31 
- 5193      5F436F75 
- 5193      6E747350 
- 5194              	.LASF31:
- 5195 0534 636F6E66 		.ascii	"config\000"
- 5195      696700
- 5196              	.LASF25:
- 5197 053b 6776616C 		.ascii	"gval\000"
- 5197      00
- 5198              	.LASF78:
- 5199 0540 72657374 		.ascii	"restart\000"
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 134
+ 5174      546D7000 
+ 5175              	.LASF101:
+ 5176 0445 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 5176      43313120 
+ 5176      352E342E 
+ 5176      31203230 
+ 5176      31363036 
+ 5177 0478 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 5177      20726576 
+ 5177      6973696F 
+ 5177      6E203233 
+ 5177      37373135 
+ 5178 04ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 5178      66756E63 
+ 5178      74696F6E 
+ 5178      2D736563 
+ 5178      74696F6E 
+ 5179              	.LASF56:
+ 5180 04d3 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
+ 5180      44656C53 
+ 5180      69675F31 
+ 5180      5F537461 
+ 5180      7274436F 
+ 5181              	.LASF30:
+ 5182 04ed 7265736F 		.ascii	"resolution\000"
+ 5182      6C757469 
+ 5182      6F6E00
+ 5183              	.LASF75:
+ 5184 04f8 636F6566 		.ascii	"coefA\000"
+ 5184      4100
+ 5185              	.LASF76:
+ 5186 04fe 636F6566 		.ascii	"coefB\000"
+ 5186      4200
+ 5187              	.LASF63:
+ 5188 0504 4144435F 		.ascii	"ADC_DelSig_1_GetResult32\000"
+ 5188      44656C53 
+ 5188      69675F31 
+ 5188      5F476574 
+ 5188      52657375 
+ 5189              	.LASF18:
+ 5190 051d 63686172 		.ascii	"char\000"
+ 5190      00
+ 5191              	.LASF48:
+ 5192 0522 4144435F 		.ascii	"ADC_DelSig_1_SetCoherency\000"
+ 5192      44656C53 
+ 5192      69675F31 
+ 5192      5F536574 
+ 5192      436F6865 
+ 5193              	.LASF89:
+ 5194 053c 4144435F 		.ascii	"ADC_DelSig_1_CountsPerVolt\000"
+ 5194      44656C53 
+ 5194      69675F31 
+ 5194      5F436F75 
+ 5194      6E747350 
+ 5195              	.LASF31:
+ 5196 0557 636F6E66 		.ascii	"config\000"
+ 5196      696700
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 134
 
 
- 5199      61727400 
- 5200              	.LASF52:
- 5201 0548 746D7056 		.ascii	"tmpValue\000"
- 5201      616C7565 
- 5201      00
- 5202              	.LASF37:
- 5203 0551 4144435F 		.ascii	"ADC_DelSig_1_SetDSMRef0Reg\000"
- 5203      44656C53 
- 5203      69675F31 
- 5203      5F536574 
- 5203      44534D52 
- 5204              	.LASF65:
- 5205 056c 6F666673 		.ascii	"offset\000"
- 5205      657400
- 5206              	.LASF99:
- 5207 0573 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
- 5207      44656C53 
- 5207      69675F31 
- 5207      5F746865 
- 5207      41434C4B 
- 5208              	.LASF69:
- 5209 0598 61646343 		.ascii	"adcCounts\000"
- 5209      6F756E74 
- 5209      7300
- 5210              	.LASF36:
- 5211 05a2 4144435F 		.ascii	"ADC_DelSig_1_GainCompensation\000"
- 5211      44656C53 
- 5211      69675F31 
- 5211      5F476169 
- 5211      6E436F6D 
- 5212              	.LASF39:
- 5213 05c0 656E6162 		.ascii	"enableInterrupts\000"
- 5213      6C65496E 
- 5213      74657272 
- 5213      75707473 
- 5213      00
- 5214              	.LASF58:
- 5215 05d1 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
- 5215      44656C53 
- 5215      69675F31 
- 5215      5F497345 
- 5215      6E64436F 
- 5216              	.LASF53:
- 5217 05ee 4144435F 		.ascii	"ADC_DelSig_1_SetGCOR\000"
- 5217      44656C53 
- 5217      69675F31 
- 5217      5F536574 
- 5217      47434F52 
- 5218              	.LASF55:
- 5219 0603 6756616C 		.ascii	"gValue\000"
- 5219      756500
- 5220              	.LASF102:
- 5221 060a 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_DelSig_1.c\000"
- 5221      72617465 
- 5221      645F536F 
- 5221      75726365 
- 5221      5C50536F 
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 135
+ 5197              	.LASF25:
+ 5198 055e 6776616C 		.ascii	"gval\000"
+ 5198      00
+ 5199              	.LASF78:
+ 5200 0563 72657374 		.ascii	"restart\000"
+ 5200      61727400 
+ 5201              	.LASF52:
+ 5202 056b 746D7056 		.ascii	"tmpValue\000"
+ 5202      616C7565 
+ 5202      00
+ 5203              	.LASF37:
+ 5204 0574 4144435F 		.ascii	"ADC_DelSig_1_SetDSMRef0Reg\000"
+ 5204      44656C53 
+ 5204      69675F31 
+ 5204      5F536574 
+ 5204      44534D52 
+ 5205              	.LASF65:
+ 5206 058f 6F666673 		.ascii	"offset\000"
+ 5206      657400
+ 5207              	.LASF99:
+ 5208 0596 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
+ 5208      44656C53 
+ 5208      69675F31 
+ 5208      5F746865 
+ 5208      41434C4B 
+ 5209              	.LASF69:
+ 5210 05bb 61646343 		.ascii	"adcCounts\000"
+ 5210      6F756E74 
+ 5210      7300
+ 5211              	.LASF36:
+ 5212 05c5 4144435F 		.ascii	"ADC_DelSig_1_GainCompensation\000"
+ 5212      44656C53 
+ 5212      69675F31 
+ 5212      5F476169 
+ 5212      6E436F6D 
+ 5213              	.LASF39:
+ 5214 05e3 656E6162 		.ascii	"enableInterrupts\000"
+ 5214      6C65496E 
+ 5214      74657272 
+ 5214      75707473 
+ 5214      00
+ 5215              	.LASF58:
+ 5216 05f4 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
+ 5216      44656C53 
+ 5216      69675F31 
+ 5216      5F497345 
+ 5216      6E64436F 
+ 5217              	.LASF53:
+ 5218 0611 4144435F 		.ascii	"ADC_DelSig_1_SetGCOR\000"
+ 5218      44656C53 
+ 5218      69675F31 
+ 5218      5F536574 
+ 5218      47434F52 
+ 5219              	.LASF55:
+ 5220 0626 6756616C 		.ascii	"gValue\000"
+ 5220      756500
+ 5221              	.LASF102:
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 135
 
 
- 5222              	.LASF51:
- 5223 0630 73746174 		.ascii	"status\000"
- 5223      757300
- 5224              	.LASF50:
- 5225 0637 6761696E 		.ascii	"gainAdjust\000"
- 5225      41646A75 
- 5225      737400
- 5226              	.LASF43:
- 5227 0642 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
- 5227      44656C53 
- 5227      69675F31 
- 5227      5F537461 
- 5227      727400
- 5228              	.LASF14:
- 5229 0655 696E7431 		.ascii	"int16\000"
- 5229      3600
- 5230              	.LASF57:
- 5231 065b 4144435F 		.ascii	"ADC_DelSig_1_StopConvert\000"
- 5231      44656C53 
- 5231      69675F31 
- 5231      5F53746F 
- 5231      70436F6E 
- 5232              	.LASF94:
- 5233 0674 4144435F 		.ascii	"ADC_DelSig_1_AMux_Select\000"
- 5233      44656C53 
- 5233      69675F31 
- 5233      5F414D75 
- 5233      785F5365 
- 5234              	.LASF66:
- 5235 068d 4144435F 		.ascii	"ADC_DelSig_1_SetGain\000"
- 5235      44656C53 
- 5235      69675F31 
- 5235      5F536574 
- 5235      4761696E 
- 5236              	.LASF80:
- 5237 06a2 4144435F 		.ascii	"ADC_DelSig_1_Read16\000"
- 5237      44656C53 
- 5237      69675F31 
- 5237      5F526561 
- 5237      64313600 
- 5238              	.LASF68:
- 5239 06b6 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_mVolts\000"
- 5239      44656C53 
- 5239      69675F31 
- 5239      5F436F75 
- 5239      6E747354 
- 5240              	.LASF45:
- 5241 06d3 4144435F 		.ascii	"ADC_DelSig_1_SetBufferGain\000"
- 5241      44656C53 
- 5241      69675F31 
- 5241      5F536574 
- 5241      42756666 
- 5242              	.LASF47:
- 5243 06ee 746D7052 		.ascii	"tmpReg\000"
- 5243      656700
- 5244              	.LASF79:
- 5245 06f5 4144435F 		.ascii	"ADC_DelSig_1_Read8\000"
-ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccAMsTKw.s 			page 136
+ 5222 062d 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_DelSig_1.c\000"
+ 5222      72617465 
+ 5222      645F536F 
+ 5222      75726365 
+ 5222      5C50536F 
+ 5223              	.LASF51:
+ 5224 0653 73746174 		.ascii	"status\000"
+ 5224      757300
+ 5225              	.LASF50:
+ 5226 065a 6761696E 		.ascii	"gainAdjust\000"
+ 5226      41646A75 
+ 5226      737400
+ 5227              	.LASF43:
+ 5228 0665 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 5228      44656C53 
+ 5228      69675F31 
+ 5228      5F537461 
+ 5228      727400
+ 5229              	.LASF14:
+ 5230 0678 696E7431 		.ascii	"int16\000"
+ 5230      3600
+ 5231              	.LASF57:
+ 5232 067e 4144435F 		.ascii	"ADC_DelSig_1_StopConvert\000"
+ 5232      44656C53 
+ 5232      69675F31 
+ 5232      5F53746F 
+ 5232      70436F6E 
+ 5233              	.LASF94:
+ 5234 0697 4144435F 		.ascii	"ADC_DelSig_1_AMux_Select\000"
+ 5234      44656C53 
+ 5234      69675F31 
+ 5234      5F414D75 
+ 5234      785F5365 
+ 5235              	.LASF66:
+ 5236 06b0 4144435F 		.ascii	"ADC_DelSig_1_SetGain\000"
+ 5236      44656C53 
+ 5236      69675F31 
+ 5236      5F536574 
+ 5236      4761696E 
+ 5237              	.LASF80:
+ 5238 06c5 4144435F 		.ascii	"ADC_DelSig_1_Read16\000"
+ 5238      44656C53 
+ 5238      69675F31 
+ 5238      5F526561 
+ 5238      64313600 
+ 5239              	.LASF68:
+ 5240 06d9 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_mVolts\000"
+ 5240      44656C53 
+ 5240      69675F31 
+ 5240      5F436F75 
+ 5240      6E747354 
+ 5241              	.LASF45:
+ 5242 06f6 4144435F 		.ascii	"ADC_DelSig_1_SetBufferGain\000"
+ 5242      44656C53 
+ 5242      69675F31 
+ 5242      5F536574 
+ 5242      42756666 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\ccEKVLDL.s 			page 136
 
 
- 5245      44656C53 
- 5245      69675F31 
- 5245      5F526561 
- 5245      643800
- 5246              	.LASF61:
- 5247 0708 72657375 		.ascii	"result\000"
- 5247      6C7400
- 5248              	.LASF85:
- 5249 070f 4144435F 		.ascii	"ADC_DelSig_1_stopConversion\000"
- 5249      44656C53 
- 5249      69675F31 
- 5249      5F73746F 
- 5249      70436F6E 
- 5250              	.LASF54:
- 5251 072b 4144435F 		.ascii	"ADC_DelSig_1_ReadGCOR\000"
- 5251      44656C53 
- 5251      69675F31 
- 5251      5F526561 
- 5251      6447434F 
- 5252              	.LASF82:
- 5253 0741 4144435F 		.ascii	"ADC_DelSig_1_gcor\000"
- 5253      44656C53 
- 5253      69675F31 
- 5253      5F67636F 
- 5253      7200
- 5254              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 5243              	.LASF47:
+ 5244 0711 746D7052 		.ascii	"tmpReg\000"
+ 5244      656700
+ 5245              	.LASF79:
+ 5246 0718 4144435F 		.ascii	"ADC_DelSig_1_Read8\000"
+ 5246      44656C53 
+ 5246      69675F31 
+ 5246      5F526561 
+ 5246      643800
+ 5247              	.LASF61:
+ 5248 072b 72657375 		.ascii	"result\000"
+ 5248      6C7400
+ 5249              	.LASF85:
+ 5250 0732 4144435F 		.ascii	"ADC_DelSig_1_stopConversion\000"
+ 5250      44656C53 
+ 5250      69675F31 
+ 5250      5F73746F 
+ 5250      70436F6E 
+ 5251              	.LASF54:
+ 5252 074e 4144435F 		.ascii	"ADC_DelSig_1_ReadGCOR\000"
+ 5252      44656C53 
+ 5252      69675F31 
+ 5252      5F526561 
+ 5252      6447434F 
+ 5253              	.LASF82:
+ 5254 0764 4144435F 		.ascii	"ADC_DelSig_1_gcor\000"
+ 5254      44656C53 
+ 5254      69675F31 
+ 5254      5F67636F 
+ 5254      7200
+ 5255              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
