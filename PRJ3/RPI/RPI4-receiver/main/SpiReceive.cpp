@@ -1,65 +1,50 @@
 #include <bcm2835.h>  // Inkluderer BCM2835 biblioteket for at bruge Raspberry Pi's GPIO og SPI funktioner.
 #include <iostream>   // Inkluderer standard input/output biblioteket for C++.
 #include <fstream>    // Inkluderer biblioteket til filhåndtering i C++.
-#include <chrono>     // Inkluderer biblioteket til at måle tid i C++.
 #include <ncurses.h>  // Inkluderer ncurses biblioteket for at håndtere tastaturinput uden standard I/O buffering.
+#include <vector> 
 
 // Globale konstanter og variabler.
 const std::string OUTPUT_FILENAME = "PSOC.wav";  // Definerer navnet på den output WAV-fil, der vil blive oprettet.
-const int DATA_PACKET_SIZE = 4;                  // Angiver antallet af datapakker, der skal modtages i hver cyklus.
-const int SPI_BUFFER_SIZE = DATA_PACKET_SIZE * 2;// Størrelsen på SPI-bufferen, baseret på antallet af datapakker.
+const int DATA_PACKET_SIZE = 512;                  // Angiver antallet af datapakker, der skal modtages i hver cyklus.
+const int SPI_BUFFER_SIZE = DATA_PACKET_SIZE;// Størrelsen på SPI-bufferen, baseret på antallet af datapakker.
 const uint16_t HANDSHAKE_SIGNAL = 0xFFFF;        // Definerer et handshake signal, som bruges til at synkronisere kommunikationen.
+uint32_t fileSize; 
+std::vector<uint16_t> finalData;
 
 // WAVHeader struktur definerer headerformatet for en WAV fil.
-struct WAVHeader 
+typedef struct WAVHeader 
 {
     // Initialiserer headerens forskellige felter.
-    char riffHeader[4] = { 'R', 'I', 'F', 'F' }; // Standard 'RIFF' header for WAV filer.
+    uint8_t riffHeader[4] = { 'R', 'I', 'F', 'F' }; // Standard 'RIFF' header for WAV filer.
     uint32_t wavSize;                            // Størrelsen på WAV filen minus 8 bytes.
-    char waveHeader[4] = { 'W', 'A', 'V', 'E' }; // 'WAVE' format identifikator.
-    char fmtHeader[4] = { 'f', 'm', 't', ' ' };  // 'fmt ' sub-chunk header.
+    uint8_t waveHeader[4] = { 'W', 'A', 'V', 'E' }; // 'WAVE' format identifikator.
+    uint8_t fmtHeader[4] = { 'f', 'm', 't', ' ' };  // 'fmt ' sub-chunk header.
     uint32_t fmtChunkSize = 16;                  // Størrelsen på 'fmt ' sub-chunk (16 for PCM).
     uint16_t audioFormat = 1;                    // Lydformat (1 for PCM).
     uint16_t numChannels = 1;                    // Antal kanaler (1 for mono).
-    uint32_t sampleRate;                         // Samplingfrekvens.
-    uint32_t byteRate;                           // Byte rate (SampleRate * NumChannels * BitsPerSample/8).
-    uint16_t blockAlign;                         // Block align (NumChannels * BitsPerSample/8).
-    uint16_t bitsPerSample;                      // Antal bits pr. sample (typisk 16 eller 24).
-    char dataHeader[4] = { 'd', 'a', 't', 'a' }; // 'data' sub-chunk header.
+    uint32_t sampleRate = 44100;                         // Samplingfrekvens.
+    uint32_t byteRate = sampleRate * 2;                           // Byte rate (SampleRate * NumChannels * BitsPerSample/8).
+    uint16_t blockAlign = 2;                         // Block align (NumChannels * BitsPerSample/8).
+    uint16_t bitsPerSample = 16;                      // Antal bits pr. sample 
+    uint8_t dataHeader[4] = { 'd', 'a', 't', 'a' }; // 'data' sub-chunk header.
     uint32_t dataChunkSize;                      // Størrelsen på data sub-chunk.
-};
+} wav_hdr;
+
 
 // writeWAVHeader funktionen skriver headeren til WAV filen.
-void writeWAVHeader(std::ofstream& file, int sampleRate, int bitsPerSample, int numChannels, uint32_t numSamples) 
+void writeWAVHeader(std::ofstream& file) 
 {
     // Implementering af WAV header opdatering.
-    WAVHeader header;
-    header.sampleRate = sampleRate;
-    header.bitsPerSample = bitsPerSample;
-    header.numChannels = numChannels;
-    header.byteRate = header.sampleRate * header.numChannels * header.bitsPerSample / 8;
-    header.blockAlign = header.numChannels * header.bitsPerSample / 8;
-    header.dataChunkSize = numSamples * header.numChannels * header.bitsPerSample / 8;
-    header.wavSize = 4 + (8 + header.fmtChunkSize) + (8 + header.dataChunkSize);
     
     // Skriver headeren til filen.
-    file.seekp(0, std::ios::beg);
-    file.write(reinterpret_cast<const char*>(&header), sizeof(header));
-}
-
-// updateWAVHeader funktionen opdaterer WAV filens header med den korrekte data størrelse.
-void updateWAVHeader(std::ofstream& file, uint32_t numSamples) 
-{
-    // Opdaterer dataChunkSize og wavSize i WAV-headeren.
-    uint32_t dataChunkSize = numSamples * sizeof(uint16_t);
-    uint32_t wavSize = 4 + (8 + 16) + (8 + dataChunkSize) - 8;
+    wav_hdr wav;
+    static_assert(sizeof(wav_hdr) == 44, "");
+    wav.wavSize = fileSize + sizeof(wav_hdr) - 8;
+    wav.dataChunkSize = fileSize + sizeof(wav_hdr) - 44;
     
-    // Opdaterer dataChunkSize og wavSize i filen.
-    file.seekp(40, std::ios::beg);
-    file.write(reinterpret_cast<const char*>(&dataChunkSize), sizeof(dataChunkSize));
-    
-    file.seekp(4, std::ios::beg);
-    file.write(reinterpret_cast<const char*>(&wavSize), sizeof(wavSize));
+    //file.seekp(0, std::ios::beg);
+    file.write(reinterpret_cast<const char*>(&wav), sizeof(wav));
 }
 
 // Hovedfunktionen styrer hele optagelsesprocessen.
@@ -87,14 +72,14 @@ int main()
     }
 
     // Konfigurerer SPI-indstillingerne.
-    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST); // MSB først for dataoverførsel.
-    bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);              // SPI mode 0.
-    bcm2835_spi_setClockDivider(125);                        // Sætter SPI clock divider.
-    bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                 // Vælger SPI chip (CS0).
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW); // CS0 er aktiv ved lav signal.
+    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);          // MSB først for dataoverførsel.
+    bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                       // SPI mode 0.
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_256);       // Sætter SPI clock divider.
+    bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                          // Vælger SPI chip (CS0).
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);          // CS0 er aktiv ved lav signal.
 
     // Åbner output filen for at skrive data.
-    std::ofstream outputFile(OUTPUT_FILENAME, std::ios::binary | std::ios::out | std::ios::in);
+    std::ofstream outputFile(OUTPUT_FILENAME, std::ios::binary | std::ios::out | std::ios::trunc);
     if (!outputFile.is_open()) {
         bcm2835_spi_end();
         bcm2835_close();
@@ -102,11 +87,6 @@ int main()
         std::cerr << "Cannot open file." << std::endl;
         return -1;
     }
-
-    // Skriver en initial WAV-header til filen.
-    writeWAVHeader(outputFile, 44100, 16, 1, 0);
-    uint32_t numSamples = 0;
-    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
     // Hovedløkke til indsamling af data og styring af optagelse.
     while (true) 
@@ -125,23 +105,24 @@ int main()
             for (int i = 0; i < DATA_PACKET_SIZE; i++) {
                 uint8_t spiBuffer[SPI_BUFFER_SIZE];
                 bcm2835_spi_transfern((char*)spiBuffer, SPI_BUFFER_SIZE);
-                uint16_t data = static_cast<uint16_t>(spiBuffer[0]) << 8 | spiBuffer[1];
-                outputFile.write(reinterpret_cast<const char*>(&data), sizeof(data));
-                numSamples++;
+                uint16_t data = static_cast<uint16_t>(spiBuffer[i]) << 8 | spiBuffer[i+1];
+                finalData.push_back(data);
             }
         }
-
-        // Opdaterer WAV-headeren regelmæssigt.
-        std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(now - start).count() >= 1) {
-            updateWAVHeader(outputFile, numSamples);
-            start = now;
-        }
+    }
+    
+    fileSize = sizeof(finalData);
+    fileSize = 20000;
+    writeWAVHeader(outputFile);
+   // Write the data to the file
+    for (auto &data : finalData) {
+        outputFile.write(reinterpret_cast<const char*>(&data), sizeof(data));
     }
 
-    // Efter optagelse, opdater og luk filen.
-    updateWAVHeader(outputFile, numSamples);
+    // Efter optagelse lukkes filen.
     outputFile.close();
+    
+    printf("file size %d", sizeof(fileSize));
 
     // Lukker SPI og BCM2835 biblioteket.
     bcm2835_spi_end();
