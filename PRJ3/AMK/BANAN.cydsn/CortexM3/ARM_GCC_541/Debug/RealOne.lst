@@ -1,0 +1,1795 @@
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"RealOne.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.InitUART,"ax",%progbits
+  20              		.align	2
+  21              		.global	InitUART
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	InitUART, %function
+  25              	InitUART:
+  26              	.LFB64:
+  27              		.file 1 "RealOne.c"
+   1:RealOne.c     **** #include "project.h"
+   2:RealOne.c     **** #include <stdio.h>
+   3:RealOne.c     **** 
+   4:RealOne.c     **** #define SAMPLE_RATE 44100 // Definerer sample rate som 44100 Hz
+   5:RealOne.c     **** #define BUFFER_SIZE 512   // Størrelsen på bufferen sat til 512
+   6:RealOne.c     **** #define HANDSHAKE_SIGNAL 0xFFFF // Definerer handshake signal
+   7:RealOne.c     **** 
+   8:RealOne.c     **** volatile uint16_t adcBuffer[BUFFER_SIZE]; // Buffer til ADC data
+   9:RealOne.c     **** volatile int bufferIndex = 0; // Indeks til styring af buffer
+  10:RealOne.c     **** 
+  11:RealOne.c     **** // Funktionsdeklarationer
+  12:RealOne.c     **** void InitADC(void);
+  13:RealOne.c     **** void InitSPI(void);
+  14:RealOne.c     **** int SendSPI(uint16_t data);
+  15:RealOne.c     **** uint16_t ReadADC(void);
+  16:RealOne.c     **** void HandleADCConversion(void);
+  17:RealOne.c     **** void SendHandshakeSignal(void);
+  18:RealOne.c     **** void InitUART(void);
+  19:RealOne.c     **** void SendUART(uint16_t data);
+  20:RealOne.c     **** 
+  21:RealOne.c     **** // Initialiserer UART
+  22:RealOne.c     **** void InitUART(void) {
+  28              		.loc 1 22 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 2
+
+
+  23:RealOne.c     ****     UART_Start();
+  36              		.loc 1 23 0
+  37 0002 FFF7FEFF 		bl	UART_Start
+  38              	.LVL0:
+  39 0006 08BD     		pop	{r3, pc}
+  40              		.cfi_endproc
+  41              	.LFE64:
+  42              		.size	InitUART, .-InitUART
+  43              		.section	.text.SendUART,"ax",%progbits
+  44              		.align	2
+  45              		.global	SendUART
+  46              		.thumb
+  47              		.thumb_func
+  48              		.type	SendUART, %function
+  49              	SendUART:
+  50              	.LFB65:
+  24:RealOne.c     **** }
+  25:RealOne.c     **** 
+  26:RealOne.c     **** // Sender data over UART
+  27:RealOne.c     **** void SendUART(uint16_t data) {
+  51              		.loc 1 27 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 24
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              	.LVL1:
+  56 0000 00B5     		push	{lr}
+  57              		.cfi_def_cfa_offset 4
+  58              		.cfi_offset 14, -4
+  59 0002 87B0     		sub	sp, sp, #28
+  60              		.cfi_def_cfa_offset 32
+  28:RealOne.c     ****     char buffer[20]; // Juster størrelsen af ​​bufferen efter behov
+  29:RealOne.c     ****     sprintf(buffer, "%u\r\n", data);
+  61              		.loc 1 29 0
+  62 0004 0246     		mov	r2, r0
+  63 0006 0549     		ldr	r1, .L5
+  64 0008 01A8     		add	r0, sp, #4
+  65              	.LVL2:
+  66 000a FFF7FEFF 		bl	sprintf
+  67              	.LVL3:
+  30:RealOne.c     ****     UART_PutString(buffer);
+  68              		.loc 1 30 0
+  69 000e 01A8     		add	r0, sp, #4
+  70 0010 FFF7FEFF 		bl	UART_PutString
+  71              	.LVL4:
+  31:RealOne.c     **** }
+  72              		.loc 1 31 0
+  73 0014 07B0     		add	sp, sp, #28
+  74              		.cfi_def_cfa_offset 4
+  75              		@ sp needed
+  76 0016 5DF804FB 		ldr	pc, [sp], #4
+  77              	.L6:
+  78 001a 00BF     		.align	2
+  79              	.L5:
+  80 001c 00000000 		.word	.LC0
+  81              		.cfi_endproc
+  82              	.LFE65:
+  83              		.size	SendUART, .-SendUART
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 3
+
+
+  84              		.section	.text.InitADC,"ax",%progbits
+  85              		.align	2
+  86              		.global	InitADC
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	InitADC, %function
+  90              	InitADC:
+  91              	.LFB66:
+  32:RealOne.c     **** 
+  33:RealOne.c     **** 
+  34:RealOne.c     **** // Initialiserer ADC
+  35:RealOne.c     **** void InitADC(void) {
+  92              		.loc 1 35 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96 0000 08B5     		push	{r3, lr}
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 3, -8
+  99              		.cfi_offset 14, -4
+  36:RealOne.c     ****     ADC_DelSig_1_Start();
+ 100              		.loc 1 36 0
+ 101 0002 FFF7FEFF 		bl	ADC_DelSig_1_Start
+ 102              	.LVL5:
+  37:RealOne.c     ****     ADC_DelSig_1_StartConvert();
+ 103              		.loc 1 37 0
+ 104 0006 FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
+ 105              	.LVL6:
+ 106 000a 08BD     		pop	{r3, pc}
+ 107              		.cfi_endproc
+ 108              	.LFE66:
+ 109              		.size	InitADC, .-InitADC
+ 110              		.section	.text.InitSPI,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	InitSPI
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	InitSPI, %function
+ 116              	InitSPI:
+ 117              	.LFB67:
+  38:RealOne.c     **** }
+  39:RealOne.c     **** 
+  40:RealOne.c     **** // Initialiserer SPI
+  41:RealOne.c     **** void InitSPI(void) {
+ 118              		.loc 1 41 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122 0000 08B5     		push	{r3, lr}
+ 123              		.cfi_def_cfa_offset 8
+ 124              		.cfi_offset 3, -8
+ 125              		.cfi_offset 14, -4
+  42:RealOne.c     ****     SPIS_1_Start();
+ 126              		.loc 1 42 0
+ 127 0002 FFF7FEFF 		bl	SPIS_1_Start
+ 128              	.LVL7:
+ 129 0006 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 4
+
+
+ 130              		.cfi_endproc
+ 131              	.LFE67:
+ 132              		.size	InitSPI, .-InitSPI
+ 133              		.section	.text.ReadADC,"ax",%progbits
+ 134              		.align	2
+ 135              		.global	ReadADC
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.type	ReadADC, %function
+ 139              	ReadADC:
+ 140              	.LFB68:
+  43:RealOne.c     **** }
+  44:RealOne.c     **** 
+  45:RealOne.c     **** // Læser data fra ADC
+  46:RealOne.c     **** uint16_t ReadADC(void) {
+ 141              		.loc 1 46 0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145 0000 08B5     		push	{r3, lr}
+ 146              		.cfi_def_cfa_offset 8
+ 147              		.cfi_offset 3, -8
+ 148              		.cfi_offset 14, -4
+  47:RealOne.c     ****     ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_WAIT_FOR_RESULT);
+ 149              		.loc 1 47 0
+ 150 0002 0020     		movs	r0, #0
+ 151 0004 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
+ 152              	.LVL8:
+  48:RealOne.c     ****     return ADC_DelSig_1_GetResult16();
+ 153              		.loc 1 48 0
+ 154 0008 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
+ 155              	.LVL9:
+  49:RealOne.c     **** }
+ 156              		.loc 1 49 0
+ 157 000c 80B2     		uxth	r0, r0
+ 158 000e 08BD     		pop	{r3, pc}
+ 159              		.cfi_endproc
+ 160              	.LFE68:
+ 161              		.size	ReadADC, .-ReadADC
+ 162              		.section	.text.SendSPI,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	SendSPI
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.type	SendSPI, %function
+ 168              	SendSPI:
+ 169              	.LFB69:
+  50:RealOne.c     **** 
+  51:RealOne.c     **** // Sender data over SPI
+  52:RealOne.c     **** int SendSPI(uint16_t data) {
+ 170              		.loc 1 52 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              	.LVL10:
+ 175 0000 10B5     		push	{r4, lr}
+ 176              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 5
+
+
+ 177              		.cfi_offset 4, -8
+ 178              		.cfi_offset 14, -4
+ 179 0002 0446     		mov	r4, r0
+ 180              	.LVL11:
+ 181              	.L14:
+  53:RealOne.c     ****     while (!(SPIS_1_ReadTxStatus() & SPIS_1_STS_TX_FIFO_NOT_FULL));
+ 182              		.loc 1 53 0 discriminator 1
+ 183 0004 FFF7FEFF 		bl	SPIS_1_ReadTxStatus
+ 184              	.LVL12:
+ 185 0008 10F0020F 		tst	r0, #2
+ 186 000c FAD0     		beq	.L14
+  54:RealOne.c     ****     SPIS_1_WriteTxData(data);
+ 187              		.loc 1 54 0
+ 188 000e 2046     		mov	r0, r4
+ 189 0010 FFF7FEFF 		bl	SPIS_1_WriteTxData
+ 190              	.LVL13:
+ 191              	.L15:
+  55:RealOne.c     ****     while (!(SPIS_1_ReadTxStatus() & SPIS_1_STS_SPI_DONE));
+ 192              		.loc 1 55 0 discriminator 1
+ 193 0014 FFF7FEFF 		bl	SPIS_1_ReadTxStatus
+ 194              	.LVL14:
+ 195 0018 10F0010F 		tst	r0, #1
+ 196 001c FAD0     		beq	.L15
+  56:RealOne.c     ****     return (SPIS_1_ReadTxStatus() & SPIS_1_STS_SPI_DONE) ? 1 : 0;
+ 197              		.loc 1 56 0
+ 198 001e FFF7FEFF 		bl	SPIS_1_ReadTxStatus
+ 199              	.LVL15:
+  57:RealOne.c     **** }
+ 200              		.loc 1 57 0
+ 201 0022 00F00100 		and	r0, r0, #1
+ 202 0026 10BD     		pop	{r4, pc}
+ 203              		.cfi_endproc
+ 204              	.LFE69:
+ 205              		.size	SendSPI, .-SendSPI
+ 206              		.section	.text.HandleADCConversion,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	HandleADCConversion
+ 209              		.thumb
+ 210              		.thumb_func
+ 211              		.type	HandleADCConversion, %function
+ 212              	HandleADCConversion:
+ 213              	.LFB70:
+  58:RealOne.c     **** 
+  59:RealOne.c     **** // Håndterer ADC konvertering
+  60:RealOne.c     **** void HandleADCConversion(void) {
+ 214              		.loc 1 60 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218 0000 08B5     		push	{r3, lr}
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 3, -8
+ 221              		.cfi_offset 14, -4
+  61:RealOne.c     ****     uint32 status = ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS);
+ 222              		.loc 1 61 0
+ 223 0002 0120     		movs	r0, #1
+ 224 0004 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 6
+
+
+ 225              	.LVL16:
+  62:RealOne.c     ****     if (status == ADC_DelSig_1_RETURN_STATUS) {
+ 226              		.loc 1 62 0
+ 227 0008 0128     		cmp	r0, #1
+ 228 000a 02D1     		bne	.L18
+  63:RealOne.c     ****         LED_Write(1); // Tænder LED ved succesfuld konvertering
+ 229              		.loc 1 63 0
+ 230 000c FFF7FEFF 		bl	LED_Write
+ 231              	.LVL17:
+ 232 0010 08BD     		pop	{r3, pc}
+ 233              	.LVL18:
+ 234              	.L18:
+  64:RealOne.c     ****     } else {
+  65:RealOne.c     ****         LED_Write(0); // Slukker LED hvis fejl
+ 235              		.loc 1 65 0
+ 236 0012 0020     		movs	r0, #0
+ 237              	.LVL19:
+ 238 0014 FFF7FEFF 		bl	LED_Write
+ 239              	.LVL20:
+ 240 0018 08BD     		pop	{r3, pc}
+ 241              		.cfi_endproc
+ 242              	.LFE70:
+ 243              		.size	HandleADCConversion, .-HandleADCConversion
+ 244 001a 00BF     		.section	.text.SendHandshakeSignal,"ax",%progbits
+ 245              		.align	2
+ 246              		.global	SendHandshakeSignal
+ 247              		.thumb
+ 248              		.thumb_func
+ 249              		.type	SendHandshakeSignal, %function
+ 250              	SendHandshakeSignal:
+ 251              	.LFB71:
+  66:RealOne.c     ****     }
+  67:RealOne.c     **** }
+  68:RealOne.c     **** 
+  69:RealOne.c     **** // Sender handshake signal over SPI
+  70:RealOne.c     **** void SendHandshakeSignal(void) {
+ 252              		.loc 1 70 0
+ 253              		.cfi_startproc
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256 0000 08B5     		push	{r3, lr}
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 3, -8
+ 259              		.cfi_offset 14, -4
+  71:RealOne.c     ****     SendSPI(HANDSHAKE_SIGNAL);
+ 260              		.loc 1 71 0
+ 261 0002 4FF6FF70 		movw	r0, #65535
+ 262 0006 FFF7FEFF 		bl	SendSPI
+ 263              	.LVL21:
+  72:RealOne.c     ****     CyDelay(10); // Lille forsinkelse for at sikre RPI er klar
+ 264              		.loc 1 72 0
+ 265 000a 0A20     		movs	r0, #10
+ 266 000c FFF7FEFF 		bl	CyDelay
+ 267              	.LVL22:
+ 268 0010 08BD     		pop	{r3, pc}
+ 269              		.cfi_endproc
+ 270              	.LFE71:
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 7
+
+
+ 271              		.size	SendHandshakeSignal, .-SendHandshakeSignal
+ 272 0012 00BF     		.section	.text.main,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	main
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.type	main, %function
+ 278              	main:
+ 279              	.LFB72:
+  73:RealOne.c     **** }
+  74:RealOne.c     **** 
+  75:RealOne.c     **** int main(void) {
+ 280              		.loc 1 75 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284 0000 10B5     		push	{r4, lr}
+ 285              		.cfi_def_cfa_offset 8
+ 286              		.cfi_offset 4, -8
+ 287              		.cfi_offset 14, -4
+  76:RealOne.c     ****     CyGlobalIntEnable; // Aktiverer globale interrupts
+ 288              		.loc 1 76 0
+ 289              		.syntax unified
+ 290              	@ 76 "RealOne.c" 1
+ 291 0002 62B6     		CPSIE   i
+ 292              	@ 0 "" 2
+  77:RealOne.c     ****     InitADC(); // Initialiserer ADC
+ 293              		.loc 1 77 0
+ 294              		.thumb
+ 295              		.syntax unified
+ 296 0004 FFF7FEFF 		bl	InitADC
+ 297              	.LVL23:
+  78:RealOne.c     ****     InitSPI(); // Initialiserer SPI
+ 298              		.loc 1 78 0
+ 299 0008 FFF7FEFF 		bl	InitSPI
+ 300              	.LVL24:
+  79:RealOne.c     ****     InitUART(); // Tilføj UART-initialisering her
+ 301              		.loc 1 79 0
+ 302 000c FFF7FEFF 		bl	InitUART
+ 303              	.LVL25:
+ 304              	.L24:
+  80:RealOne.c     **** 
+  81:RealOne.c     **** 
+  82:RealOne.c     ****     for (;;) {
+  83:RealOne.c     ****         if (bufferIndex < BUFFER_SIZE) {
+ 305              		.loc 1 83 0
+ 306 0010 124B     		ldr	r3, .L30
+ 307 0012 1B68     		ldr	r3, [r3]
+ 308 0014 B3F5007F 		cmp	r3, #512
+ 309 0018 0EDA     		bge	.L25
+  84:RealOne.c     ****             adcBuffer[bufferIndex++] = ReadADC(); // Læser ADC og gemmer i buffer
+ 310              		.loc 1 84 0
+ 311 001a 104B     		ldr	r3, .L30
+ 312 001c 1C68     		ldr	r4, [r3]
+ 313 001e 621C     		adds	r2, r4, #1
+ 314 0020 1A60     		str	r2, [r3]
+ 315 0022 FFF7FEFF 		bl	ReadADC
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 8
+
+
+ 316              	.LVL26:
+ 317 0026 0E4B     		ldr	r3, .L30+4
+ 318 0028 23F81400 		strh	r0, [r3, r4, lsl #1]	@ movhi
+  85:RealOne.c     ****             HandleADCConversion();
+ 319              		.loc 1 85 0
+ 320 002c FFF7FEFF 		bl	HandleADCConversion
+ 321              	.LVL27:
+  86:RealOne.c     ****             CyDelay(1); // Forsinkelse mellem ADC aflæsninger
+ 322              		.loc 1 86 0
+ 323 0030 0120     		movs	r0, #1
+ 324 0032 FFF7FEFF 		bl	CyDelay
+ 325              	.LVL28:
+ 326 0036 EBE7     		b	.L24
+ 327              	.L25:
+  87:RealOne.c     ****         } else {
+  88:RealOne.c     ****             SendHandshakeSignal(); // Sender handshake signal
+ 328              		.loc 1 88 0
+ 329 0038 FFF7FEFF 		bl	SendHandshakeSignal
+ 330              	.LVL29:
+ 331              	.LBB2:
+  89:RealOne.c     ****             for (int i = 0; i < BUFFER_SIZE; i++) {
+ 332              		.loc 1 89 0
+ 333 003c 0024     		movs	r4, #0
+ 334 003e 06E0     		b	.L27
+ 335              	.LVL30:
+ 336              	.L28:
+  90:RealOne.c     ****                 if (!SendSPI(adcBuffer[i])) {
+ 337              		.loc 1 90 0
+ 338 0040 074B     		ldr	r3, .L30+4
+ 339 0042 33F81400 		ldrh	r0, [r3, r4, lsl #1]
+ 340 0046 80B2     		uxth	r0, r0
+ 341 0048 FFF7FEFF 		bl	SendSPI
+ 342              	.LVL31:
+  89:RealOne.c     ****             for (int i = 0; i < BUFFER_SIZE; i++) {
+ 343              		.loc 1 89 0
+ 344 004c 0134     		adds	r4, r4, #1
+ 345              	.LVL32:
+ 346              	.L27:
+  89:RealOne.c     ****             for (int i = 0; i < BUFFER_SIZE; i++) {
+ 347              		.loc 1 89 0 is_stmt 0 discriminator 1
+ 348 004e B4F5007F 		cmp	r4, #512
+ 349 0052 F5DB     		blt	.L28
+ 350              	.LBE2:
+  91:RealOne.c     ****                     // Håndter SPI transmissionsfejl
+  92:RealOne.c     ****                     // Tilføj passende fejlhåndtering her
+  93:RealOne.c     ****                 }
+  94:RealOne.c     ****             }
+  95:RealOne.c     ****             bufferIndex = 0; // Nulstiller buffer index
+ 351              		.loc 1 95 0 is_stmt 1
+ 352 0054 0022     		movs	r2, #0
+ 353 0056 014B     		ldr	r3, .L30
+ 354 0058 1A60     		str	r2, [r3]
+ 355 005a D9E7     		b	.L24
+ 356              	.L31:
+ 357              		.align	2
+ 358              	.L30:
+ 359 005c 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 9
+
+
+ 360 0060 00000000 		.word	adcBuffer
+ 361              		.cfi_endproc
+ 362              	.LFE72:
+ 363              		.size	main, .-main
+ 364              		.global	bufferIndex
+ 365              		.comm	adcBuffer,1024,4
+ 366              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 367              		.align	2
+ 368              	.LC0:
+ 369 0000 25750D0A 		.ascii	"%u\015\012\000"
+ 369      00
+ 370              		.bss
+ 371              		.align	2
+ 372              		.set	.LANCHOR0,. + 0
+ 373              		.type	bufferIndex, %object
+ 374              		.size	bufferIndex, 4
+ 375              	bufferIndex:
+ 376 0000 00000000 		.space	4
+ 377              		.text
+ 378              	.Letext0:
+ 379              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 380              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 381              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 382              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 383              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 384              		.file 7 "Generated_Source\\PSoC5/ADC_DelSig_1.h"
+ 385              		.file 8 "Generated_Source\\PSoC5/SPIS_1.h"
+ 386              		.file 9 "Generated_Source\\PSoC5/LED.h"
+ 387              		.file 10 "Generated_Source\\PSoC5/CyLib.h"
+ 388              		.section	.debug_info,"",%progbits
+ 389              	.Ldebug_info0:
+ 390 0000 3C040000 		.4byte	0x43c
+ 391 0004 0400     		.2byte	0x4
+ 392 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 393 000a 04       		.byte	0x4
+ 394 000b 01       		.uleb128 0x1
+ 395 000c 87000000 		.4byte	.LASF46
+ 396 0010 0C       		.byte	0xc
+ 397 0011 F5020000 		.4byte	.LASF47
+ 398 0015 8E020000 		.4byte	.LASF48
+ 399 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 400 001d 00000000 		.4byte	0
+ 401 0021 00000000 		.4byte	.Ldebug_line0
+ 402 0025 02       		.uleb128 0x2
+ 403 0026 01       		.byte	0x1
+ 404 0027 06       		.byte	0x6
+ 405 0028 6D000000 		.4byte	.LASF0
+ 406 002c 02       		.uleb128 0x2
+ 407 002d 01       		.byte	0x1
+ 408 002e 08       		.byte	0x8
+ 409 002f 79000000 		.4byte	.LASF1
+ 410 0033 02       		.uleb128 0x2
+ 411 0034 02       		.byte	0x2
+ 412 0035 05       		.byte	0x5
+ 413 0036 A0010000 		.4byte	.LASF2
+ 414 003a 03       		.uleb128 0x3
+ 415 003b 8E010000 		.4byte	.LASF4
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 10
+
+
+ 416 003f 02       		.byte	0x2
+ 417 0040 2B       		.byte	0x2b
+ 418 0041 45000000 		.4byte	0x45
+ 419 0045 02       		.uleb128 0x2
+ 420 0046 02       		.byte	0x2
+ 421 0047 07       		.byte	0x7
+ 422 0048 44010000 		.4byte	.LASF3
+ 423 004c 03       		.uleb128 0x3
+ 424 004d 32000000 		.4byte	.LASF5
+ 425 0051 02       		.byte	0x2
+ 426 0052 3F       		.byte	0x3f
+ 427 0053 57000000 		.4byte	0x57
+ 428 0057 02       		.uleb128 0x2
+ 429 0058 04       		.byte	0x4
+ 430 0059 05       		.byte	0x5
+ 431 005a 3C000000 		.4byte	.LASF6
+ 432 005e 02       		.uleb128 0x2
+ 433 005f 04       		.byte	0x4
+ 434 0060 07       		.byte	0x7
+ 435 0061 32010000 		.4byte	.LASF7
+ 436 0065 02       		.uleb128 0x2
+ 437 0066 08       		.byte	0x8
+ 438 0067 05       		.byte	0x5
+ 439 0068 3C020000 		.4byte	.LASF8
+ 440 006c 02       		.uleb128 0x2
+ 441 006d 08       		.byte	0x8
+ 442 006e 07       		.byte	0x7
+ 443 006f F3010000 		.4byte	.LASF9
+ 444 0073 04       		.uleb128 0x4
+ 445 0074 04       		.byte	0x4
+ 446 0075 05       		.byte	0x5
+ 447 0076 696E7400 		.ascii	"int\000"
+ 448 007a 02       		.uleb128 0x2
+ 449 007b 04       		.byte	0x4
+ 450 007c 07       		.byte	0x7
+ 451 007d E6010000 		.4byte	.LASF10
+ 452 0081 03       		.uleb128 0x3
+ 453 0082 7B020000 		.4byte	.LASF11
+ 454 0086 03       		.byte	0x3
+ 455 0087 24       		.byte	0x24
+ 456 0088 3A000000 		.4byte	0x3a
+ 457 008c 03       		.uleb128 0x3
+ 458 008d 2B020000 		.4byte	.LASF12
+ 459 0091 03       		.byte	0x3
+ 460 0092 2C       		.byte	0x2c
+ 461 0093 4C000000 		.4byte	0x4c
+ 462 0097 05       		.uleb128 0x5
+ 463 0098 4D000000 		.4byte	.LASF13
+ 464 009c 04       		.byte	0x4
+ 465 009d E801     		.2byte	0x1e8
+ 466 009f 2C000000 		.4byte	0x2c
+ 467 00a3 05       		.uleb128 0x5
+ 468 00a4 AA010000 		.4byte	.LASF14
+ 469 00a8 04       		.byte	0x4
+ 470 00a9 EA01     		.2byte	0x1ea
+ 471 00ab 5E000000 		.4byte	0x5e
+ 472 00af 02       		.uleb128 0x2
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 11
+
+
+ 473 00b0 04       		.byte	0x4
+ 474 00b1 04       		.byte	0x4
+ 475 00b2 62000000 		.4byte	.LASF15
+ 476 00b6 02       		.uleb128 0x2
+ 477 00b7 08       		.byte	0x8
+ 478 00b8 04       		.byte	0x4
+ 479 00b9 99010000 		.4byte	.LASF16
+ 480 00bd 02       		.uleb128 0x2
+ 481 00be 01       		.byte	0x1
+ 482 00bf 08       		.byte	0x8
+ 483 00c0 4A020000 		.4byte	.LASF17
+ 484 00c4 02       		.uleb128 0x2
+ 485 00c5 08       		.byte	0x8
+ 486 00c6 04       		.byte	0x4
+ 487 00c7 E9020000 		.4byte	.LASF18
+ 488 00cb 02       		.uleb128 0x2
+ 489 00cc 04       		.byte	0x4
+ 490 00cd 07       		.byte	0x7
+ 491 00ce 33020000 		.4byte	.LASF19
+ 492 00d2 06       		.uleb128 0x6
+ 493 00d3 81000000 		.4byte	0x81
+ 494 00d7 07       		.uleb128 0x7
+ 495 00d8 B1010000 		.4byte	.LASF20
+ 496 00dc 01       		.byte	0x1
+ 497 00dd 16       		.byte	0x16
+ 498 00de 00000000 		.4byte	.LFB64
+ 499 00e2 08000000 		.4byte	.LFE64-.LFB64
+ 500 00e6 01       		.uleb128 0x1
+ 501 00e7 9C       		.byte	0x9c
+ 502 00e8 07010000 		.4byte	0x107
+ 503 00ec 08       		.uleb128 0x8
+ 504 00ed 4F020000 		.4byte	.LASF22
+ 505 00f1 01       		.byte	0x1
+ 506 00f2 17       		.byte	0x17
+ 507 00f3 73000000 		.4byte	0x73
+ 508 00f7 FD000000 		.4byte	0xfd
+ 509 00fb 09       		.uleb128 0x9
+ 510 00fc 00       		.byte	0
+ 511 00fd 0A       		.uleb128 0xa
+ 512 00fe 06000000 		.4byte	.LVL0
+ 513 0102 BB030000 		.4byte	0x3bb
+ 514 0106 00       		.byte	0
+ 515 0107 07       		.uleb128 0x7
+ 516 0108 85010000 		.4byte	.LASF21
+ 517 010c 01       		.byte	0x1
+ 518 010d 1B       		.byte	0x1b
+ 519 010e 00000000 		.4byte	.LFB65
+ 520 0112 20000000 		.4byte	.LFE65-.LFB65
+ 521 0116 01       		.uleb128 0x1
+ 522 0117 9C       		.byte	0x9c
+ 523 0118 78010000 		.4byte	0x178
+ 524 011c 0B       		.uleb128 0xb
+ 525 011d 68000000 		.4byte	.LASF28
+ 526 0121 01       		.byte	0x1
+ 527 0122 1B       		.byte	0x1b
+ 528 0123 81000000 		.4byte	0x81
+ 529 0127 00000000 		.4byte	.LLST0
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 12
+
+
+ 530 012b 0C       		.uleb128 0xc
+ 531 012c 74020000 		.4byte	.LASF30
+ 532 0130 01       		.byte	0x1
+ 533 0131 1C       		.byte	0x1c
+ 534 0132 78010000 		.4byte	0x178
+ 535 0136 02       		.uleb128 0x2
+ 536 0137 91       		.byte	0x91
+ 537 0138 64       		.sleb128 -28
+ 538 0139 08       		.uleb128 0x8
+ 539 013a FF020000 		.4byte	.LASF23
+ 540 013e 01       		.byte	0x1
+ 541 013f 1E       		.byte	0x1e
+ 542 0140 73000000 		.4byte	0x73
+ 543 0144 4A010000 		.4byte	0x14a
+ 544 0148 09       		.uleb128 0x9
+ 545 0149 00       		.byte	0
+ 546 014a 0D       		.uleb128 0xd
+ 547 014b 0E000000 		.4byte	.LVL3
+ 548 014f C6030000 		.4byte	0x3c6
+ 549 0153 67010000 		.4byte	0x167
+ 550 0157 0E       		.uleb128 0xe
+ 551 0158 01       		.uleb128 0x1
+ 552 0159 50       		.byte	0x50
+ 553 015a 02       		.uleb128 0x2
+ 554 015b 91       		.byte	0x91
+ 555 015c 64       		.sleb128 -28
+ 556 015d 0E       		.uleb128 0xe
+ 557 015e 01       		.uleb128 0x1
+ 558 015f 51       		.byte	0x51
+ 559 0160 05       		.uleb128 0x5
+ 560 0161 03       		.byte	0x3
+ 561 0162 00000000 		.4byte	.LC0
+ 562 0166 00       		.byte	0
+ 563 0167 0F       		.uleb128 0xf
+ 564 0168 14000000 		.4byte	.LVL4
+ 565 016c D1030000 		.4byte	0x3d1
+ 566 0170 0E       		.uleb128 0xe
+ 567 0171 01       		.uleb128 0x1
+ 568 0172 50       		.byte	0x50
+ 569 0173 02       		.uleb128 0x2
+ 570 0174 91       		.byte	0x91
+ 571 0175 64       		.sleb128 -28
+ 572 0176 00       		.byte	0
+ 573 0177 00       		.byte	0
+ 574 0178 10       		.uleb128 0x10
+ 575 0179 BD000000 		.4byte	0xbd
+ 576 017d 88010000 		.4byte	0x188
+ 577 0181 11       		.uleb128 0x11
+ 578 0182 CB000000 		.4byte	0xcb
+ 579 0186 13       		.byte	0x13
+ 580 0187 00       		.byte	0
+ 581 0188 07       		.uleb128 0x7
+ 582 0189 0A020000 		.4byte	.LASF24
+ 583 018d 01       		.byte	0x1
+ 584 018e 23       		.byte	0x23
+ 585 018f 00000000 		.4byte	.LFB66
+ 586 0193 0C000000 		.4byte	.LFE66-.LFB66
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 13
+
+
+ 587 0197 01       		.uleb128 0x1
+ 588 0198 9C       		.byte	0x9c
+ 589 0199 B0010000 		.4byte	0x1b0
+ 590 019d 0A       		.uleb128 0xa
+ 591 019e 06000000 		.4byte	.LVL5
+ 592 01a2 DC030000 		.4byte	0x3dc
+ 593 01a6 0A       		.uleb128 0xa
+ 594 01a7 0A000000 		.4byte	.LVL6
+ 595 01ab E7030000 		.4byte	0x3e7
+ 596 01af 00       		.byte	0
+ 597 01b0 07       		.uleb128 0x7
+ 598 01b1 5A000000 		.4byte	.LASF25
+ 599 01b5 01       		.byte	0x1
+ 600 01b6 29       		.byte	0x29
+ 601 01b7 00000000 		.4byte	.LFB67
+ 602 01bb 08000000 		.4byte	.LFE67-.LFB67
+ 603 01bf 01       		.uleb128 0x1
+ 604 01c0 9C       		.byte	0x9c
+ 605 01c1 CF010000 		.4byte	0x1cf
+ 606 01c5 0A       		.uleb128 0xa
+ 607 01c6 06000000 		.4byte	.LVL7
+ 608 01ca F2030000 		.4byte	0x3f2
+ 609 01ce 00       		.byte	0
+ 610 01cf 12       		.uleb128 0x12
+ 611 01d0 45000000 		.4byte	.LASF26
+ 612 01d4 01       		.byte	0x1
+ 613 01d5 2E       		.byte	0x2e
+ 614 01d6 81000000 		.4byte	0x81
+ 615 01da 00000000 		.4byte	.LFB68
+ 616 01de 10000000 		.4byte	.LFE68-.LFB68
+ 617 01e2 01       		.uleb128 0x1
+ 618 01e3 9C       		.byte	0x9c
+ 619 01e4 05020000 		.4byte	0x205
+ 620 01e8 0D       		.uleb128 0xd
+ 621 01e9 08000000 		.4byte	.LVL8
+ 622 01ed FD030000 		.4byte	0x3fd
+ 623 01f1 FB010000 		.4byte	0x1fb
+ 624 01f5 0E       		.uleb128 0xe
+ 625 01f6 01       		.uleb128 0x1
+ 626 01f7 50       		.byte	0x50
+ 627 01f8 01       		.uleb128 0x1
+ 628 01f9 30       		.byte	0x30
+ 629 01fa 00       		.byte	0
+ 630 01fb 0A       		.uleb128 0xa
+ 631 01fc 0C000000 		.4byte	.LVL9
+ 632 0200 08040000 		.4byte	0x408
+ 633 0204 00       		.byte	0
+ 634 0205 12       		.uleb128 0x12
+ 635 0206 0C000000 		.4byte	.LASF27
+ 636 020a 01       		.byte	0x1
+ 637 020b 34       		.byte	0x34
+ 638 020c 73000000 		.4byte	0x73
+ 639 0210 00000000 		.4byte	.LFB69
+ 640 0214 28000000 		.4byte	.LFE69-.LFB69
+ 641 0218 01       		.uleb128 0x1
+ 642 0219 9C       		.byte	0x9c
+ 643 021a 5D020000 		.4byte	0x25d
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 14
+
+
+ 644 021e 0B       		.uleb128 0xb
+ 645 021f 68000000 		.4byte	.LASF28
+ 646 0223 01       		.byte	0x1
+ 647 0224 34       		.byte	0x34
+ 648 0225 81000000 		.4byte	0x81
+ 649 0229 21000000 		.4byte	.LLST1
+ 650 022d 0A       		.uleb128 0xa
+ 651 022e 08000000 		.4byte	.LVL12
+ 652 0232 13040000 		.4byte	0x413
+ 653 0236 0D       		.uleb128 0xd
+ 654 0237 14000000 		.4byte	.LVL13
+ 655 023b 1E040000 		.4byte	0x41e
+ 656 023f 4A020000 		.4byte	0x24a
+ 657 0243 0E       		.uleb128 0xe
+ 658 0244 01       		.uleb128 0x1
+ 659 0245 50       		.byte	0x50
+ 660 0246 02       		.uleb128 0x2
+ 661 0247 74       		.byte	0x74
+ 662 0248 00       		.sleb128 0
+ 663 0249 00       		.byte	0
+ 664 024a 0A       		.uleb128 0xa
+ 665 024b 18000000 		.4byte	.LVL14
+ 666 024f 13040000 		.4byte	0x413
+ 667 0253 0A       		.uleb128 0xa
+ 668 0254 22000000 		.4byte	.LVL15
+ 669 0258 13040000 		.4byte	0x413
+ 670 025c 00       		.byte	0
+ 671 025d 07       		.uleb128 0x7
+ 672 025e 64010000 		.4byte	.LASF29
+ 673 0262 01       		.byte	0x1
+ 674 0263 3C       		.byte	0x3c
+ 675 0264 00000000 		.4byte	.LFB70
+ 676 0268 1A000000 		.4byte	.LFE70-.LFB70
+ 677 026c 01       		.uleb128 0x1
+ 678 026d 9C       		.byte	0x9c
+ 679 026e AD020000 		.4byte	0x2ad
+ 680 0272 13       		.uleb128 0x13
+ 681 0273 53000000 		.4byte	.LASF31
+ 682 0277 01       		.byte	0x1
+ 683 0278 3D       		.byte	0x3d
+ 684 0279 A3000000 		.4byte	0xa3
+ 685 027d 42000000 		.4byte	.LLST2
+ 686 0281 0D       		.uleb128 0xd
+ 687 0282 08000000 		.4byte	.LVL16
+ 688 0286 FD030000 		.4byte	0x3fd
+ 689 028a 94020000 		.4byte	0x294
+ 690 028e 0E       		.uleb128 0xe
+ 691 028f 01       		.uleb128 0x1
+ 692 0290 50       		.byte	0x50
+ 693 0291 01       		.uleb128 0x1
+ 694 0292 31       		.byte	0x31
+ 695 0293 00       		.byte	0
+ 696 0294 0A       		.uleb128 0xa
+ 697 0295 10000000 		.4byte	.LVL17
+ 698 0299 29040000 		.4byte	0x429
+ 699 029d 0F       		.uleb128 0xf
+ 700 029e 18000000 		.4byte	.LVL20
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 15
+
+
+ 701 02a2 29040000 		.4byte	0x429
+ 702 02a6 0E       		.uleb128 0xe
+ 703 02a7 01       		.uleb128 0x1
+ 704 02a8 50       		.byte	0x50
+ 705 02a9 01       		.uleb128 0x1
+ 706 02aa 30       		.byte	0x30
+ 707 02ab 00       		.byte	0
+ 708 02ac 00       		.byte	0
+ 709 02ad 07       		.uleb128 0x7
+ 710 02ae 14000000 		.4byte	.LASF32
+ 711 02b2 01       		.byte	0x1
+ 712 02b3 46       		.byte	0x46
+ 713 02b4 00000000 		.4byte	.LFB71
+ 714 02b8 12000000 		.4byte	.LFE71-.LFB71
+ 715 02bc 01       		.uleb128 0x1
+ 716 02bd 9C       		.byte	0x9c
+ 717 02be E6020000 		.4byte	0x2e6
+ 718 02c2 0D       		.uleb128 0xd
+ 719 02c3 0A000000 		.4byte	.LVL21
+ 720 02c7 05020000 		.4byte	0x205
+ 721 02cb D6020000 		.4byte	0x2d6
+ 722 02cf 0E       		.uleb128 0xe
+ 723 02d0 01       		.uleb128 0x1
+ 724 02d1 50       		.byte	0x50
+ 725 02d2 02       		.uleb128 0x2
+ 726 02d3 09       		.byte	0x9
+ 727 02d4 FF       		.byte	0xff
+ 728 02d5 00       		.byte	0
+ 729 02d6 0F       		.uleb128 0xf
+ 730 02d7 10000000 		.4byte	.LVL22
+ 731 02db 34040000 		.4byte	0x434
+ 732 02df 0E       		.uleb128 0xe
+ 733 02e0 01       		.uleb128 0x1
+ 734 02e1 50       		.byte	0x50
+ 735 02e2 01       		.uleb128 0x1
+ 736 02e3 3A       		.byte	0x3a
+ 737 02e4 00       		.byte	0
+ 738 02e5 00       		.byte	0
+ 739 02e6 14       		.uleb128 0x14
+ 740 02e7 26020000 		.4byte	.LASF49
+ 741 02eb 01       		.byte	0x1
+ 742 02ec 4B       		.byte	0x4b
+ 743 02ed 73000000 		.4byte	0x73
+ 744 02f1 00000000 		.4byte	.LFB72
+ 745 02f5 64000000 		.4byte	.LFE72-.LFB72
+ 746 02f9 01       		.uleb128 0x1
+ 747 02fa 9C       		.byte	0x9c
+ 748 02fb 6D030000 		.4byte	0x36d
+ 749 02ff 15       		.uleb128 0x15
+ 750 0300 3C000000 		.4byte	.LBB2
+ 751 0304 18000000 		.4byte	.LBE2-.LBB2
+ 752 0308 23030000 		.4byte	0x323
+ 753 030c 16       		.uleb128 0x16
+ 754 030d 6900     		.ascii	"i\000"
+ 755 030f 01       		.byte	0x1
+ 756 0310 59       		.byte	0x59
+ 757 0311 73000000 		.4byte	0x73
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 16
+
+
+ 758 0315 6A000000 		.4byte	.LLST3
+ 759 0319 0A       		.uleb128 0xa
+ 760 031a 4C000000 		.4byte	.LVL31
+ 761 031e 05020000 		.4byte	0x205
+ 762 0322 00       		.byte	0
+ 763 0323 0A       		.uleb128 0xa
+ 764 0324 08000000 		.4byte	.LVL23
+ 765 0328 88010000 		.4byte	0x188
+ 766 032c 0A       		.uleb128 0xa
+ 767 032d 0C000000 		.4byte	.LVL24
+ 768 0331 B0010000 		.4byte	0x1b0
+ 769 0335 0A       		.uleb128 0xa
+ 770 0336 10000000 		.4byte	.LVL25
+ 771 033a D7000000 		.4byte	0xd7
+ 772 033e 0A       		.uleb128 0xa
+ 773 033f 26000000 		.4byte	.LVL26
+ 774 0343 CF010000 		.4byte	0x1cf
+ 775 0347 0A       		.uleb128 0xa
+ 776 0348 30000000 		.4byte	.LVL27
+ 777 034c 5D020000 		.4byte	0x25d
+ 778 0350 0D       		.uleb128 0xd
+ 779 0351 36000000 		.4byte	.LVL28
+ 780 0355 34040000 		.4byte	0x434
+ 781 0359 63030000 		.4byte	0x363
+ 782 035d 0E       		.uleb128 0xe
+ 783 035e 01       		.uleb128 0x1
+ 784 035f 50       		.byte	0x50
+ 785 0360 01       		.uleb128 0x1
+ 786 0361 31       		.byte	0x31
+ 787 0362 00       		.byte	0
+ 788 0363 0A       		.uleb128 0xa
+ 789 0364 3C000000 		.4byte	.LVL29
+ 790 0368 AD020000 		.4byte	0x2ad
+ 791 036c 00       		.byte	0
+ 792 036d 17       		.uleb128 0x17
+ 793 036e 78010000 		.4byte	.LASF33
+ 794 0372 05       		.byte	0x5
+ 795 0373 1207     		.2byte	0x712
+ 796 0375 79030000 		.4byte	0x379
+ 797 0379 06       		.uleb128 0x6
+ 798 037a 8C000000 		.4byte	0x8c
+ 799 037e 10       		.uleb128 0x10
+ 800 037f D2000000 		.4byte	0xd2
+ 801 0383 8F030000 		.4byte	0x38f
+ 802 0387 18       		.uleb128 0x18
+ 803 0388 CB000000 		.4byte	0xcb
+ 804 038c FF01     		.2byte	0x1ff
+ 805 038e 00       		.byte	0
+ 806 038f 19       		.uleb128 0x19
+ 807 0390 84020000 		.4byte	.LASF34
+ 808 0394 01       		.byte	0x1
+ 809 0395 08       		.byte	0x8
+ 810 0396 A0030000 		.4byte	0x3a0
+ 811 039a 05       		.uleb128 0x5
+ 812 039b 03       		.byte	0x3
+ 813 039c 00000000 		.4byte	adcBuffer
+ 814 03a0 06       		.uleb128 0x6
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 17
+
+
+ 815 03a1 7E030000 		.4byte	0x37e
+ 816 03a5 19       		.uleb128 0x19
+ 817 03a6 00000000 		.4byte	.LASF35
+ 818 03aa 01       		.byte	0x1
+ 819 03ab 09       		.byte	0x9
+ 820 03ac B6030000 		.4byte	0x3b6
+ 821 03b0 05       		.uleb128 0x5
+ 822 03b1 03       		.byte	0x3
+ 823 03b2 00000000 		.4byte	bufferIndex
+ 824 03b6 06       		.uleb128 0x6
+ 825 03b7 73000000 		.4byte	0x73
+ 826 03bb 1A       		.uleb128 0x1a
+ 827 03bc 4F020000 		.4byte	.LASF22
+ 828 03c0 4F020000 		.4byte	.LASF22
+ 829 03c4 01       		.byte	0x1
+ 830 03c5 17       		.byte	0x17
+ 831 03c6 1A       		.uleb128 0x1a
+ 832 03c7 21030000 		.4byte	.LASF36
+ 833 03cb 21030000 		.4byte	.LASF36
+ 834 03cf 06       		.byte	0x6
+ 835 03d0 E7       		.byte	0xe7
+ 836 03d1 1A       		.uleb128 0x1a
+ 837 03d2 FF020000 		.4byte	.LASF23
+ 838 03d6 FF020000 		.4byte	.LASF23
+ 839 03da 01       		.byte	0x1
+ 840 03db 1E       		.byte	0x1e
+ 841 03dc 1A       		.uleb128 0x1a
+ 842 03dd D3010000 		.4byte	.LASF37
+ 843 03e1 D3010000 		.4byte	.LASF37
+ 844 03e5 07       		.byte	0x7
+ 845 03e6 3A       		.byte	0x3a
+ 846 03e7 1A       		.uleb128 0x1a
+ 847 03e8 5A020000 		.4byte	.LASF38
+ 848 03ec 5A020000 		.4byte	.LASF38
+ 849 03f0 07       		.byte	0x7
+ 850 03f1 3D       		.byte	0x3d
+ 851 03f2 1A       		.uleb128 0x1a
+ 852 03f3 57010000 		.4byte	.LASF39
+ 853 03f7 57010000 		.4byte	.LASF39
+ 854 03fb 08       		.byte	0x8
+ 855 03fc 46       		.byte	0x46
+ 856 03fd 1A       		.uleb128 0x1a
+ 857 03fe 15010000 		.4byte	.LASF40
+ 858 0402 15010000 		.4byte	.LASF40
+ 859 0406 07       		.byte	0x7
+ 860 0407 3F       		.byte	0x3f
+ 861 0408 1A       		.uleb128 0x1a
+ 862 0409 BA010000 		.4byte	.LASF41
+ 863 040d BA010000 		.4byte	.LASF41
+ 864 0411 07       		.byte	0x7
+ 865 0412 41       		.byte	0x41
+ 866 0413 1A       		.uleb128 0x1a
+ 867 0414 12020000 		.4byte	.LASF42
+ 868 0418 12020000 		.4byte	.LASF42
+ 869 041c 08       		.byte	0x8
+ 870 041d 4E       		.byte	0x4e
+ 871 041e 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 18
+
+
+ 872 041f 0E030000 		.4byte	.LASF43
+ 873 0423 0E030000 		.4byte	.LASF43
+ 874 0427 08       		.byte	0x8
+ 875 0428 50       		.byte	0x50
+ 876 0429 1A       		.uleb128 0x1a
+ 877 042a 28000000 		.4byte	.LASF44
+ 878 042e 28000000 		.4byte	.LASF44
+ 879 0432 09       		.byte	0x9
+ 880 0433 26       		.byte	0x26
+ 881 0434 1A       		.uleb128 0x1a
+ 882 0435 29030000 		.4byte	.LASF45
+ 883 0439 29030000 		.4byte	.LASF45
+ 884 043d 0A       		.byte	0xa
+ 885 043e 76       		.byte	0x76
+ 886 043f 00       		.byte	0
+ 887              		.section	.debug_abbrev,"",%progbits
+ 888              	.Ldebug_abbrev0:
+ 889 0000 01       		.uleb128 0x1
+ 890 0001 11       		.uleb128 0x11
+ 891 0002 01       		.byte	0x1
+ 892 0003 25       		.uleb128 0x25
+ 893 0004 0E       		.uleb128 0xe
+ 894 0005 13       		.uleb128 0x13
+ 895 0006 0B       		.uleb128 0xb
+ 896 0007 03       		.uleb128 0x3
+ 897 0008 0E       		.uleb128 0xe
+ 898 0009 1B       		.uleb128 0x1b
+ 899 000a 0E       		.uleb128 0xe
+ 900 000b 55       		.uleb128 0x55
+ 901 000c 17       		.uleb128 0x17
+ 902 000d 11       		.uleb128 0x11
+ 903 000e 01       		.uleb128 0x1
+ 904 000f 10       		.uleb128 0x10
+ 905 0010 17       		.uleb128 0x17
+ 906 0011 00       		.byte	0
+ 907 0012 00       		.byte	0
+ 908 0013 02       		.uleb128 0x2
+ 909 0014 24       		.uleb128 0x24
+ 910 0015 00       		.byte	0
+ 911 0016 0B       		.uleb128 0xb
+ 912 0017 0B       		.uleb128 0xb
+ 913 0018 3E       		.uleb128 0x3e
+ 914 0019 0B       		.uleb128 0xb
+ 915 001a 03       		.uleb128 0x3
+ 916 001b 0E       		.uleb128 0xe
+ 917 001c 00       		.byte	0
+ 918 001d 00       		.byte	0
+ 919 001e 03       		.uleb128 0x3
+ 920 001f 16       		.uleb128 0x16
+ 921 0020 00       		.byte	0
+ 922 0021 03       		.uleb128 0x3
+ 923 0022 0E       		.uleb128 0xe
+ 924 0023 3A       		.uleb128 0x3a
+ 925 0024 0B       		.uleb128 0xb
+ 926 0025 3B       		.uleb128 0x3b
+ 927 0026 0B       		.uleb128 0xb
+ 928 0027 49       		.uleb128 0x49
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 19
+
+
+ 929 0028 13       		.uleb128 0x13
+ 930 0029 00       		.byte	0
+ 931 002a 00       		.byte	0
+ 932 002b 04       		.uleb128 0x4
+ 933 002c 24       		.uleb128 0x24
+ 934 002d 00       		.byte	0
+ 935 002e 0B       		.uleb128 0xb
+ 936 002f 0B       		.uleb128 0xb
+ 937 0030 3E       		.uleb128 0x3e
+ 938 0031 0B       		.uleb128 0xb
+ 939 0032 03       		.uleb128 0x3
+ 940 0033 08       		.uleb128 0x8
+ 941 0034 00       		.byte	0
+ 942 0035 00       		.byte	0
+ 943 0036 05       		.uleb128 0x5
+ 944 0037 16       		.uleb128 0x16
+ 945 0038 00       		.byte	0
+ 946 0039 03       		.uleb128 0x3
+ 947 003a 0E       		.uleb128 0xe
+ 948 003b 3A       		.uleb128 0x3a
+ 949 003c 0B       		.uleb128 0xb
+ 950 003d 3B       		.uleb128 0x3b
+ 951 003e 05       		.uleb128 0x5
+ 952 003f 49       		.uleb128 0x49
+ 953 0040 13       		.uleb128 0x13
+ 954 0041 00       		.byte	0
+ 955 0042 00       		.byte	0
+ 956 0043 06       		.uleb128 0x6
+ 957 0044 35       		.uleb128 0x35
+ 958 0045 00       		.byte	0
+ 959 0046 49       		.uleb128 0x49
+ 960 0047 13       		.uleb128 0x13
+ 961 0048 00       		.byte	0
+ 962 0049 00       		.byte	0
+ 963 004a 07       		.uleb128 0x7
+ 964 004b 2E       		.uleb128 0x2e
+ 965 004c 01       		.byte	0x1
+ 966 004d 3F       		.uleb128 0x3f
+ 967 004e 19       		.uleb128 0x19
+ 968 004f 03       		.uleb128 0x3
+ 969 0050 0E       		.uleb128 0xe
+ 970 0051 3A       		.uleb128 0x3a
+ 971 0052 0B       		.uleb128 0xb
+ 972 0053 3B       		.uleb128 0x3b
+ 973 0054 0B       		.uleb128 0xb
+ 974 0055 27       		.uleb128 0x27
+ 975 0056 19       		.uleb128 0x19
+ 976 0057 11       		.uleb128 0x11
+ 977 0058 01       		.uleb128 0x1
+ 978 0059 12       		.uleb128 0x12
+ 979 005a 06       		.uleb128 0x6
+ 980 005b 40       		.uleb128 0x40
+ 981 005c 18       		.uleb128 0x18
+ 982 005d 9742     		.uleb128 0x2117
+ 983 005f 19       		.uleb128 0x19
+ 984 0060 01       		.uleb128 0x1
+ 985 0061 13       		.uleb128 0x13
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 20
+
+
+ 986 0062 00       		.byte	0
+ 987 0063 00       		.byte	0
+ 988 0064 08       		.uleb128 0x8
+ 989 0065 2E       		.uleb128 0x2e
+ 990 0066 01       		.byte	0x1
+ 991 0067 3F       		.uleb128 0x3f
+ 992 0068 19       		.uleb128 0x19
+ 993 0069 03       		.uleb128 0x3
+ 994 006a 0E       		.uleb128 0xe
+ 995 006b 3A       		.uleb128 0x3a
+ 996 006c 0B       		.uleb128 0xb
+ 997 006d 3B       		.uleb128 0x3b
+ 998 006e 0B       		.uleb128 0xb
+ 999 006f 49       		.uleb128 0x49
+ 1000 0070 13       		.uleb128 0x13
+ 1001 0071 3C       		.uleb128 0x3c
+ 1002 0072 19       		.uleb128 0x19
+ 1003 0073 01       		.uleb128 0x1
+ 1004 0074 13       		.uleb128 0x13
+ 1005 0075 00       		.byte	0
+ 1006 0076 00       		.byte	0
+ 1007 0077 09       		.uleb128 0x9
+ 1008 0078 18       		.uleb128 0x18
+ 1009 0079 00       		.byte	0
+ 1010 007a 00       		.byte	0
+ 1011 007b 00       		.byte	0
+ 1012 007c 0A       		.uleb128 0xa
+ 1013 007d 898201   		.uleb128 0x4109
+ 1014 0080 00       		.byte	0
+ 1015 0081 11       		.uleb128 0x11
+ 1016 0082 01       		.uleb128 0x1
+ 1017 0083 31       		.uleb128 0x31
+ 1018 0084 13       		.uleb128 0x13
+ 1019 0085 00       		.byte	0
+ 1020 0086 00       		.byte	0
+ 1021 0087 0B       		.uleb128 0xb
+ 1022 0088 05       		.uleb128 0x5
+ 1023 0089 00       		.byte	0
+ 1024 008a 03       		.uleb128 0x3
+ 1025 008b 0E       		.uleb128 0xe
+ 1026 008c 3A       		.uleb128 0x3a
+ 1027 008d 0B       		.uleb128 0xb
+ 1028 008e 3B       		.uleb128 0x3b
+ 1029 008f 0B       		.uleb128 0xb
+ 1030 0090 49       		.uleb128 0x49
+ 1031 0091 13       		.uleb128 0x13
+ 1032 0092 02       		.uleb128 0x2
+ 1033 0093 17       		.uleb128 0x17
+ 1034 0094 00       		.byte	0
+ 1035 0095 00       		.byte	0
+ 1036 0096 0C       		.uleb128 0xc
+ 1037 0097 34       		.uleb128 0x34
+ 1038 0098 00       		.byte	0
+ 1039 0099 03       		.uleb128 0x3
+ 1040 009a 0E       		.uleb128 0xe
+ 1041 009b 3A       		.uleb128 0x3a
+ 1042 009c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 21
+
+
+ 1043 009d 3B       		.uleb128 0x3b
+ 1044 009e 0B       		.uleb128 0xb
+ 1045 009f 49       		.uleb128 0x49
+ 1046 00a0 13       		.uleb128 0x13
+ 1047 00a1 02       		.uleb128 0x2
+ 1048 00a2 18       		.uleb128 0x18
+ 1049 00a3 00       		.byte	0
+ 1050 00a4 00       		.byte	0
+ 1051 00a5 0D       		.uleb128 0xd
+ 1052 00a6 898201   		.uleb128 0x4109
+ 1053 00a9 01       		.byte	0x1
+ 1054 00aa 11       		.uleb128 0x11
+ 1055 00ab 01       		.uleb128 0x1
+ 1056 00ac 31       		.uleb128 0x31
+ 1057 00ad 13       		.uleb128 0x13
+ 1058 00ae 01       		.uleb128 0x1
+ 1059 00af 13       		.uleb128 0x13
+ 1060 00b0 00       		.byte	0
+ 1061 00b1 00       		.byte	0
+ 1062 00b2 0E       		.uleb128 0xe
+ 1063 00b3 8A8201   		.uleb128 0x410a
+ 1064 00b6 00       		.byte	0
+ 1065 00b7 02       		.uleb128 0x2
+ 1066 00b8 18       		.uleb128 0x18
+ 1067 00b9 9142     		.uleb128 0x2111
+ 1068 00bb 18       		.uleb128 0x18
+ 1069 00bc 00       		.byte	0
+ 1070 00bd 00       		.byte	0
+ 1071 00be 0F       		.uleb128 0xf
+ 1072 00bf 898201   		.uleb128 0x4109
+ 1073 00c2 01       		.byte	0x1
+ 1074 00c3 11       		.uleb128 0x11
+ 1075 00c4 01       		.uleb128 0x1
+ 1076 00c5 31       		.uleb128 0x31
+ 1077 00c6 13       		.uleb128 0x13
+ 1078 00c7 00       		.byte	0
+ 1079 00c8 00       		.byte	0
+ 1080 00c9 10       		.uleb128 0x10
+ 1081 00ca 01       		.uleb128 0x1
+ 1082 00cb 01       		.byte	0x1
+ 1083 00cc 49       		.uleb128 0x49
+ 1084 00cd 13       		.uleb128 0x13
+ 1085 00ce 01       		.uleb128 0x1
+ 1086 00cf 13       		.uleb128 0x13
+ 1087 00d0 00       		.byte	0
+ 1088 00d1 00       		.byte	0
+ 1089 00d2 11       		.uleb128 0x11
+ 1090 00d3 21       		.uleb128 0x21
+ 1091 00d4 00       		.byte	0
+ 1092 00d5 49       		.uleb128 0x49
+ 1093 00d6 13       		.uleb128 0x13
+ 1094 00d7 2F       		.uleb128 0x2f
+ 1095 00d8 0B       		.uleb128 0xb
+ 1096 00d9 00       		.byte	0
+ 1097 00da 00       		.byte	0
+ 1098 00db 12       		.uleb128 0x12
+ 1099 00dc 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 22
+
+
+ 1100 00dd 01       		.byte	0x1
+ 1101 00de 3F       		.uleb128 0x3f
+ 1102 00df 19       		.uleb128 0x19
+ 1103 00e0 03       		.uleb128 0x3
+ 1104 00e1 0E       		.uleb128 0xe
+ 1105 00e2 3A       		.uleb128 0x3a
+ 1106 00e3 0B       		.uleb128 0xb
+ 1107 00e4 3B       		.uleb128 0x3b
+ 1108 00e5 0B       		.uleb128 0xb
+ 1109 00e6 27       		.uleb128 0x27
+ 1110 00e7 19       		.uleb128 0x19
+ 1111 00e8 49       		.uleb128 0x49
+ 1112 00e9 13       		.uleb128 0x13
+ 1113 00ea 11       		.uleb128 0x11
+ 1114 00eb 01       		.uleb128 0x1
+ 1115 00ec 12       		.uleb128 0x12
+ 1116 00ed 06       		.uleb128 0x6
+ 1117 00ee 40       		.uleb128 0x40
+ 1118 00ef 18       		.uleb128 0x18
+ 1119 00f0 9742     		.uleb128 0x2117
+ 1120 00f2 19       		.uleb128 0x19
+ 1121 00f3 01       		.uleb128 0x1
+ 1122 00f4 13       		.uleb128 0x13
+ 1123 00f5 00       		.byte	0
+ 1124 00f6 00       		.byte	0
+ 1125 00f7 13       		.uleb128 0x13
+ 1126 00f8 34       		.uleb128 0x34
+ 1127 00f9 00       		.byte	0
+ 1128 00fa 03       		.uleb128 0x3
+ 1129 00fb 0E       		.uleb128 0xe
+ 1130 00fc 3A       		.uleb128 0x3a
+ 1131 00fd 0B       		.uleb128 0xb
+ 1132 00fe 3B       		.uleb128 0x3b
+ 1133 00ff 0B       		.uleb128 0xb
+ 1134 0100 49       		.uleb128 0x49
+ 1135 0101 13       		.uleb128 0x13
+ 1136 0102 02       		.uleb128 0x2
+ 1137 0103 17       		.uleb128 0x17
+ 1138 0104 00       		.byte	0
+ 1139 0105 00       		.byte	0
+ 1140 0106 14       		.uleb128 0x14
+ 1141 0107 2E       		.uleb128 0x2e
+ 1142 0108 01       		.byte	0x1
+ 1143 0109 3F       		.uleb128 0x3f
+ 1144 010a 19       		.uleb128 0x19
+ 1145 010b 03       		.uleb128 0x3
+ 1146 010c 0E       		.uleb128 0xe
+ 1147 010d 3A       		.uleb128 0x3a
+ 1148 010e 0B       		.uleb128 0xb
+ 1149 010f 3B       		.uleb128 0x3b
+ 1150 0110 0B       		.uleb128 0xb
+ 1151 0111 27       		.uleb128 0x27
+ 1152 0112 19       		.uleb128 0x19
+ 1153 0113 49       		.uleb128 0x49
+ 1154 0114 13       		.uleb128 0x13
+ 1155 0115 8701     		.uleb128 0x87
+ 1156 0117 19       		.uleb128 0x19
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 23
+
+
+ 1157 0118 11       		.uleb128 0x11
+ 1158 0119 01       		.uleb128 0x1
+ 1159 011a 12       		.uleb128 0x12
+ 1160 011b 06       		.uleb128 0x6
+ 1161 011c 40       		.uleb128 0x40
+ 1162 011d 18       		.uleb128 0x18
+ 1163 011e 9742     		.uleb128 0x2117
+ 1164 0120 19       		.uleb128 0x19
+ 1165 0121 01       		.uleb128 0x1
+ 1166 0122 13       		.uleb128 0x13
+ 1167 0123 00       		.byte	0
+ 1168 0124 00       		.byte	0
+ 1169 0125 15       		.uleb128 0x15
+ 1170 0126 0B       		.uleb128 0xb
+ 1171 0127 01       		.byte	0x1
+ 1172 0128 11       		.uleb128 0x11
+ 1173 0129 01       		.uleb128 0x1
+ 1174 012a 12       		.uleb128 0x12
+ 1175 012b 06       		.uleb128 0x6
+ 1176 012c 01       		.uleb128 0x1
+ 1177 012d 13       		.uleb128 0x13
+ 1178 012e 00       		.byte	0
+ 1179 012f 00       		.byte	0
+ 1180 0130 16       		.uleb128 0x16
+ 1181 0131 34       		.uleb128 0x34
+ 1182 0132 00       		.byte	0
+ 1183 0133 03       		.uleb128 0x3
+ 1184 0134 08       		.uleb128 0x8
+ 1185 0135 3A       		.uleb128 0x3a
+ 1186 0136 0B       		.uleb128 0xb
+ 1187 0137 3B       		.uleb128 0x3b
+ 1188 0138 0B       		.uleb128 0xb
+ 1189 0139 49       		.uleb128 0x49
+ 1190 013a 13       		.uleb128 0x13
+ 1191 013b 02       		.uleb128 0x2
+ 1192 013c 17       		.uleb128 0x17
+ 1193 013d 00       		.byte	0
+ 1194 013e 00       		.byte	0
+ 1195 013f 17       		.uleb128 0x17
+ 1196 0140 34       		.uleb128 0x34
+ 1197 0141 00       		.byte	0
+ 1198 0142 03       		.uleb128 0x3
+ 1199 0143 0E       		.uleb128 0xe
+ 1200 0144 3A       		.uleb128 0x3a
+ 1201 0145 0B       		.uleb128 0xb
+ 1202 0146 3B       		.uleb128 0x3b
+ 1203 0147 05       		.uleb128 0x5
+ 1204 0148 49       		.uleb128 0x49
+ 1205 0149 13       		.uleb128 0x13
+ 1206 014a 3F       		.uleb128 0x3f
+ 1207 014b 19       		.uleb128 0x19
+ 1208 014c 3C       		.uleb128 0x3c
+ 1209 014d 19       		.uleb128 0x19
+ 1210 014e 00       		.byte	0
+ 1211 014f 00       		.byte	0
+ 1212 0150 18       		.uleb128 0x18
+ 1213 0151 21       		.uleb128 0x21
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 24
+
+
+ 1214 0152 00       		.byte	0
+ 1215 0153 49       		.uleb128 0x49
+ 1216 0154 13       		.uleb128 0x13
+ 1217 0155 2F       		.uleb128 0x2f
+ 1218 0156 05       		.uleb128 0x5
+ 1219 0157 00       		.byte	0
+ 1220 0158 00       		.byte	0
+ 1221 0159 19       		.uleb128 0x19
+ 1222 015a 34       		.uleb128 0x34
+ 1223 015b 00       		.byte	0
+ 1224 015c 03       		.uleb128 0x3
+ 1225 015d 0E       		.uleb128 0xe
+ 1226 015e 3A       		.uleb128 0x3a
+ 1227 015f 0B       		.uleb128 0xb
+ 1228 0160 3B       		.uleb128 0x3b
+ 1229 0161 0B       		.uleb128 0xb
+ 1230 0162 49       		.uleb128 0x49
+ 1231 0163 13       		.uleb128 0x13
+ 1232 0164 3F       		.uleb128 0x3f
+ 1233 0165 19       		.uleb128 0x19
+ 1234 0166 02       		.uleb128 0x2
+ 1235 0167 18       		.uleb128 0x18
+ 1236 0168 00       		.byte	0
+ 1237 0169 00       		.byte	0
+ 1238 016a 1A       		.uleb128 0x1a
+ 1239 016b 2E       		.uleb128 0x2e
+ 1240 016c 00       		.byte	0
+ 1241 016d 3F       		.uleb128 0x3f
+ 1242 016e 19       		.uleb128 0x19
+ 1243 016f 3C       		.uleb128 0x3c
+ 1244 0170 19       		.uleb128 0x19
+ 1245 0171 6E       		.uleb128 0x6e
+ 1246 0172 0E       		.uleb128 0xe
+ 1247 0173 03       		.uleb128 0x3
+ 1248 0174 0E       		.uleb128 0xe
+ 1249 0175 3A       		.uleb128 0x3a
+ 1250 0176 0B       		.uleb128 0xb
+ 1251 0177 3B       		.uleb128 0x3b
+ 1252 0178 0B       		.uleb128 0xb
+ 1253 0179 00       		.byte	0
+ 1254 017a 00       		.byte	0
+ 1255 017b 00       		.byte	0
+ 1256              		.section	.debug_loc,"",%progbits
+ 1257              	.Ldebug_loc0:
+ 1258              	.LLST0:
+ 1259 0000 00000000 		.4byte	.LVL1
+ 1260 0004 0A000000 		.4byte	.LVL2
+ 1261 0008 0100     		.2byte	0x1
+ 1262 000a 50       		.byte	0x50
+ 1263 000b 0A000000 		.4byte	.LVL2
+ 1264 000f 20000000 		.4byte	.LFE65
+ 1265 0013 0400     		.2byte	0x4
+ 1266 0015 F3       		.byte	0xf3
+ 1267 0016 01       		.uleb128 0x1
+ 1268 0017 50       		.byte	0x50
+ 1269 0018 9F       		.byte	0x9f
+ 1270 0019 00000000 		.4byte	0
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 25
+
+
+ 1271 001d 00000000 		.4byte	0
+ 1272              	.LLST1:
+ 1273 0021 00000000 		.4byte	.LVL10
+ 1274 0025 04000000 		.4byte	.LVL11
+ 1275 0029 0100     		.2byte	0x1
+ 1276 002b 50       		.byte	0x50
+ 1277 002c 04000000 		.4byte	.LVL11
+ 1278 0030 28000000 		.4byte	.LFE69
+ 1279 0034 0400     		.2byte	0x4
+ 1280 0036 F3       		.byte	0xf3
+ 1281 0037 01       		.uleb128 0x1
+ 1282 0038 50       		.byte	0x50
+ 1283 0039 9F       		.byte	0x9f
+ 1284 003a 00000000 		.4byte	0
+ 1285 003e 00000000 		.4byte	0
+ 1286              	.LLST2:
+ 1287 0042 08000000 		.4byte	.LVL16
+ 1288 0046 0F000000 		.4byte	.LVL17-1
+ 1289 004a 0600     		.2byte	0x6
+ 1290 004c 70       		.byte	0x70
+ 1291 004d 00       		.sleb128 0
+ 1292 004e 08       		.byte	0x8
+ 1293 004f FF       		.byte	0xff
+ 1294 0050 1A       		.byte	0x1a
+ 1295 0051 9F       		.byte	0x9f
+ 1296 0052 12000000 		.4byte	.LVL18
+ 1297 0056 14000000 		.4byte	.LVL19
+ 1298 005a 0600     		.2byte	0x6
+ 1299 005c 70       		.byte	0x70
+ 1300 005d 00       		.sleb128 0
+ 1301 005e 08       		.byte	0x8
+ 1302 005f FF       		.byte	0xff
+ 1303 0060 1A       		.byte	0x1a
+ 1304 0061 9F       		.byte	0x9f
+ 1305 0062 00000000 		.4byte	0
+ 1306 0066 00000000 		.4byte	0
+ 1307              	.LLST3:
+ 1308 006a 3C000000 		.4byte	.LVL29
+ 1309 006e 40000000 		.4byte	.LVL30
+ 1310 0072 0200     		.2byte	0x2
+ 1311 0074 30       		.byte	0x30
+ 1312 0075 9F       		.byte	0x9f
+ 1313 0076 40000000 		.4byte	.LVL30
+ 1314 007a 64000000 		.4byte	.LFE72
+ 1315 007e 0100     		.2byte	0x1
+ 1316 0080 54       		.byte	0x54
+ 1317 0081 00000000 		.4byte	0
+ 1318 0085 00000000 		.4byte	0
+ 1319              		.section	.debug_aranges,"",%progbits
+ 1320 0000 5C000000 		.4byte	0x5c
+ 1321 0004 0200     		.2byte	0x2
+ 1322 0006 00000000 		.4byte	.Ldebug_info0
+ 1323 000a 04       		.byte	0x4
+ 1324 000b 00       		.byte	0
+ 1325 000c 0000     		.2byte	0
+ 1326 000e 0000     		.2byte	0
+ 1327 0010 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 26
+
+
+ 1328 0014 08000000 		.4byte	.LFE64-.LFB64
+ 1329 0018 00000000 		.4byte	.LFB65
+ 1330 001c 20000000 		.4byte	.LFE65-.LFB65
+ 1331 0020 00000000 		.4byte	.LFB66
+ 1332 0024 0C000000 		.4byte	.LFE66-.LFB66
+ 1333 0028 00000000 		.4byte	.LFB67
+ 1334 002c 08000000 		.4byte	.LFE67-.LFB67
+ 1335 0030 00000000 		.4byte	.LFB68
+ 1336 0034 10000000 		.4byte	.LFE68-.LFB68
+ 1337 0038 00000000 		.4byte	.LFB69
+ 1338 003c 28000000 		.4byte	.LFE69-.LFB69
+ 1339 0040 00000000 		.4byte	.LFB70
+ 1340 0044 1A000000 		.4byte	.LFE70-.LFB70
+ 1341 0048 00000000 		.4byte	.LFB71
+ 1342 004c 12000000 		.4byte	.LFE71-.LFB71
+ 1343 0050 00000000 		.4byte	.LFB72
+ 1344 0054 64000000 		.4byte	.LFE72-.LFB72
+ 1345 0058 00000000 		.4byte	0
+ 1346 005c 00000000 		.4byte	0
+ 1347              		.section	.debug_ranges,"",%progbits
+ 1348              	.Ldebug_ranges0:
+ 1349 0000 00000000 		.4byte	.LFB64
+ 1350 0004 08000000 		.4byte	.LFE64
+ 1351 0008 00000000 		.4byte	.LFB65
+ 1352 000c 20000000 		.4byte	.LFE65
+ 1353 0010 00000000 		.4byte	.LFB66
+ 1354 0014 0C000000 		.4byte	.LFE66
+ 1355 0018 00000000 		.4byte	.LFB67
+ 1356 001c 08000000 		.4byte	.LFE67
+ 1357 0020 00000000 		.4byte	.LFB68
+ 1358 0024 10000000 		.4byte	.LFE68
+ 1359 0028 00000000 		.4byte	.LFB69
+ 1360 002c 28000000 		.4byte	.LFE69
+ 1361 0030 00000000 		.4byte	.LFB70
+ 1362 0034 1A000000 		.4byte	.LFE70
+ 1363 0038 00000000 		.4byte	.LFB71
+ 1364 003c 12000000 		.4byte	.LFE71
+ 1365 0040 00000000 		.4byte	.LFB72
+ 1366 0044 64000000 		.4byte	.LFE72
+ 1367 0048 00000000 		.4byte	0
+ 1368 004c 00000000 		.4byte	0
+ 1369              		.section	.debug_line,"",%progbits
+ 1370              	.Ldebug_line0:
+ 1371 0000 B4020000 		.section	.debug_str,"MS",%progbits,1
+ 1371      0200F401 
+ 1371      00000201 
+ 1371      FB0E0D00 
+ 1371      01010101 
+ 1372              	.LASF35:
+ 1373 0000 62756666 		.ascii	"bufferIndex\000"
+ 1373      6572496E 
+ 1373      64657800 
+ 1374              	.LASF27:
+ 1375 000c 53656E64 		.ascii	"SendSPI\000"
+ 1375      53504900 
+ 1376              	.LASF32:
+ 1377 0014 53656E64 		.ascii	"SendHandshakeSignal\000"
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 27
+
+
+ 1377      48616E64 
+ 1377      7368616B 
+ 1377      65536967 
+ 1377      6E616C00 
+ 1378              	.LASF44:
+ 1379 0028 4C45445F 		.ascii	"LED_Write\000"
+ 1379      57726974 
+ 1379      6500
+ 1380              	.LASF5:
+ 1381 0032 5F5F696E 		.ascii	"__int32_t\000"
+ 1381      7433325F 
+ 1381      7400
+ 1382              	.LASF6:
+ 1383 003c 6C6F6E67 		.ascii	"long int\000"
+ 1383      20696E74 
+ 1383      00
+ 1384              	.LASF26:
+ 1385 0045 52656164 		.ascii	"ReadADC\000"
+ 1385      41444300 
+ 1386              	.LASF13:
+ 1387 004d 75696E74 		.ascii	"uint8\000"
+ 1387      3800
+ 1388              	.LASF31:
+ 1389 0053 73746174 		.ascii	"status\000"
+ 1389      757300
+ 1390              	.LASF25:
+ 1391 005a 496E6974 		.ascii	"InitSPI\000"
+ 1391      53504900 
+ 1392              	.LASF15:
+ 1393 0062 666C6F61 		.ascii	"float\000"
+ 1393      7400
+ 1394              	.LASF28:
+ 1395 0068 64617461 		.ascii	"data\000"
+ 1395      00
+ 1396              	.LASF0:
+ 1397 006d 7369676E 		.ascii	"signed char\000"
+ 1397      65642063 
+ 1397      68617200 
+ 1398              	.LASF1:
+ 1399 0079 756E7369 		.ascii	"unsigned char\000"
+ 1399      676E6564 
+ 1399      20636861 
+ 1399      7200
+ 1400              	.LASF46:
+ 1401 0087 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1401      43313120 
+ 1401      352E342E 
+ 1401      31203230 
+ 1401      31363036 
+ 1402 00ba 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1402      20726576 
+ 1402      6973696F 
+ 1402      6E203233 
+ 1402      37373135 
+ 1403 00ed 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1403      66756E63 
+ 1403      74696F6E 
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 28
+
+
+ 1403      2D736563 
+ 1403      74696F6E 
+ 1404              	.LASF40:
+ 1405 0115 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
+ 1405      44656C53 
+ 1405      69675F31 
+ 1405      5F497345 
+ 1405      6E64436F 
+ 1406              	.LASF7:
+ 1407 0132 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1407      20756E73 
+ 1407      69676E65 
+ 1407      6420696E 
+ 1407      7400
+ 1408              	.LASF3:
+ 1409 0144 73686F72 		.ascii	"short unsigned int\000"
+ 1409      7420756E 
+ 1409      7369676E 
+ 1409      65642069 
+ 1409      6E7400
+ 1410              	.LASF39:
+ 1411 0157 53504953 		.ascii	"SPIS_1_Start\000"
+ 1411      5F315F53 
+ 1411      74617274 
+ 1411      00
+ 1412              	.LASF29:
+ 1413 0164 48616E64 		.ascii	"HandleADCConversion\000"
+ 1413      6C654144 
+ 1413      43436F6E 
+ 1413      76657273 
+ 1413      696F6E00 
+ 1414              	.LASF33:
+ 1415 0178 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1415      52784275 
+ 1415      66666572 
+ 1415      00
+ 1416              	.LASF21:
+ 1417 0185 53656E64 		.ascii	"SendUART\000"
+ 1417      55415254 
+ 1417      00
+ 1418              	.LASF4:
+ 1419 018e 5F5F7569 		.ascii	"__uint16_t\000"
+ 1419      6E743136 
+ 1419      5F7400
+ 1420              	.LASF16:
+ 1421 0199 646F7562 		.ascii	"double\000"
+ 1421      6C6500
+ 1422              	.LASF2:
+ 1423 01a0 73686F72 		.ascii	"short int\000"
+ 1423      7420696E 
+ 1423      7400
+ 1424              	.LASF14:
+ 1425 01aa 75696E74 		.ascii	"uint32\000"
+ 1425      333200
+ 1426              	.LASF20:
+ 1427 01b1 496E6974 		.ascii	"InitUART\000"
+ 1427      55415254 
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 29
+
+
+ 1427      00
+ 1428              	.LASF41:
+ 1429 01ba 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
+ 1429      44656C53 
+ 1429      69675F31 
+ 1429      5F476574 
+ 1429      52657375 
+ 1430              	.LASF37:
+ 1431 01d3 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 1431      44656C53 
+ 1431      69675F31 
+ 1431      5F537461 
+ 1431      727400
+ 1432              	.LASF10:
+ 1433 01e6 756E7369 		.ascii	"unsigned int\000"
+ 1433      676E6564 
+ 1433      20696E74 
+ 1433      00
+ 1434              	.LASF9:
+ 1435 01f3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1435      206C6F6E 
+ 1435      6720756E 
+ 1435      7369676E 
+ 1435      65642069 
+ 1436              	.LASF24:
+ 1437 020a 496E6974 		.ascii	"InitADC\000"
+ 1437      41444300 
+ 1438              	.LASF42:
+ 1439 0212 53504953 		.ascii	"SPIS_1_ReadTxStatus\000"
+ 1439      5F315F52 
+ 1439      65616454 
+ 1439      78537461 
+ 1439      74757300 
+ 1440              	.LASF49:
+ 1441 0226 6D61696E 		.ascii	"main\000"
+ 1441      00
+ 1442              	.LASF12:
+ 1443 022b 696E7433 		.ascii	"int32_t\000"
+ 1443      325F7400 
+ 1444              	.LASF19:
+ 1445 0233 73697A65 		.ascii	"sizetype\000"
+ 1445      74797065 
+ 1445      00
+ 1446              	.LASF8:
+ 1447 023c 6C6F6E67 		.ascii	"long long int\000"
+ 1447      206C6F6E 
+ 1447      6720696E 
+ 1447      7400
+ 1448              	.LASF17:
+ 1449 024a 63686172 		.ascii	"char\000"
+ 1449      00
+ 1450              	.LASF22:
+ 1451 024f 55415254 		.ascii	"UART_Start\000"
+ 1451      5F537461 
+ 1451      727400
+ 1452              	.LASF38:
+ 1453 025a 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
+ARM GAS  C:\Users\hanad\AppData\Local\Temp\ccl72Xuf.s 			page 30
+
+
+ 1453      44656C53 
+ 1453      69675F31 
+ 1453      5F537461 
+ 1453      7274436F 
+ 1454              	.LASF30:
+ 1455 0274 62756666 		.ascii	"buffer\000"
+ 1455      657200
+ 1456              	.LASF11:
+ 1457 027b 75696E74 		.ascii	"uint16_t\000"
+ 1457      31365F74 
+ 1457      00
+ 1458              	.LASF34:
+ 1459 0284 61646342 		.ascii	"adcBuffer\000"
+ 1459      75666665 
+ 1459      7200
+ 1460              	.LASF48:
+ 1461 028e 433A5C55 		.ascii	"C:\\Users\\hanad\\OneDrive\\Dokumenter\\3. Semester"
+ 1461      73657273 
+ 1461      5C68616E 
+ 1461      61645C4F 
+ 1461      6E654472 
+ 1462 02bc 5C50726F 		.ascii	"\\Projekt\\repos\\Projects\\PRJ3\\AMK\\BANAN.cydsn\000"
+ 1462      6A656B74 
+ 1462      5C726570 
+ 1462      6F735C50 
+ 1462      726F6A65 
+ 1463              	.LASF18:
+ 1464 02e9 6C6F6E67 		.ascii	"long double\000"
+ 1464      20646F75 
+ 1464      626C6500 
+ 1465              	.LASF47:
+ 1466 02f5 5265616C 		.ascii	"RealOne.c\000"
+ 1466      4F6E652E 
+ 1466      6300
+ 1467              	.LASF23:
+ 1468 02ff 55415254 		.ascii	"UART_PutString\000"
+ 1468      5F507574 
+ 1468      53747269 
+ 1468      6E6700
+ 1469              	.LASF43:
+ 1470 030e 53504953 		.ascii	"SPIS_1_WriteTxData\000"
+ 1470      5F315F57 
+ 1470      72697465 
+ 1470      54784461 
+ 1470      746100
+ 1471              	.LASF36:
+ 1472 0321 73707269 		.ascii	"sprintf\000"
+ 1472      6E746600 
+ 1473              	.LASF45:
+ 1474 0329 43794465 		.ascii	"CyDelay\000"
+ 1474      6C617900 
+ 1475              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

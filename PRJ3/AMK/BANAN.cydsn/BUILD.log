@@ -1,0 +1,19 @@
+--------------- Build Started: 12/06/2023 14:58:04 Project: BANAN, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/RealOne.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c RealOne.c -o .\CortexM3\ARM_GCC_541\Debug\RealOne.o
+RealOne.c: In function 'InitUART':
+RealOne.c:23:5: warning: implicit declaration of function 'UART_Start' [-Wimplicit-function-declaration]
+     UART_Start();
+     ^
+RealOne.c: In function 'SendUART':
+RealOne.c:30:5: warning: implicit declaration of function 'UART_PutString' [-Wimplicit-function-declaration]
+     UART_PutString(buffer);
+     ^
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\BANAN.a .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_PM.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_INT.o .\CortexM3\ARM_GCC_541\Debug\MISO_1.o .\CortexM3\ARM_GCC_541\Debug\MOSI_1.o .\CortexM3\ARM_GCC_541\Debug\SCLK_1.o .\CortexM3\ARM_GCC_541\Debug\SPIS_1.o .\CortexM3\ARM_GCC_541\Debug\SPIS_1_PM.o .\CortexM3\ARM_GCC_541\Debug\SPIS_1_INT.o .\CortexM3\ARM_GCC_541\Debug\SPIS_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_Ext_CP_Clk.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_theACLK.o .\CortexM3\ARM_GCC_541\Debug\SPIS_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\Pin_ADC_in.o .\CortexM3\ARM_GCC_541\Debug\SS_1.o .\CortexM3\ARM_GCC_541\Debug\LED.o .\CortexM3\ARM_GCC_541\Debug\ADC_DelSig_1_AMux.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\BANAN.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\hanad\OneDrive\Dokumenter\3. Semester\Projekt\repos\Projects\PRJ3\AMK\BANAN.cydsn\CortexM3\ARM_GCC_541\Debug\BANAN.elf" .\CortexM3\ARM_GCC_541\Debug\RealOne.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\BANAN.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/BANAN.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+.\CortexM3\ARM_GCC_541\Debug\RealOne.o: In function `InitUART':
+C:\Users\hanad\OneDrive\Dokumenter\3. Semester\Projekt\repos\Projects\PRJ3\AMK\BANAN.cydsn/RealOne.c:23: undefined reference to `UART_Start'
+collect2.exe: error: ld returned 1 exit status
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 12/06/2023 14:58:05 ---------------
