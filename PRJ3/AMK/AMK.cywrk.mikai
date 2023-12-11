@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AMK\BANAN\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AMK\BANAN\Source Files\RealOne.c">
 <ExpandedNodeIds>
 <v>AMK</v>
 <v>AMK\BANAN</v>
@@ -223,7 +223,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1309, 487" SelectedTabbedMdiWindow="06821cac-af8b-4397-8964-0bf856a66f55"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2f3f6bce-ddd4-4399-9a3d-39fb0047ef70" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\BANAN.cydwr" Guid="06821cac-af8b-4397-8964-0bf856a66f55" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\TopDesign\TopDesign.cysch" Guid="57133722-4842-400d-bdb6-6632d8aeea1f" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\RealOne.c" Guid="d68b239d-9394-40f8-a036-bde0cfbb86da" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1098, 487" SelectedTabbedMdiWindow="d68b239d-9394-40f8-a036-bde0cfbb86da"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2f3f6bce-ddd4-4399-9a3d-39fb0047ef70" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\BANAN.cydwr" Guid="06821cac-af8b-4397-8964-0bf856a66f55" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\TopDesign\TopDesign.cysch" Guid="57133722-4842-400d-bdb6-6632d8aeea1f" /><DocumentWindow Key="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\RealOne.c" Guid="d68b239d-9394-40f8-a036-bde0cfbb86da" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
