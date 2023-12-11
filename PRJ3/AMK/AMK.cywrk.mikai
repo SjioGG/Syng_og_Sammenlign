@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AMK\BANAN\BANAN.cydwr\Pins">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AMK\BANAN\TopDesign">
 <ExpandedNodeIds>
 <v>AMK</v>
 <v>AMK\BANAN</v>
@@ -192,7 +192,6 @@
 <v>AMK\BANAN\cy_pins_v2_20</v>
 <v>AMK\BANAN\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>AMK\BANAN\SPI_Slave_v2_70.pdf</v>
-<v>AMK\BANAN\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>AMK</v>
@@ -205,7 +204,6 @@
 <v>AMK\BANAN\cy_pins_v2_20</v>
 <v>AMK\BANAN\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>AMK\BANAN\SPI_Slave_v2_70.pdf</v>
-<v>AMK\BANAN\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
