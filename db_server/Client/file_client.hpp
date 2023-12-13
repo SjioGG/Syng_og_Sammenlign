@@ -1,3 +1,6 @@
+#ifndef FILE_CLIENT_HPP
+#define FILE_CLIENT_HPP
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,11 +10,6 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-
-
-
-
-
 
 using namespace std;
 
@@ -26,15 +24,15 @@ class ClientSocket
 	int addressLength;
 	string SongString;
 	string ScoreString;
+	const char *ipStr_;
 
 public:
-	ClientSocket(const char *ipStr)
+	ClientSocket(const char *ipStr = "10.0.0.1") : ipStr_(ipStr), port(9000)
 	{
-		port = 9000;
 		serverAddress.sin_family = AF_INET;
 		serverAddress.sin_port = htons(port);
 		addressLength = sizeof(serverAddress);
-		if (inet_pton(AF_INET, ipStr, &serverAddress.sin_addr) <= 0)
+		if (inet_pton(AF_INET, ipStr_, &serverAddress.sin_addr) <= 0)
 		{
 			perror("ERROR: Invalid address");
 			exit(1);
@@ -145,7 +143,7 @@ public:
 	void receiveFile(string filename)
 	{
 		// Open the file to write to
-		file.open((".//") + filename, ios::out | ios::trunc | ios::binary);
+		file.open((".//..//..//shared_cache//") + filename, ios::out | ios::trunc | ios::binary);
 		if (file.is_open())
 		{
 			printf("File opened\n");
@@ -202,3 +200,5 @@ public:
 		send(generalSocketDescriptor, ack, sizeof(ack) - 1, 0);
 	}
 };
+
+#endif

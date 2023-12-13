@@ -1,4 +1,5 @@
-#include "SongScoreCombined.hpp"
+#include "Song.hpp"
+#include "ScoreList.hpp"
 #include <unistd.h>
 
 int main()
