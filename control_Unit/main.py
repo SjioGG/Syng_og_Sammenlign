@@ -1,5 +1,6 @@
 from ControlUnit import ControlUnit
 from LogicUnit import LogicUnit
+
 import numpy as np
 
 # Completed tests for ControlUnit class

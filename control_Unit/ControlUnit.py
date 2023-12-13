@@ -4,7 +4,7 @@ import scipy.io.wavfile as wav
 from playsound import playsound
 from pydub.playback import play
 
-class ControlUnit:
+class ControlUnit():
     def __init__(self):
         # Initialize any necessary variables or parameters here
         self.chosenSongVocals = None
