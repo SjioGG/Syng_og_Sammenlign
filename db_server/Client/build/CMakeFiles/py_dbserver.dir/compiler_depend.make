@@ -425,7 +425,8 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
   /usr/include/c++/11/bits/gslice_array.h \
   /usr/include/c++/11/bits/mask_array.h \
   /usr/include/c++/11/bits/indirect_array.h \
-  ../SongScoreCombined.hpp \
+  ../Score.hpp \
+  ../Parse.hpp \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
   ../file_client.hpp \
@@ -451,7 +452,9 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/netdb.h \
-  /usr/include/arpa/inet.h
+  /usr/include/arpa/inet.h \
+  ../Song.hpp \
+  ../ScoreList.hpp
 
 
 /usr/include/arpa/inet.h:
@@ -480,7 +483,7 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
 
 /usr/include/c++/11/sstream:
 
-../SongScoreCombined.hpp:
+../Score.hpp:
 
 /usr/include/c++/11/bits/indirect_array.h:
 
@@ -578,6 +581,8 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
 
 /usr/include/c++/11/bits/unordered_map.h:
 
+../Parse.hpp:
+
 /usr/include/c++/11/unordered_map:
 
 /usr/include/c++/11/bits/unordered_set.h:
@@ -633,6 +638,8 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
 /usr/include/c++/11/bits/functional_hash.h:
 
 /usr/include/c++/11/bits/stl_uninitialized.h:
+
+../ScoreList.hpp:
 
 /usr/include/c++/11/vector:
 
@@ -1109,6 +1116,8 @@ CMakeFiles/py_dbserver.dir/py_dbserver.cpp.o: ../py_dbserver.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
 /usr/include/python3.10/namespaceobject.h:
+
+../Song.hpp:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 

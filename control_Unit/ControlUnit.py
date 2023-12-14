@@ -4,7 +4,7 @@ import scipy.io.wavfile as wav
 from playsound import playsound
 from pydub.playback import play
 
-class ControlUnit:
+class ControlUnit():
     def __init__(self):
         # Initialize any necessary variables or parameters here
         self.chosenSongVocals = None
@@ -22,6 +22,9 @@ class ControlUnit:
     def get_recordedSong(self):
         self.recordedSongVocals = "cover_justin_bieber_ghost[vocals].wav"
         return self.recordedSongVocals
+    
+    def get_finalScore(self):
+        finalScore = "100"  # Replace with actual logic
 
 # Play function, to play any song. 
     def play_song(self, song_file):
