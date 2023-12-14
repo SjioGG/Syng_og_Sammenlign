@@ -1,5 +1,5 @@
 from ControlUnit import ControlUnit
-from correlation import LogicUnit
+from LogicUnit import LogicUnit
 import numpy as np
 
 # Completed tests for ControlUnit class
