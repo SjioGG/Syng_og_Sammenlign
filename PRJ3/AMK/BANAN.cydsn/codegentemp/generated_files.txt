@@ -46,11 +46,6 @@
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1.h" value="HEADER;;;;;ADC_DelSig_1" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_PM.c" value="SOURCE_C;CortexM3;;;;ADC_DelSig_1" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_INT.c" value="SOURCE_C;CortexM3;;;;ADC_DelSig_1" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1.c" value="SOURCE_C;CortexM3;;;;UART_1" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1.h" value="HEADER;;;;;UART_1" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1_PM.c" value="SOURCE_C;CortexM3;;;;UART_1" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1_INT.c" value="SOURCE_C;CortexM3;;;;UART_1" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1_BOOT.c" value="SOURCE_C;CortexM3;;;;UART_1" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\SPIS_1_IntClock.c" value="SOURCE_C;CortexM3;;;;SPIS_1_IntClock" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\SPIS_1_IntClock.h" value="HEADER;;;;;SPIS_1_IntClock" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_AMux.c" value="SOURCE_C;CortexM3;;;;ADC_DelSig_1_AMux" />
@@ -61,8 +56,6 @@
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_IRQ.h" value="HEADER;;;;;ADC_DelSig_1_IRQ" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_DelSig_1_theACLK" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\ADC_DelSig_1_theACLK.h" value="HEADER;;;;;ADC_DelSig_1_theACLK" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
-  <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />

@@ -1,6 +1,6 @@
-C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\BANAN.cyprj|12c16746-20a7-4ff2-8fe5-adf435c05c15
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b69d6674-58a2-4d06-9b2e-6f94c5bb7c41
-C:\Users\mikai\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|88d65e54-93fe-4504-a935-48ecbaae016f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8be5c12c-40a8-437f-9979-f01a6970908f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0c15ec45-4a43-47c6-b081-decc05fe15c4
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0197d29a-572a-4a39-ac67-f30383bd7c0c
+C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\BANAN.cyprj|58c50f7c-970e-455c-88b7-54143a46071a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|0876f7d5-cba5-4db9-9cf6-60de6f8754fe
+C:\Users\mikai\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|0f552590-0a26-45c7-a04a-4a11266b59a1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d81aa7a0-934a-4b2c-88e2-bfa542b3f7de
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|94f7ab09-a3a5-48f8-9a0f-4b38f7e8ad7b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|50e24632-d33f-4123-9cfc-4ae76582d453

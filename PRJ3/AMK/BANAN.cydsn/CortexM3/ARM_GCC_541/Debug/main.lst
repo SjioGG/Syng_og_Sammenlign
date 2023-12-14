@@ -1,0 +1,817 @@
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** 
+  13:main.c        **** #include "project.h"
+  14:main.c        **** #include <stdio.h>
+  15:main.c        **** #include "spi.h"
+  16:main.c        **** #include "adc.h"
+  17:main.c        **** 
+  18:main.c        **** #define SAMPLE_RATE 44100       // Samplerate sat til 44.1 kHz
+  19:main.c        **** #define BUFFER_SIZE 512         // Buffer størrelse sat til 512
+  20:main.c        **** 
+  21:main.c        **** volatile uint16_t adcBuffer[BUFFER_SIZE]; // ADC buffer
+  22:main.c        **** volatile int bufferIndex = 0;             // Buffer index
+  23:main.c        **** 
+  24:main.c        **** int main(void) {
+  28              		.loc 1 24 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 2
+
+
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  25:main.c        ****     CyGlobalIntEnable; // Aktiverer globale interrupts
+  36              		.loc 1 25 0
+  37              		.syntax unified
+  38              	@ 25 "main.c" 1
+  39 0002 62B6     		CPSIE   i
+  40              	@ 0 "" 2
+  26:main.c        ****     InitADC();         // Initialiserer ADC
+  41              		.loc 1 26 0
+  42              		.thumb
+  43              		.syntax unified
+  44 0004 FFF7FEFF 		bl	InitADC
+  45              	.LVL0:
+  27:main.c        ****     InitSPI();         // Initialiserer SPI
+  46              		.loc 1 27 0
+  47 0008 FFF7FEFF 		bl	InitSPI
+  48              	.LVL1:
+  49              	.L2:
+  28:main.c        **** 
+  29:main.c        ****     // Uendelig løkke
+  30:main.c        ****     for (;;) {
+  31:main.c        ****         if (bufferIndex < BUFFER_SIZE) {                 // Hvis buffer ikke er fyldt
+  50              		.loc 1 31 0
+  51 000c 134B     		ldr	r3, .L10
+  52 000e 1B68     		ldr	r3, [r3]
+  53 0010 B3F5007F 		cmp	r3, #512
+  54 0014 0BDA     		bge	.L3
+  32:main.c        ****             adcBuffer[bufferIndex++] = ReadADC();        // Læser data fra ADC og gemmer i buffer
+  55              		.loc 1 32 0
+  56 0016 114B     		ldr	r3, .L10
+  57 0018 1C68     		ldr	r4, [r3]
+  58 001a 621C     		adds	r2, r4, #1
+  59 001c 1A60     		str	r2, [r3]
+  60 001e FFF7FEFF 		bl	ReadADC
+  61              	.LVL2:
+  62 0022 0F4B     		ldr	r3, .L10+4
+  63 0024 23F81400 		strh	r0, [r3, r4, lsl #1]	@ movhi
+  33:main.c        ****             HandleADCConversion();                       // Håndterer ADC konvertering
+  64              		.loc 1 33 0
+  65 0028 FFF7FEFF 		bl	HandleADCConversion
+  66              	.LVL3:
+  67 002c EEE7     		b	.L2
+  68              	.L3:
+  34:main.c        ****         } else {
+  35:main.c        ****             SendHandshakeSignal();                       // Sender handshake signal
+  69              		.loc 1 35 0
+  70 002e FFF7FEFF 		bl	SendHandshakeSignal
+  71              	.LVL4:
+  72              	.LBB2:
+  36:main.c        ****             for (int i = 0; i < BUFFER_SIZE; i++) {      // Sender buffer over SPI
+  73              		.loc 1 36 0
+  74 0032 0024     		movs	r4, #0
+  75 0034 0AE0     		b	.L5
+  76              	.LVL5:
+  77              	.L8:
+  37:main.c        ****                 if (!SendSPI(adcBuffer[i])) {            // Hvis fejl
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 3
+
+
+  78              		.loc 1 37 0
+  79 0036 0A4B     		ldr	r3, .L10+4
+  80 0038 33F81400 		ldrh	r0, [r3, r4, lsl #1]
+  81 003c 80B2     		uxth	r0, r0
+  82 003e FFF7FEFF 		bl	SendSPI
+  83              	.LVL6:
+  84 0042 10B9     		cbnz	r0, .L6
+  38:main.c        ****                     LED_Write(0);                        // Slukker LED
+  85              		.loc 1 38 0
+  86 0044 FFF7FEFF 		bl	LED_Write
+  87              	.LVL7:
+  39:main.c        ****                     break;                               // Stopper for loop
+  88              		.loc 1 39 0
+  89 0048 03E0     		b	.L7
+  90              	.L6:
+  36:main.c        ****                 if (!SendSPI(adcBuffer[i])) {            // Hvis fejl
+  91              		.loc 1 36 0 discriminator 2
+  92 004a 0134     		adds	r4, r4, #1
+  93              	.LVL8:
+  94              	.L5:
+  36:main.c        ****                 if (!SendSPI(adcBuffer[i])) {            // Hvis fejl
+  95              		.loc 1 36 0 is_stmt 0 discriminator 1
+  96 004c B4F5007F 		cmp	r4, #512
+  97 0050 F1DB     		blt	.L8
+  98              	.L7:
+  99              	.LBE2:
+  40:main.c        ****                 }
+  41:main.c        ****             }
+  42:main.c        ****             bufferIndex = 0;                             // Nulstiller buffer index
+ 100              		.loc 1 42 0 is_stmt 1
+ 101 0052 0022     		movs	r2, #0
+ 102 0054 014B     		ldr	r3, .L10
+ 103 0056 1A60     		str	r2, [r3]
+ 104 0058 D8E7     		b	.L2
+ 105              	.L11:
+ 106 005a 00BF     		.align	2
+ 107              	.L10:
+ 108 005c 00000000 		.word	.LANCHOR0
+ 109 0060 00000000 		.word	adcBuffer
+ 110              		.cfi_endproc
+ 111              	.LFE64:
+ 112              		.size	main, .-main
+ 113              		.global	bufferIndex
+ 114              		.comm	adcBuffer,1024,4
+ 115              		.bss
+ 116              		.align	2
+ 117              		.set	.LANCHOR0,. + 0
+ 118              		.type	bufferIndex, %object
+ 119              		.size	bufferIndex, 4
+ 120              	bufferIndex:
+ 121 0000 00000000 		.space	4
+ 122              		.text
+ 123              	.Letext0:
+ 124              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 125              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 126              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 127              		.file 5 "spi.h"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 4
+
+
+ 128              		.file 6 "Generated_Source\\PSoC5/LED.h"
+ 129              		.file 7 "adc.h"
+ 130              		.section	.debug_info,"",%progbits
+ 131              	.Ldebug_info0:
+ 132 0000 CB010000 		.4byte	0x1cb
+ 133 0004 0400     		.2byte	0x4
+ 134 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 135 000a 04       		.byte	0x4
+ 136 000b 01       		.uleb128 0x1
+ 137 000c E7000000 		.4byte	.LASF28
+ 138 0010 0C       		.byte	0xc
+ 139 0011 1D020000 		.4byte	.LASF29
+ 140 0015 32000000 		.4byte	.LASF30
+ 141 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 142 001d 00000000 		.4byte	0
+ 143 0021 00000000 		.4byte	.Ldebug_line0
+ 144 0025 02       		.uleb128 0x2
+ 145 0026 01       		.byte	0x1
+ 146 0027 06       		.byte	0x6
+ 147 0028 52020000 		.4byte	.LASF0
+ 148 002c 02       		.uleb128 0x2
+ 149 002d 01       		.byte	0x1
+ 150 002e 08       		.byte	0x8
+ 151 002f D9000000 		.4byte	.LASF1
+ 152 0033 02       		.uleb128 0x2
+ 153 0034 02       		.byte	0x2
+ 154 0035 05       		.byte	0x5
+ 155 0036 29020000 		.4byte	.LASF2
+ 156 003a 03       		.uleb128 0x3
+ 157 003b BB010000 		.4byte	.LASF4
+ 158 003f 02       		.byte	0x2
+ 159 0040 2B       		.byte	0x2b
+ 160 0041 45000000 		.4byte	0x45
+ 161 0045 02       		.uleb128 0x2
+ 162 0046 02       		.byte	0x2
+ 163 0047 07       		.byte	0x7
+ 164 0048 87010000 		.4byte	.LASF3
+ 165 004c 03       		.uleb128 0x3
+ 166 004d B0000000 		.4byte	.LASF5
+ 167 0051 02       		.byte	0x2
+ 168 0052 3F       		.byte	0x3f
+ 169 0053 57000000 		.4byte	0x57
+ 170 0057 02       		.uleb128 0x2
+ 171 0058 04       		.byte	0x4
+ 172 0059 05       		.byte	0x5
+ 173 005a BA000000 		.4byte	.LASF6
+ 174 005e 02       		.uleb128 0x2
+ 175 005f 04       		.byte	0x4
+ 176 0060 07       		.byte	0x7
+ 177 0061 75010000 		.4byte	.LASF7
+ 178 0065 02       		.uleb128 0x2
+ 179 0066 08       		.byte	0x8
+ 180 0067 05       		.byte	0x5
+ 181 0068 0F020000 		.4byte	.LASF8
+ 182 006c 02       		.uleb128 0x2
+ 183 006d 08       		.byte	0x8
+ 184 006e 07       		.byte	0x7
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 5
+
+
+ 185 006f DF010000 		.4byte	.LASF9
+ 186 0073 04       		.uleb128 0x4
+ 187 0074 04       		.byte	0x4
+ 188 0075 05       		.byte	0x5
+ 189 0076 696E7400 		.ascii	"int\000"
+ 190 007a 02       		.uleb128 0x2
+ 191 007b 04       		.byte	0x4
+ 192 007c 07       		.byte	0x7
+ 193 007d D2010000 		.4byte	.LASF10
+ 194 0081 03       		.uleb128 0x3
+ 195 0082 33020000 		.4byte	.LASF11
+ 196 0086 03       		.byte	0x3
+ 197 0087 24       		.byte	0x24
+ 198 0088 3A000000 		.4byte	0x3a
+ 199 008c 03       		.uleb128 0x3
+ 200 008d FE010000 		.4byte	.LASF12
+ 201 0091 03       		.byte	0x3
+ 202 0092 2C       		.byte	0x2c
+ 203 0093 4C000000 		.4byte	0x4c
+ 204 0097 02       		.uleb128 0x2
+ 205 0098 04       		.byte	0x4
+ 206 0099 04       		.byte	0x4
+ 207 009a D3000000 		.4byte	.LASF13
+ 208 009e 02       		.uleb128 0x2
+ 209 009f 08       		.byte	0x8
+ 210 00a0 04       		.byte	0x4
+ 211 00a1 C6010000 		.4byte	.LASF14
+ 212 00a5 02       		.uleb128 0x2
+ 213 00a6 01       		.byte	0x1
+ 214 00a7 08       		.byte	0x8
+ 215 00a8 24020000 		.4byte	.LASF15
+ 216 00ac 02       		.uleb128 0x2
+ 217 00ad 08       		.byte	0x8
+ 218 00ae 04       		.byte	0x4
+ 219 00af 46020000 		.4byte	.LASF16
+ 220 00b3 02       		.uleb128 0x2
+ 221 00b4 04       		.byte	0x4
+ 222 00b5 07       		.byte	0x7
+ 223 00b6 06020000 		.4byte	.LASF17
+ 224 00ba 05       		.uleb128 0x5
+ 225 00bb 81000000 		.4byte	0x81
+ 226 00bf 06       		.uleb128 0x6
+ 227 00c0 CD010000 		.4byte	.LASF31
+ 228 00c4 01       		.byte	0x1
+ 229 00c5 18       		.byte	0x18
+ 230 00c6 73000000 		.4byte	0x73
+ 231 00ca 00000000 		.4byte	.LFB64
+ 232 00ce 64000000 		.4byte	.LFE64-.LFB64
+ 233 00d2 01       		.uleb128 0x1
+ 234 00d3 9C       		.byte	0x9c
+ 235 00d4 33010000 		.4byte	0x133
+ 236 00d8 07       		.uleb128 0x7
+ 237 00d9 32000000 		.4byte	.LBB2
+ 238 00dd 20000000 		.4byte	.LBE2-.LBB2
+ 239 00e1 05010000 		.4byte	0x105
+ 240 00e5 08       		.uleb128 0x8
+ 241 00e6 6900     		.ascii	"i\000"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 6
+
+
+ 242 00e8 01       		.byte	0x1
+ 243 00e9 24       		.byte	0x24
+ 244 00ea 73000000 		.4byte	0x73
+ 245 00ee 00000000 		.4byte	.LLST0
+ 246 00f2 09       		.uleb128 0x9
+ 247 00f3 42000000 		.4byte	.LVL6
+ 248 00f7 81010000 		.4byte	0x181
+ 249 00fb 09       		.uleb128 0x9
+ 250 00fc 48000000 		.4byte	.LVL7
+ 251 0100 8C010000 		.4byte	0x18c
+ 252 0104 00       		.byte	0
+ 253 0105 09       		.uleb128 0x9
+ 254 0106 08000000 		.4byte	.LVL0
+ 255 010a 97010000 		.4byte	0x197
+ 256 010e 09       		.uleb128 0x9
+ 257 010f 0C000000 		.4byte	.LVL1
+ 258 0113 A2010000 		.4byte	0x1a2
+ 259 0117 09       		.uleb128 0x9
+ 260 0118 22000000 		.4byte	.LVL2
+ 261 011c AD010000 		.4byte	0x1ad
+ 262 0120 09       		.uleb128 0x9
+ 263 0121 2C000000 		.4byte	.LVL3
+ 264 0125 B8010000 		.4byte	0x1b8
+ 265 0129 09       		.uleb128 0x9
+ 266 012a 32000000 		.4byte	.LVL4
+ 267 012e C3010000 		.4byte	0x1c3
+ 268 0132 00       		.byte	0
+ 269 0133 0A       		.uleb128 0xa
+ 270 0134 AE010000 		.4byte	.LASF18
+ 271 0138 04       		.byte	0x4
+ 272 0139 1207     		.2byte	0x712
+ 273 013b 3F010000 		.4byte	0x13f
+ 274 013f 05       		.uleb128 0x5
+ 275 0140 8C000000 		.4byte	0x8c
+ 276 0144 0B       		.uleb128 0xb
+ 277 0145 BA000000 		.4byte	0xba
+ 278 0149 55010000 		.4byte	0x155
+ 279 014d 0C       		.uleb128 0xc
+ 280 014e B3000000 		.4byte	0xb3
+ 281 0152 FF01     		.2byte	0x1ff
+ 282 0154 00       		.byte	0
+ 283 0155 0D       		.uleb128 0xd
+ 284 0156 3C020000 		.4byte	.LASF19
+ 285 015a 01       		.byte	0x1
+ 286 015b 15       		.byte	0x15
+ 287 015c 66010000 		.4byte	0x166
+ 288 0160 05       		.uleb128 0x5
+ 289 0161 03       		.byte	0x3
+ 290 0162 00000000 		.4byte	adcBuffer
+ 291 0166 05       		.uleb128 0x5
+ 292 0167 44010000 		.4byte	0x144
+ 293 016b 0D       		.uleb128 0xd
+ 294 016c 00000000 		.4byte	.LASF20
+ 295 0170 01       		.byte	0x1
+ 296 0171 16       		.byte	0x16
+ 297 0172 7C010000 		.4byte	0x17c
+ 298 0176 05       		.uleb128 0x5
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 7
+
+
+ 299 0177 03       		.byte	0x3
+ 300 0178 00000000 		.4byte	bufferIndex
+ 301 017c 05       		.uleb128 0x5
+ 302 017d 73000000 		.4byte	0x73
+ 303 0181 0E       		.uleb128 0xe
+ 304 0182 0C000000 		.4byte	.LASF21
+ 305 0186 0C000000 		.4byte	.LASF21
+ 306 018a 05       		.byte	0x5
+ 307 018b 13       		.byte	0x13
+ 308 018c 0E       		.uleb128 0xe
+ 309 018d 28000000 		.4byte	.LASF22
+ 310 0191 28000000 		.4byte	.LASF22
+ 311 0195 06       		.byte	0x6
+ 312 0196 26       		.byte	0x26
+ 313 0197 0E       		.uleb128 0xe
+ 314 0198 F6010000 		.4byte	.LASF23
+ 315 019c F6010000 		.4byte	.LASF23
+ 316 01a0 07       		.byte	0x7
+ 317 01a1 12       		.byte	0x12
+ 318 01a2 0E       		.uleb128 0xe
+ 319 01a3 CB000000 		.4byte	.LASF24
+ 320 01a7 CB000000 		.4byte	.LASF24
+ 321 01ab 05       		.byte	0x5
+ 322 01ac 12       		.byte	0x12
+ 323 01ad 0E       		.uleb128 0xe
+ 324 01ae C3000000 		.4byte	.LASF25
+ 325 01b2 C3000000 		.4byte	.LASF25
+ 326 01b6 07       		.byte	0x7
+ 327 01b7 13       		.byte	0x13
+ 328 01b8 0E       		.uleb128 0xe
+ 329 01b9 9A010000 		.4byte	.LASF26
+ 330 01bd 9A010000 		.4byte	.LASF26
+ 331 01c1 07       		.byte	0x7
+ 332 01c2 14       		.byte	0x14
+ 333 01c3 0E       		.uleb128 0xe
+ 334 01c4 14000000 		.4byte	.LASF27
+ 335 01c8 14000000 		.4byte	.LASF27
+ 336 01cc 05       		.byte	0x5
+ 337 01cd 14       		.byte	0x14
+ 338 01ce 00       		.byte	0
+ 339              		.section	.debug_abbrev,"",%progbits
+ 340              	.Ldebug_abbrev0:
+ 341 0000 01       		.uleb128 0x1
+ 342 0001 11       		.uleb128 0x11
+ 343 0002 01       		.byte	0x1
+ 344 0003 25       		.uleb128 0x25
+ 345 0004 0E       		.uleb128 0xe
+ 346 0005 13       		.uleb128 0x13
+ 347 0006 0B       		.uleb128 0xb
+ 348 0007 03       		.uleb128 0x3
+ 349 0008 0E       		.uleb128 0xe
+ 350 0009 1B       		.uleb128 0x1b
+ 351 000a 0E       		.uleb128 0xe
+ 352 000b 55       		.uleb128 0x55
+ 353 000c 17       		.uleb128 0x17
+ 354 000d 11       		.uleb128 0x11
+ 355 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 8
+
+
+ 356 000f 10       		.uleb128 0x10
+ 357 0010 17       		.uleb128 0x17
+ 358 0011 00       		.byte	0
+ 359 0012 00       		.byte	0
+ 360 0013 02       		.uleb128 0x2
+ 361 0014 24       		.uleb128 0x24
+ 362 0015 00       		.byte	0
+ 363 0016 0B       		.uleb128 0xb
+ 364 0017 0B       		.uleb128 0xb
+ 365 0018 3E       		.uleb128 0x3e
+ 366 0019 0B       		.uleb128 0xb
+ 367 001a 03       		.uleb128 0x3
+ 368 001b 0E       		.uleb128 0xe
+ 369 001c 00       		.byte	0
+ 370 001d 00       		.byte	0
+ 371 001e 03       		.uleb128 0x3
+ 372 001f 16       		.uleb128 0x16
+ 373 0020 00       		.byte	0
+ 374 0021 03       		.uleb128 0x3
+ 375 0022 0E       		.uleb128 0xe
+ 376 0023 3A       		.uleb128 0x3a
+ 377 0024 0B       		.uleb128 0xb
+ 378 0025 3B       		.uleb128 0x3b
+ 379 0026 0B       		.uleb128 0xb
+ 380 0027 49       		.uleb128 0x49
+ 381 0028 13       		.uleb128 0x13
+ 382 0029 00       		.byte	0
+ 383 002a 00       		.byte	0
+ 384 002b 04       		.uleb128 0x4
+ 385 002c 24       		.uleb128 0x24
+ 386 002d 00       		.byte	0
+ 387 002e 0B       		.uleb128 0xb
+ 388 002f 0B       		.uleb128 0xb
+ 389 0030 3E       		.uleb128 0x3e
+ 390 0031 0B       		.uleb128 0xb
+ 391 0032 03       		.uleb128 0x3
+ 392 0033 08       		.uleb128 0x8
+ 393 0034 00       		.byte	0
+ 394 0035 00       		.byte	0
+ 395 0036 05       		.uleb128 0x5
+ 396 0037 35       		.uleb128 0x35
+ 397 0038 00       		.byte	0
+ 398 0039 49       		.uleb128 0x49
+ 399 003a 13       		.uleb128 0x13
+ 400 003b 00       		.byte	0
+ 401 003c 00       		.byte	0
+ 402 003d 06       		.uleb128 0x6
+ 403 003e 2E       		.uleb128 0x2e
+ 404 003f 01       		.byte	0x1
+ 405 0040 3F       		.uleb128 0x3f
+ 406 0041 19       		.uleb128 0x19
+ 407 0042 03       		.uleb128 0x3
+ 408 0043 0E       		.uleb128 0xe
+ 409 0044 3A       		.uleb128 0x3a
+ 410 0045 0B       		.uleb128 0xb
+ 411 0046 3B       		.uleb128 0x3b
+ 412 0047 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 9
+
+
+ 413 0048 27       		.uleb128 0x27
+ 414 0049 19       		.uleb128 0x19
+ 415 004a 49       		.uleb128 0x49
+ 416 004b 13       		.uleb128 0x13
+ 417 004c 8701     		.uleb128 0x87
+ 418 004e 19       		.uleb128 0x19
+ 419 004f 11       		.uleb128 0x11
+ 420 0050 01       		.uleb128 0x1
+ 421 0051 12       		.uleb128 0x12
+ 422 0052 06       		.uleb128 0x6
+ 423 0053 40       		.uleb128 0x40
+ 424 0054 18       		.uleb128 0x18
+ 425 0055 9742     		.uleb128 0x2117
+ 426 0057 19       		.uleb128 0x19
+ 427 0058 01       		.uleb128 0x1
+ 428 0059 13       		.uleb128 0x13
+ 429 005a 00       		.byte	0
+ 430 005b 00       		.byte	0
+ 431 005c 07       		.uleb128 0x7
+ 432 005d 0B       		.uleb128 0xb
+ 433 005e 01       		.byte	0x1
+ 434 005f 11       		.uleb128 0x11
+ 435 0060 01       		.uleb128 0x1
+ 436 0061 12       		.uleb128 0x12
+ 437 0062 06       		.uleb128 0x6
+ 438 0063 01       		.uleb128 0x1
+ 439 0064 13       		.uleb128 0x13
+ 440 0065 00       		.byte	0
+ 441 0066 00       		.byte	0
+ 442 0067 08       		.uleb128 0x8
+ 443 0068 34       		.uleb128 0x34
+ 444 0069 00       		.byte	0
+ 445 006a 03       		.uleb128 0x3
+ 446 006b 08       		.uleb128 0x8
+ 447 006c 3A       		.uleb128 0x3a
+ 448 006d 0B       		.uleb128 0xb
+ 449 006e 3B       		.uleb128 0x3b
+ 450 006f 0B       		.uleb128 0xb
+ 451 0070 49       		.uleb128 0x49
+ 452 0071 13       		.uleb128 0x13
+ 453 0072 02       		.uleb128 0x2
+ 454 0073 17       		.uleb128 0x17
+ 455 0074 00       		.byte	0
+ 456 0075 00       		.byte	0
+ 457 0076 09       		.uleb128 0x9
+ 458 0077 898201   		.uleb128 0x4109
+ 459 007a 00       		.byte	0
+ 460 007b 11       		.uleb128 0x11
+ 461 007c 01       		.uleb128 0x1
+ 462 007d 31       		.uleb128 0x31
+ 463 007e 13       		.uleb128 0x13
+ 464 007f 00       		.byte	0
+ 465 0080 00       		.byte	0
+ 466 0081 0A       		.uleb128 0xa
+ 467 0082 34       		.uleb128 0x34
+ 468 0083 00       		.byte	0
+ 469 0084 03       		.uleb128 0x3
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 10
+
+
+ 470 0085 0E       		.uleb128 0xe
+ 471 0086 3A       		.uleb128 0x3a
+ 472 0087 0B       		.uleb128 0xb
+ 473 0088 3B       		.uleb128 0x3b
+ 474 0089 05       		.uleb128 0x5
+ 475 008a 49       		.uleb128 0x49
+ 476 008b 13       		.uleb128 0x13
+ 477 008c 3F       		.uleb128 0x3f
+ 478 008d 19       		.uleb128 0x19
+ 479 008e 3C       		.uleb128 0x3c
+ 480 008f 19       		.uleb128 0x19
+ 481 0090 00       		.byte	0
+ 482 0091 00       		.byte	0
+ 483 0092 0B       		.uleb128 0xb
+ 484 0093 01       		.uleb128 0x1
+ 485 0094 01       		.byte	0x1
+ 486 0095 49       		.uleb128 0x49
+ 487 0096 13       		.uleb128 0x13
+ 488 0097 01       		.uleb128 0x1
+ 489 0098 13       		.uleb128 0x13
+ 490 0099 00       		.byte	0
+ 491 009a 00       		.byte	0
+ 492 009b 0C       		.uleb128 0xc
+ 493 009c 21       		.uleb128 0x21
+ 494 009d 00       		.byte	0
+ 495 009e 49       		.uleb128 0x49
+ 496 009f 13       		.uleb128 0x13
+ 497 00a0 2F       		.uleb128 0x2f
+ 498 00a1 05       		.uleb128 0x5
+ 499 00a2 00       		.byte	0
+ 500 00a3 00       		.byte	0
+ 501 00a4 0D       		.uleb128 0xd
+ 502 00a5 34       		.uleb128 0x34
+ 503 00a6 00       		.byte	0
+ 504 00a7 03       		.uleb128 0x3
+ 505 00a8 0E       		.uleb128 0xe
+ 506 00a9 3A       		.uleb128 0x3a
+ 507 00aa 0B       		.uleb128 0xb
+ 508 00ab 3B       		.uleb128 0x3b
+ 509 00ac 0B       		.uleb128 0xb
+ 510 00ad 49       		.uleb128 0x49
+ 511 00ae 13       		.uleb128 0x13
+ 512 00af 3F       		.uleb128 0x3f
+ 513 00b0 19       		.uleb128 0x19
+ 514 00b1 02       		.uleb128 0x2
+ 515 00b2 18       		.uleb128 0x18
+ 516 00b3 00       		.byte	0
+ 517 00b4 00       		.byte	0
+ 518 00b5 0E       		.uleb128 0xe
+ 519 00b6 2E       		.uleb128 0x2e
+ 520 00b7 00       		.byte	0
+ 521 00b8 3F       		.uleb128 0x3f
+ 522 00b9 19       		.uleb128 0x19
+ 523 00ba 3C       		.uleb128 0x3c
+ 524 00bb 19       		.uleb128 0x19
+ 525 00bc 6E       		.uleb128 0x6e
+ 526 00bd 0E       		.uleb128 0xe
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 11
+
+
+ 527 00be 03       		.uleb128 0x3
+ 528 00bf 0E       		.uleb128 0xe
+ 529 00c0 3A       		.uleb128 0x3a
+ 530 00c1 0B       		.uleb128 0xb
+ 531 00c2 3B       		.uleb128 0x3b
+ 532 00c3 0B       		.uleb128 0xb
+ 533 00c4 00       		.byte	0
+ 534 00c5 00       		.byte	0
+ 535 00c6 00       		.byte	0
+ 536              		.section	.debug_loc,"",%progbits
+ 537              	.Ldebug_loc0:
+ 538              	.LLST0:
+ 539 0000 32000000 		.4byte	.LVL4
+ 540 0004 36000000 		.4byte	.LVL5
+ 541 0008 0200     		.2byte	0x2
+ 542 000a 30       		.byte	0x30
+ 543 000b 9F       		.byte	0x9f
+ 544 000c 36000000 		.4byte	.LVL5
+ 545 0010 64000000 		.4byte	.LFE64
+ 546 0014 0100     		.2byte	0x1
+ 547 0016 54       		.byte	0x54
+ 548 0017 00000000 		.4byte	0
+ 549 001b 00000000 		.4byte	0
+ 550              		.section	.debug_aranges,"",%progbits
+ 551 0000 1C000000 		.4byte	0x1c
+ 552 0004 0200     		.2byte	0x2
+ 553 0006 00000000 		.4byte	.Ldebug_info0
+ 554 000a 04       		.byte	0x4
+ 555 000b 00       		.byte	0
+ 556 000c 0000     		.2byte	0
+ 557 000e 0000     		.2byte	0
+ 558 0010 00000000 		.4byte	.LFB64
+ 559 0014 64000000 		.4byte	.LFE64-.LFB64
+ 560 0018 00000000 		.4byte	0
+ 561 001c 00000000 		.4byte	0
+ 562              		.section	.debug_ranges,"",%progbits
+ 563              	.Ldebug_ranges0:
+ 564 0000 00000000 		.4byte	.LFB64
+ 565 0004 64000000 		.4byte	.LFE64
+ 566 0008 00000000 		.4byte	0
+ 567 000c 00000000 		.4byte	0
+ 568              		.section	.debug_line,"",%progbits
+ 569              	.Ldebug_line0:
+ 570 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 570      02005A01 
+ 570      00000201 
+ 570      FB0E0D00 
+ 570      01010101 
+ 571              	.LASF20:
+ 572 0000 62756666 		.ascii	"bufferIndex\000"
+ 572      6572496E 
+ 572      64657800 
+ 573              	.LASF21:
+ 574 000c 53656E64 		.ascii	"SendSPI\000"
+ 574      53504900 
+ 575              	.LASF27:
+ 576 0014 53656E64 		.ascii	"SendHandshakeSignal\000"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 12
+
+
+ 576      48616E64 
+ 576      7368616B 
+ 576      65536967 
+ 576      6E616C00 
+ 577              	.LASF22:
+ 578 0028 4C45445F 		.ascii	"LED_Write\000"
+ 578      57726974 
+ 578      6500
+ 579              	.LASF30:
+ 580 0032 433A5C55 		.ascii	"C:\\Users\\mikai\\OneDrive - Aarhus universitet\\3."
+ 580      73657273 
+ 580      5C6D696B 
+ 580      61695C4F 
+ 580      6E654472 
+ 581 0061 2053656D 		.ascii	" Semester\\Projekt 3 - Karaoke Maskinen\\Syng_og_Sa"
+ 581      65737465 
+ 581      725C5072 
+ 581      6F6A656B 
+ 581      74203320 
+ 582 0092 6D6D656E 		.ascii	"mmenlign\\PRJ3\\AMK\\BANAN.cydsn\000"
+ 582      6C69676E 
+ 582      5C50524A 
+ 582      335C414D 
+ 582      4B5C4241 
+ 583              	.LASF5:
+ 584 00b0 5F5F696E 		.ascii	"__int32_t\000"
+ 584      7433325F 
+ 584      7400
+ 585              	.LASF6:
+ 586 00ba 6C6F6E67 		.ascii	"long int\000"
+ 586      20696E74 
+ 586      00
+ 587              	.LASF25:
+ 588 00c3 52656164 		.ascii	"ReadADC\000"
+ 588      41444300 
+ 589              	.LASF24:
+ 590 00cb 496E6974 		.ascii	"InitSPI\000"
+ 590      53504900 
+ 591              	.LASF13:
+ 592 00d3 666C6F61 		.ascii	"float\000"
+ 592      7400
+ 593              	.LASF1:
+ 594 00d9 756E7369 		.ascii	"unsigned char\000"
+ 594      676E6564 
+ 594      20636861 
+ 594      7200
+ 595              	.LASF28:
+ 596 00e7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 596      43313120 
+ 596      352E342E 
+ 596      31203230 
+ 596      31363036 
+ 597 011a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 597      20726576 
+ 597      6973696F 
+ 597      6E203233 
+ 597      37373135 
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 13
+
+
+ 598 014d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 598      66756E63 
+ 598      74696F6E 
+ 598      2D736563 
+ 598      74696F6E 
+ 599              	.LASF7:
+ 600 0175 6C6F6E67 		.ascii	"long unsigned int\000"
+ 600      20756E73 
+ 600      69676E65 
+ 600      6420696E 
+ 600      7400
+ 601              	.LASF3:
+ 602 0187 73686F72 		.ascii	"short unsigned int\000"
+ 602      7420756E 
+ 602      7369676E 
+ 602      65642069 
+ 602      6E7400
+ 603              	.LASF26:
+ 604 019a 48616E64 		.ascii	"HandleADCConversion\000"
+ 604      6C654144 
+ 604      43436F6E 
+ 604      76657273 
+ 604      696F6E00 
+ 605              	.LASF18:
+ 606 01ae 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 606      52784275 
+ 606      66666572 
+ 606      00
+ 607              	.LASF4:
+ 608 01bb 5F5F7569 		.ascii	"__uint16_t\000"
+ 608      6E743136 
+ 608      5F7400
+ 609              	.LASF14:
+ 610 01c6 646F7562 		.ascii	"double\000"
+ 610      6C6500
+ 611              	.LASF31:
+ 612 01cd 6D61696E 		.ascii	"main\000"
+ 612      00
+ 613              	.LASF10:
+ 614 01d2 756E7369 		.ascii	"unsigned int\000"
+ 614      676E6564 
+ 614      20696E74 
+ 614      00
+ 615              	.LASF9:
+ 616 01df 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 616      206C6F6E 
+ 616      6720756E 
+ 616      7369676E 
+ 616      65642069 
+ 617              	.LASF23:
+ 618 01f6 496E6974 		.ascii	"InitADC\000"
+ 618      41444300 
+ 619              	.LASF12:
+ 620 01fe 696E7433 		.ascii	"int32_t\000"
+ 620      325F7400 
+ 621              	.LASF17:
+ 622 0206 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\mikai\AppData\Local\Temp\cc4Xb9Ow.s 			page 14
+
+
+ 622      74797065 
+ 622      00
+ 623              	.LASF8:
+ 624 020f 6C6F6E67 		.ascii	"long long int\000"
+ 624      206C6F6E 
+ 624      6720696E 
+ 624      7400
+ 625              	.LASF29:
+ 626 021d 6D61696E 		.ascii	"main.c\000"
+ 626      2E6300
+ 627              	.LASF15:
+ 628 0224 63686172 		.ascii	"char\000"
+ 628      00
+ 629              	.LASF2:
+ 630 0229 73686F72 		.ascii	"short int\000"
+ 630      7420696E 
+ 630      7400
+ 631              	.LASF11:
+ 632 0233 75696E74 		.ascii	"uint16_t\000"
+ 632      31365F74 
+ 632      00
+ 633              	.LASF19:
+ 634 023c 61646342 		.ascii	"adcBuffer\000"
+ 634      75666665 
+ 634      7200
+ 635              	.LASF16:
+ 636 0246 6C6F6E67 		.ascii	"long double\000"
+ 636      20646F75 
+ 636      626C6500 
+ 637              	.LASF0:
+ 638 0252 7369676E 		.ascii	"signed char\000"
+ 638      65642063 
+ 638      68617200 
+ 639              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

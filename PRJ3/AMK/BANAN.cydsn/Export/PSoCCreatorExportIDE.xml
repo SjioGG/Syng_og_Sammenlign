@@ -36,8 +36,12 @@
     <Folders>
       <Folder BuildType="STRICT" Path="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn">
         <Files Root="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn">
-          <File BuildType="BUILD" Toolchain="">RealOne.c</File>
+          <File BuildType="BUILD" Toolchain="">adc.c</File>
+          <File BuildType="BUILD" Toolchain="">main.c</File>
+          <File BuildType="BUILD" Toolchain="">spi.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
+          <File BuildType="BUILD" Toolchain="">adc.h</File>
+          <File BuildType="BUILD" Toolchain="">spi.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\Generated_Source\PSoC5">
@@ -129,13 +133,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\mikai\OneDrive - Aarhus universitet\3. Semester\Projekt 3 - Karaoke Maskinen\Syng_og_Sammenlign\PRJ3\AMK\BANAN.cydsn\Export\ARM_GCC_Generic">
