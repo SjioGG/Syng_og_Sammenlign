@@ -1,53 +1,53 @@
 #include "SPIHandler.hpp"
 #include <bcm2835.h>
 
-// Define these constants as per your requirement.
+// Constructor
 SPIHandler::SPIHandler() { 
-    initSPI(); // Initialize SPI.
+    initSPI(); // Initialiserer SPI.
 }
 
 // Destructor
 SPIHandler::~SPIHandler() {
-    bcm2835_spi_end(); // End SPI.
-    bcm2835_close(); // Close BCM2835 library.
+    bcm2835_spi_end(); // Afslutter SPI.
+    bcm2835_close();   // Afslutter BCM2835 biblioteket.
 }
 
-// Initialize SPI.
+// Initialiserer SPI.
 void SPIHandler::initSPI() { 
-    // Initialize BCM2835 library.
+    // Initialiserer BCM2835 biblioteket.
     if (!bcm2835_init()) {
-        throw std::runtime_error("BCM2835 init ERROR."); // Throw runtime error if BCM2835 library cannot be initialized.
+        throw std::runtime_error("BCM2835 init ERROR."); // Kaster en runtime error, hvis BCM2835 biblioteket ikke kan initialiseres.
     }
-    // Initialize SPI.
+    // Initialiserer SPI.
     if (!bcm2835_spi_begin()) { 
-        bcm2835_close(); // Close BCM2835 library.
-        throw std::runtime_error("SPI init ERROR."); // Throw runtime error if SPI cannot be initialized.
+        bcm2835_close();                                 // Lukker BCM2835 biblioteket.
+        throw std::runtime_error("SPI init ERROR.");     // Kaster en runtime error, hvis SPI ikke kan initialiseres.
     }
 
-    // Configure SPI settings
-    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);  // MSB first for data transfer.
-    bcm2835_spi_setDataMode(BCM2835_SPI_MODE0); // SPI mode 0.
-    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_256); // Set SPI clock divider.
-    bcm2835_spi_chipSelect(BCM2835_SPI_CS0); // Select SPI chip (CS0).
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW); // CS0 is active low.
+    // Konfigurerer SPI indstillinger
+    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);    // MSB først for dataoverførsel.
+    bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                 // SPI mode 0.
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_256); // Sætter SPI clock divider.
+    bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                    // Vælger SPI chip (CS0).
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);    // CS0 er aktiv lav.
 }
 
-// Read data from SPI buffer.
+// Læser data fra SPI bufferen.
 std::vector<uint16_t> SPIHandler::readData() {
-    std::vector<uint16_t> data; // Data vector.
+    std::vector<uint16_t> data;          // Data vektor.
     uint8_t spiBuffer[SPI_BUFFER_SIZE];  // SPI buffer.
 
-    uint8_t handshakeBuffer[2]; // Handshake buffer.
-    bcm2835_spi_transfern(reinterpret_cast<char*>(handshakeBuffer), 2); // Transfer data from SPI buffer to handshake buffer.
-    uint16_t handshakeSignal = static_cast<uint16_t>(handshakeBuffer[0]) << 8 | handshakeBuffer[1]; // Convert SPI data to 16-bit data.
+    uint8_t handshakeBuffer[2];                                                                     // Handshake buffer.
+    bcm2835_spi_transfern(reinterpret_cast<char*>(handshakeBuffer), 2);                             // Overfører data fra SPI bufferen til handshake bufferen.
+    uint16_t handshakeSignal = static_cast<uint16_t>(handshakeBuffer[0]) << 8 | handshakeBuffer[1]; // Konverterer SPI data til 16-bit data.
 
-    // If handshake signal is received, receive data.
-    if (handshakeSignal == HANDSHAKE_SIGNAL) {  // Define HANDSHAKE_SIGNAL appropriately
-        bcm2835_spi_transfern(reinterpret_cast<char*>(spiBuffer), SPI_BUFFER_SIZE); // Transfer data from SPI buffer to SPI data buffer.
-        for (int i = 0; i < SPI_BUFFER_SIZE; i += 2) { // Read data from SPI buffer.
-            uint16_t spiData = static_cast<uint16_t>(spiBuffer[i]) << 8 | spiBuffer[i + 1]; // Convert SPI data to 16-bit data.
-            data.push_back(spiData); // Add data to data vector.
+    // Hvis handshake signal modtages, modtag data.
+    if (handshakeSignal == HANDSHAKE_SIGNAL) {                                              // Definér HANDSHAKE_SIGNAL passende
+        bcm2835_spi_transfern(reinterpret_cast<char*>(spiBuffer), SPI_BUFFER_SIZE);         // Overfører data fra SPI bufferen til SPI data bufferen.
+        for (int i = 0; i < SPI_BUFFER_SIZE; i += 2) {                                      // Læser data fra SPI bufferen.
+            uint16_t spiData = static_cast<uint16_t>(spiBuffer[i]) << 8 | spiBuffer[i + 1]; // Konverterer SPI data til 16-bit data.
+            data.push_back(spiData);                                                        // Tilføjer data til data vektoren.
         }
     }
-    return data; // Return data vector.
+    return data; // Returnerer data vektoren.
 }

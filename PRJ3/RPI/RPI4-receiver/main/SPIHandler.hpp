@@ -1,22 +1,22 @@
 #ifndef SPIHANDLER_HPP
 #define SPIHANDLER_HPP
 
-#include <bcm2835.h> // SPI library
+#include <bcm2835.h> // SPI-bibliotek
 #include <vector>    // std::vector
 
-// Define these constants as per your requirement.
-const int SPI_BUFFER_SIZE = 512;           // SPI buffer size.
+// Konstanter
+const int SPI_BUFFER_SIZE = 512;           // Størrelse på SPI-buffer.
 const uint16_t HANDSHAKE_SIGNAL = 0xFFFF;  // Handshake signal.
 
-// Data packet size.
+// Størrelse på datapakke.
 class SPIHandler {
 public:
-    SPIHandler(); // Constructor
-    ~SPIHandler(); // Destructor
-    std::vector<uint16_t> readData(); // Read data from SPI buffer.
+    SPIHandler();                     // Constructor
+    ~SPIHandler();                    // Destructor
+    std::vector<uint16_t> readData(); // Læs data fra SPI-buffer.
 
 private:
-    void initSPI(); // Initialize SPI.
+    void initSPI(); // Initialiser SPI.
 };
 
 #endif // SPIHANDLER_HPP

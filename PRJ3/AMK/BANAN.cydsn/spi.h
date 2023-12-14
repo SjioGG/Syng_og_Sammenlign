@@ -10,4 +10,16 @@
  * ========================================
 */
 
+#ifndef SPI_H
+#define SPI_H
+
+#include "project.h"
+
+void InitSPI(void);
+int SendSPI(uint16_t data);
+void SendHandshakeSignal(void);
+#define HANDSHAKE_SIGNAL 0xFFFF // Handshake signal
+
+#endif /* SPI_H */
+
 /* [] END OF FILE */

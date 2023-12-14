@@ -11,18 +11,22 @@
 */
 
 #include "project.h"
-#include "adc.h"
+#include <stdio.h>
 #include "spi.h"
+#include "adc.h"
 
-#define BUFFER_SIZE 512
-volatile uint16_t adcBuffer[BUFFER_SIZE];
-volatile int bufferIndex = 0;
+#define SAMPLE_RATE 44100       // Samplerate sat til 44.1 kHz
+#define BUFFER_SIZE 512         // Buffer størrelse sat til 512
+
+volatile uint16_t adcBuffer[BUFFER_SIZE]; // ADC buffer
+volatile int bufferIndex = 0;             // Buffer index
 
 int main(void) {
     CyGlobalIntEnable; // Aktiverer globale interrupts
     InitADC();         // Initialiserer ADC
     InitSPI();         // Initialiserer SPI
 
+    // Uendelig løkke
     for (;;) {
         if (bufferIndex < BUFFER_SIZE) {                 // Hvis buffer ikke er fyldt
             adcBuffer[bufferIndex++] = ReadADC();        // Læser data fra ADC og gemmer i buffer
