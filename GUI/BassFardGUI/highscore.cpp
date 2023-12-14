@@ -102,7 +102,6 @@ void HighScore::showHighscores(const QVector<QPair<QString, int>>& newHighscores
 // Funktion til at håndtere knaptryk for at gå tilbage til hovedmenuen
 void HighScore::on_pushButton_clicked()
 {
-    // Opret et nyt MainWindow-vindue, hvis det ikke allerede eksisterer
     if (!menu) {
         menu = new MainWindow(this);
     }
