@@ -52,7 +52,7 @@ QPushButton:hover {
 border-radius: 10px;</string>
    </property>
    <property name="text">
-    <string>Song 2: Kim larsen midt om natten</string>
+    <string>BS boys - I want it that way</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Song_1">

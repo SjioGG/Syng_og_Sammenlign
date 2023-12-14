@@ -1,6 +1,6 @@
 #include "mainwindow.h"
-
 #include <QApplication>
+#include "./../../db_server/Client/Song.hpp"
 
 int main(int argc, char *argv[])
 {

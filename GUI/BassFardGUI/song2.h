@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <QTimer>
 #include <QSound>
+#include "./../../db_server/Client/Song.hpp"
 
 class SongList;
 class Results;
@@ -37,13 +38,13 @@ private:
     QStringList ghostLyrics;
     int lineCounter;
     Results *result;
-    static QSound* soundEffect;
+    QSound* soundEffect;
     QString formattedText;
     void startLyricsDisplay();
     void updateLyrics();
     void highlightCurrentLine(const QString &currentLine);
     void stopLyricsDisplay();
-
+    Song song;
 };
 
 #endif // SONG2_H
