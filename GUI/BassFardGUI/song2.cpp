@@ -1,82 +1,79 @@
 #include "song2.h"
 #include "ui_song2.h"
 #include "results.h"
-#include "song_list.h" // Ensure this is correctly included
+#include "song_list.h" 
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
 #include <QString>
-#include <QLabel>  // Include QLabel library
+#include <QLabel>  
 #include <QVBoxLayout>
+#include <unistd.h>
+#include <string>
+#include "./../../db_server/Client/Song.hpp"
 
-QSound* Song2::soundEffect = nullptr;
 
 Song2::Song2(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Song2),
-    count_down_V(3), // Start the countdown from 3
-    count_down_T(new QTimer(this)), // Initialize the timer
-    songlist(nullptr), // Initialize songlist as nullptr
+    count_down_V(3), 
+    count_down_T(new QTimer(this)),
+    lyricsTimer(new QTimer(this)),
+    songlist(nullptr), 
     result(nullptr),
-    formattedText("")
+    formattedText(""),
+    song(2),
+    soundEffect(nullptr)
 {
     ui->setupUi(this);
     this->showFullScreen();
 
-    // Setup the font and size for the countdown label
-    QFont font("Arial", 24, QFont::Bold); // Adjust the size as needed
+    QFont font("Arial", 24, QFont::Bold); 
     ui->countdownLabel->setFont(font);
-    ui->countdownLabel->setAlignment(Qt::AlignCenter); // Center the text in the label horizontally and vertically
+    ui->countdownLabel->setAlignment(Qt::AlignCenter); 
+    std::string songString = song.getData(2);
+    song.parseString(songString);
+    std::string fp = "./../../shared_cache/"+ song.getLyricsFile();
+    QString qstring_fp = QString::fromStdString(fp);
+    loadLyricsFromFile(qstring_fp);
 
-    // Load the lyrics from the file at the start
-    loadLyricsFromFile("/home/stud/Documents/NyBASGUI/NyGUI/NYGUI/SOSr/SOS/thatway.txt");
-
-    // Set the color of the countdown number to dark blue and background to light blue
     ui->countdownLabel->setStyleSheet("QLabel { color: darkblue; background-color: lightblue; }");
 
-    count_down_T->setInterval(1000); // Set timer to trigger every second
+    count_down_T->setInterval(1000); 
     connect(count_down_T, &QTimer::timeout, this, &Song2::updateCountdown);
 
     ui->pushButton_2->show();
 
 
-    // Set the initial countdown number with the appropriate style
+ 
     ui->countdownLabel->setText(QString::number(count_down_V));
 
-    // Adjust the label size to fit the screen or central area
     ui->countdownLabel->setMinimumSize(QSize(this->width(), this->height())); // This ensures the label will be as big as the window
 
-    count_down_T->start(); // Start the countdown immediately
+    count_down_T->start(); 
 
     lyricsTimer = new QTimer(this);
     connect(lyricsTimer, &QTimer::timeout, this, &Song2::updateLyrics);
     lineCounter = 0;
-    // Opret layout
-     QVBoxLayout *mainLayout = new QVBoxLayout;  // Brug QVBoxLayout for at stacke widgets vertikalt
-     QHBoxLayout *bottomLayout = new QHBoxLayout;  // Brug QHBoxLayout for knapperne i bunden
+     QVBoxLayout *mainLayout = new QVBoxLayout;  
+     QHBoxLayout *bottomLayout = new QHBoxLayout;  
 
-     // Tilføj din countdownLabel til mainLayout
      mainLayout->addWidget(ui->countdownLabel);
 
-     // Opret "Back" knappen og tilføj den tsil bottomLayout
      QPushButton *on_pushButton_clicked = new QPushButton("Back", this);
      bottomLayout->addWidget(on_pushButton_clicked);
      connect(on_pushButton_clicked, &QPushButton::clicked, this, &Song2::on_pushButton_clicked);
 
-     // Tilføj en strækfaktor mellem "Back" og "Continue" knapperne for at skubbe dem til hver sin side
-     // Tilføj en strækfaktor mellem "Back" og "Continue" knapperne for at skubbe dem til hver sin side
+    
      bottomLayout->addStretch(1);
 
-     // Konfigurer "Continue" knappen og tilføj den til bottomLayout
      ui->pushButton_2->setStyleSheet("QPushButton { font-size: 18pt; }");
      ui->pushButton_2->setText("Continue");
      bottomLayout->addWidget(ui->pushButton_2);
      connect(ui->pushButton_2, &QPushButton::clicked, this, &Song2::on_pushButton_2_clicked);
 
-     // Tilføj bottomLayout til bunden af mainLayout
      mainLayout->addLayout(bottomLayout);
 
-     // Sæt mainLayout som layout for denne dialog
      setLayout(mainLayout);
 }
 
@@ -119,7 +116,6 @@ void Song2::updateCountdown()
         count_down_T->stop();
         ui->countdownLabel->setText("<span style='font-size: 30pt; color: darkblue;'>Ready!</span>");
         QTimer::singleShot(1000, this, &Song2::startLyricsDisplay);
-      //  QSound::play("/home/stud/Desktop/NyBASGUI/NyGUI/NYGUI/SOSr/SOS/JB-ghost.wav");
     } else {
         ui->countdownLabel->setText(QString("<span style='color: darkblue;'>%1</span>").arg(count_down_V));
     }
@@ -138,7 +134,10 @@ void Song2::startLyricsDisplay()
         lyricsTimer->start(delayTime);
 
         if (!soundEffect) {
-            soundEffect = new QSound("/home/stud/Documents/NyBASGUI/NyGUI/NYGUI/SOSr/SOS/that-way.wav", this);
+            std::string fp = "./../../shared_cache/"+ song.getInstrumentalFile();
+            QString qstring_fp = QString::fromStdString(fp);
+            qDebug() << "lurt: "<<qstring_fp;
+            soundEffect = new QSound(qstring_fp, this);
             soundEffect->play();
         }
 }
@@ -180,15 +179,12 @@ void Song2::updateLyrics()
 
 
 
-// Funktion til at fremhæve den aktuelle linje
 void Song2::highlightCurrentLine(const QString &currentLine)
 {
     qDebug() << "Highlighting line:" << currentLine;
 
-        // Append the current line to the formatted text
         formattedText += "<span style='color: darkblue;'>" + currentLine + "</span><br/>";
 
-        // Check if the current line is the end of a stanza
         if (currentLine.endsWith("know") || currentLine.endsWith("life")) {
             // Display the stanza and reset the formatted text
             ui->countdownLabel->setText(formattedText);
@@ -197,38 +193,36 @@ void Song2::highlightCurrentLine(const QString &currentLine)
         }
 }
 
-// Funktion til at stoppe visning af teksten
 void Song2::stopLyricsDisplay()
 {
     if (lyricsTimer) {
             lyricsTimer->stop();
         }
 
-        // Stop the sound using QSound
         if (soundEffect) {
             soundEffect->stop();
         }
 
-        ui->countdownLabel->clear(); // Clear the text area when display stops
+        ui->countdownLabel->clear(); 
 }
 
-void Song2::on_pushButton_clicked() // Tilbage knap til songlist
+void Song2::on_pushButton_clicked() 
 {
     if (!songlist) {
         songlist = new SongList(this);
     }
     songlist->show();
     hide();
-    stopLyricsDisplay();  // Stop the sound when the first button is clicked
+    stopLyricsDisplay();  
 }
 
 void Song2::on_pushButton_2_clicked() {
-    // Implement the logic to be executed when the second button is clicked
+
     if (!result) {
         result = new Results(this);
     }
     result->show();
     hide();
-    stopLyricsDisplay();  // Stop the sound when the second button is clicked
-    QSound::play("/dev/null");  // Play an empty sound to effectively stop any ongoing sound
+    stopLyricsDisplay();  
+    QSound::play("/dev/null");  
 }

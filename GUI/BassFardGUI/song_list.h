@@ -22,7 +22,6 @@ private slots:
     void on_Song_2_clicked();
     void on_Song_1_clicked();
     void on_pushButton_clicked();
-
 private:
     Ui::SongList *ui;
     MainWindow *mainmeny;

@@ -1,5 +1,6 @@
 #include "SPIHandler.hpp"
 #include <bcm2835.h>
+#include <iostream> // std::cerr
 
 // Constructor
 SPIHandler::SPIHandler() { 
@@ -16,12 +17,12 @@ SPIHandler::~SPIHandler() {
 void SPIHandler::initSPI() { 
     // Initialiserer BCM2835 biblioteket.
     if (!bcm2835_init()) {
-        throw std::runtime_error("BCM2835 init ERROR."); // Kaster en runtime error, hvis BCM2835 biblioteket ikke kan initialiseres.
+        std::cerr << "BCM2835 init ERROR." << std::endl; // Kaster en runtime error, hvis BCM2835 biblioteket ikke kan initialiseres.
     }
     // Initialiserer SPI.
     if (!bcm2835_spi_begin()) { 
         bcm2835_close();                                 // Lukker BCM2835 biblioteket.
-        throw std::runtime_error("SPI init ERROR.");     // Kaster en runtime error, hvis SPI ikke kan initialiseres.
+        std::cerr << "SPI init ERROR." << std::endl;    // Kaster en runtime error, hvis SPI ikke kan initialiseres.
     }
 
     // Konfigurerer SPI indstillinger
