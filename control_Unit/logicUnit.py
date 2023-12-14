@@ -1,75 +1,46 @@
-#correlation.py
-#Max Glintborg Dall & Oliver Kok
-import scipy.io.wavfile as wav
-import scipy.signal as signal
-from ControlUnit import ControlUnit 
-
-# For plotting, used in tests. Remove after tests
-import matplotlib.pyplot as plt
-
-import ControlUnit
-from scipy.signal import stft
-from pydub import AudioSegment
-from pydub.playback import play
-from scipy.io import wavfile
 import numpy as np
+import scipy.signal
+import scipy.io.wavfile
 
-# This logicUnit class is so badly made its sad. There should not be a need to create controlUnit in this class,
-# but we have, and this should be changed.
-class LogicUnit:
-    def __init__(self):
-        # Create an instance of ControlUnit
-        self.controlUnit = ControlUnit()
+# Indlæs lydfilerne
+sample_rate_A, recordingA = scipy.io.wavfile.read('original.wav')
+sample_rate_B, recordingB = scipy.io.wavfile.read('cover.wav')
 
-        # Access and store the get functions
-        self.chosenSongVocals = self.controlUnit.get_chosenSongVocals()
-        self.recordedSongVocals = self.controlUnit.get_recordedSong()
+# Definer længden af segmenterne
+segmentLength = 1024
 
-    # Load audiofile, for STFT TESTING ONLY! REMOVE AFTER TESTS
-    def readAudioFile(self, audio_file):
-        # load audio files
-        sampleRate, dataArray = wav.read(audio_file)
+# Beregn antallet af segmenter (for det korteste signal)
+numSegments = min(len(recordingA), len(recordingB)) // segmentLength
 
-        print(f"number of channels = {dataArray.shape[1]}")
-        length = dataArray.shape[0] / sampleRate
-        print(f"length = {length}s")
-        length = 0.01
+# Initialiser samlet score for krydskorrelation
+totalScoreXcorr = 0
 
-    # Plot for testing only! remove after tests
-        time = np.linspace(0., length, dataArray.shape[0])
-        plt.plot(time, dataArray[:, 0], label="Left channel")
-        plt.plot(time, dataArray[:, 1], label="Right channel")
-        plt.legend()
-        plt.xlabel("Time [s]")
-        plt.ylabel("Amplitude")
-        plt.show()
+for i in range(numSegments):
+    segmentA = recordingA[i * segmentLength:(i + 1) * segmentLength]
+    segmentB = recordingB[i * segmentLength:(i + 1) * segmentLength]
 
-    # Return the audiofile, sampleRate and length
-        return dataArray, sampleRate, length
+    corr = scipy.signal.correlate(segmentA, segmentB, mode='full', method='auto')
+    maxCorr = np.max(np.abs(corr)) / segmentLength
+    score = maxCorr * 100
+    totalScoreXcorr += score
 
-    # Audio segmentation
-    def audio_segmentation(self,audio_file):
-        # load audio files
-        sampleRate, dataArray = wav.read(audio_file)
+# Gennemsnitlig score for alle segmenter
+finalScoreXcorr = totalScoreXcorr / numSegments
+print ('finalScoreXcorr: ' + str(finalScoreXcorr))
 
-        # Number of segments
-        num_segments = 20
+# Sørg for, at både recordingA og recordingB er vektorer
+recordingA = recordingA.flatten()
+recordingB = recordingB.flatten()
 
-        segment_length = len(dataArray) // num_segments
-        segments = np.zeros((num_segments, segment_length))
-    
-    # For loop, that goes through the audiofile and segments it into 20 segments.
-        for i in range(num_segments):  
-            start_idx = i * segment_length
-            end_idx = (i + 1) * segment_length
-            current_segment = dataArray[start_idx:end_idx]
-            segments[i, :] = current_segment    # 2D array in the form of (num_segments, segment_length)
-            
-        return segments
-    
-    # Correlate the recorded song with the chosen song, using the audio_segmentation function
-    def correlate(recordedSegment, chosenSegment):
-        corr = signal.correlate(recordedSegment, chosenSegment, mode='full', method='auto')
-        print ("Cross-correlation result:", corr)   # Print the result of the correlation
-        return corr
-       
+# Beregn energien i hvert signal
+energyA = np.sum(recordingA ** 2)
+energyB = np.sum(recordingB ** 2)
+
+# Beregn en score baseret på, hvor godt recordingB matcher energien i recordingA
+finalScoreEnergy = (min(energyA, energyB) / max(energyA, energyB)) * 100
+print ('finalScoreEnergy: ' + str(finalScoreEnergy))
+
+# Samlet endelig score (gennemsnit af de to scores)
+finalScore = (finalScoreEnergy + finalScoreXcorr) / 2
+
+print('Den samlede score er:', finalScore)
