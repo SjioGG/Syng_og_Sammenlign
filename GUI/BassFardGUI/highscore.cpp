@@ -107,7 +107,6 @@ void HighScore::on_pushButton_clicked()
         menu = new MainWindow(this);
     }
 
-    // Vis MainWindow og skjul det nuværende HighScore-vindue
     menu->show();
     hide();
 }
