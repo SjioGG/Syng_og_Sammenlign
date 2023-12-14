@@ -1,4 +1,5 @@
-#include "SongScoreCombined.hpp"
+#include "Song.hpp"
+#include "ScoreList.hpp"
 #include <unistd.h>
 
 int main()
@@ -21,7 +22,6 @@ int main()
     string scoreString = scoreList.getData(1);
 
     cout << "OG STRING:    " << scoreString << endl;
-    scoreList.parseString(scoreString);
     cout << "ScoreList:" << "\n" << scoreList << endl;
 
     // fx access variables

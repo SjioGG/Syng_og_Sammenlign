@@ -33,8 +33,6 @@ FORMS += \
     song2.ui \
     song_list.ui
 
-OTHER_FILES += ghost-jb.txt JB-ghost.wav that-way.wav thatway.txt
-
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

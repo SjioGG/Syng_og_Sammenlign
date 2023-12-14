@@ -406,7 +406,7 @@ public:
 
 
         	// Construct a string with the fetched data and append it to the result
-        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date;
+        	result += std::to_string(scoreId) + "|" + to_string(songId) + "|" + to_string(scoreValue) + "|" + user + "|" + date + ",";
 		}
 
     	// Clean up

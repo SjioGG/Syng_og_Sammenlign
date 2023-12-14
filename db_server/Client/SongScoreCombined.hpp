@@ -82,7 +82,7 @@ public:
 };
 
 // Score class derived from Parse
-class Score : Parse
+class Score : public Parse
 {
 
 private:
@@ -163,7 +163,6 @@ public:
             score.parseString(scoreString); // parse the string from the server
             scores_.push_back(score);        // add the score object to the vector
         }
-        scores_.pop_back(); // remove the last element of the vector
     }
 
     string getData(int id) override

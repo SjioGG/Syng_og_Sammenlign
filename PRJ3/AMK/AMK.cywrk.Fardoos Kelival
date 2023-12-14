@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\TopDesign</v>
+<v>AMK\BANAN\BANAN.cydwr</v>
+<v>AMK\BANAN\BANAN.cydwr\Pins</v>
+<v>AMK\BANAN\BANAN.cydwr\Analog</v>
+<v>AMK\BANAN\BANAN.cydwr\Clocks</v>
+<v>AMK\BANAN\BANAN.cydwr\Interrupts</v>
+<v>AMK\BANAN\BANAN.cydwr\DMA</v>
+<v>AMK\BANAN\BANAN.cydwr\System</v>
+<v>AMK\BANAN\BANAN.cydwr\Directives</v>
+<v>AMK\BANAN\BANAN.cydwr\Flash Security</v>
+<v>AMK\BANAN\BANAN.cydwr\EEPROM</v>
+<v>AMK\BANAN\Header Files</v>
+<v>AMK\BANAN\Header Files\cyapicallbacks.h</v>
+<v>AMK\BANAN\Source Files</v>
+<v>AMK\BANAN\Source Files\main.c</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\TopDesign</v>
+<v>AMK\BANAN\BANAN.cydwr</v>
+<v>AMK\BANAN\BANAN.cydwr\Pins</v>
+<v>AMK\BANAN\BANAN.cydwr\Analog</v>
+<v>AMK\BANAN\BANAN.cydwr\Clocks</v>
+<v>AMK\BANAN\BANAN.cydwr\Interrupts</v>
+<v>AMK\BANAN\BANAN.cydwr\DMA</v>
+<v>AMK\BANAN\BANAN.cydwr\System</v>
+<v>AMK\BANAN\BANAN.cydwr\Directives</v>
+<v>AMK\BANAN\BANAN.cydwr\Flash Security</v>
+<v>AMK\BANAN\BANAN.cydwr\EEPROM</v>
+<v>AMK\BANAN\Header Files</v>
+<v>AMK\BANAN\Header Files\cyapicallbacks.h</v>
+<v>AMK\BANAN\Source Files</v>
+<v>AMK\BANAN\Source Files\main.c</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\TopDesign</v>
+<v>AMK\BANAN\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\TopDesign</v>
+<v>AMK\BANAN\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\BANAN.gpdsc</v>
+<v>AMK\BANAN\BANAN.rpt</v>
+<v>AMK\BANAN\BANAN_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\BANAN.rpt</v>
+<v>AMK\BANAN\BANAN_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\PSoC 5LP Architecture TRM</v>
+<v>AMK\BANAN\CY8C58LP Family Datasheet</v>
+<v>AMK\BANAN\System Reference Guides</v>
+<v>AMK\BANAN\System Reference Guides\cy_boot_v6_0</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>AMK</v>
+<v>AMK\BANAN</v>
+<v>AMK\BANAN\PSoC 5LP Architecture TRM</v>
+<v>AMK\BANAN\CY8C58LP Family Datasheet</v>
+<v>AMK\BANAN\System Reference Guides</v>
+<v>AMK\BANAN\System Reference Guides\cy_boot_v6_0</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\BANAN.cydsn\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1012, 556" SelectedTabbedMdiWindow="d62dd379-306f-4fef-91b9-69038ca7863e"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="4f085de8-79a2-4508-a38e-a8748defd333" /><DocumentWindow Key="C:\Users\Fardoos Kelival\OneDrive - Aarhus universitet\Projekt 3 - Karaoke Maskinen\SOFTWARE\AMK\BANAN.cydsn\TopDesign\TopDesign.cysch" Guid="d62dd379-306f-4fef-91b9-69038ca7863e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
